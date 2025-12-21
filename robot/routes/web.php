@@ -17,3 +17,9 @@ Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
 Route::get('/careers', [FrontendController::class, 'careers'])->name('careers');
 Route::get('/media', [FrontendController::class, 'media'])->name('media');
 
+// Industries Routes
+Route::get('/industries/service-robots', [FrontendController::class, 'serviceRobots'])->name('industries.service');
+Route::get('/industries/hospitality-robots', [FrontendController::class, 'hospitalityRobots'])->name('industries.hospitality');
+Route::get('/industries/cleaning-robots', [FrontendController::class, 'cleaningRobots'])->name('industries.cleaning');
+Route::get('/industries/delivery-robots', [FrontendController::class, 'deliveryRobots'])->name('industries.delivery');
+

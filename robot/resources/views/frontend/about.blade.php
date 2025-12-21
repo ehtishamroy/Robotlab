@@ -1,113 +1,115 @@
 @extends('layouts.frontend')
 
-@section('title', 'About Us || Aiero AI Agency & Technology HTML Template')
+@section('title', 'About Spectrum Robotics || Enterprise Robotic Solutions')
 
 @section('content')
-    <!-- page-banner9 -->
+    <!-- page-banner -->
     <section class="page-banner11">
         <div class="shape"></div>
         <div class="shape3"></div>
-        <div class="staff-text">Aiero</div>
+        <div class="staff-text">Spectrum</div>
         <div class="container">
             <div class="page-content">
-                <h1 class="title">/ About us /</h1>
+                <h1 class="title">/ About Spectrum Robotics /</h1>
             </div>
         </div>
         <ul class="breadcrumbs">
             <li><a href='{{ route('home') }}' title>Home</a></li>
             <li>/</li>
-            <li>About us</li>
+            <li>About Us</li>
         </ul>
     </section>
-    <!-- End page-banner9 -->
+    <!-- End page-banner -->
 
-    <!-- about-us-sec9 -->
+    <!-- about-us-section -->
     <section class="about-us-sec9 ibt-section-gap">
         <div class="container">
             <div class="title-area">
                 <div class="sec-title">
-                    <span class="sub-title">about</span>
-                    <h2 class="title animated-heading">Awesome things in working with Aiero WordPress theme</h2>
+                    <span class="sub-title">About Us</span>
+                    <h2 class="title animated-heading">The Journey Begins with Spectrum Robotics</h2>
                 </div>
                 <div class="anim-img2">
-                    <img src="{{ asset('frontend/assets/images/event/cross1-1.png') }}"
-                        alt="AI Agency & Technology HTML Template">
+                    <img src="{{ asset('frontend/assets/images/event/cross1-1.png') }}" alt="Spectrum Robotics">
                 </div>
             </div>
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-content9">
-                        <h4 class="title">Aiero</h4>
+                        <h4 class="title">Spectrum Robotics</h4>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-info9">
-                        <p>At XXLando, we are a leading AI services provider dedicated to delivering
-                            innovative solutions that leverage artificial intelligence to transform businesses.
+                        <p>Spectrum Robotics delivers enterprise robotic solutions to hospitality and commercial
+                            service markets with installations in restaurants, airports, casinos, universities,
+                            hotels and resorts, senior living homes, factories, retail centers, and more.
                         </p>
-                        <p>Our team of experts specializes in cutting-edge AI technologies, offering customized
-                            strategies and implementations to help you stay ahead in today's data-driven world.
-                            Unlock the full potential of AI with
+                        <p>We are navigating a new era with uniquely positioned robotic solutions that complement
+                            environments where meeting customer needs efficiently is more important than ever.
+                            We help businesses generate revenue and save time by providing complete automation solutions.
                         </p>
-                        <p class="mb-0">XXLando, your trusted partner in the future of intelligent technology
-                            stay ahead in today's data-driven world. Unlock the full potential of
-                            AI with XXLando, your trusted partner in the future of intelligent
-                            technology stay ahead in today's.
+                        <p class="mb-0">Our nationwide team is professional, ethical, and results-oriented with
+                            familiarity in varied vertical markets to create exceptional customer experiences
+                            before, during, and after every purchase.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- End about-us-sec9 -->
+    <!-- End about-us-section -->
 
     <!-- marquee-sec -->
     <section class="marquee-sec ibt-section-gapBottom">
         <h2 style="display:none;">Marquee Section</h2>
         <div class="marquee">
             <div class="marquee-inner">
-                <span>/ Neural Networks in shaping the future of technology.</span>
-                <span>/ Neural Networks in shaping the future of technology.</span>
+                <span>/ Navigating A New Era with Intelligent Robotic Solutions.</span>
+                <span>/ Navigating A New Era with Intelligent Robotic Solutions.</span>
             </div>
         </div>
     </section>
     <!-- End marquee-sec -->
 
-    <!-- service-sec22 -->
+    <!-- Why Spectrum Robotics Section -->
     <section class="service-sec22">
         <div class="container2">
             <div class="row">
                 <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12">
                     <div class="ser-card22">
                         <div class="ser-content22">
-                            <img src="{{ asset('frontend/assets/images/layers/corss2.png') }}"
-                                alt="AI Agency & Technology HTML Template" class="cross">
-                            <h4 class="title">Mission</h4>
-                            <p>Certainly, crafting a clear and inspiring mission statement is essential
-                                for a development company. It should reflect your company's values, purpose,
-                                and long-term objectives. Here's a sample mission statement for a development
-                                company,
+                            <img src="{{ asset('frontend/assets/images/layers/corss2.png') }}" alt="Spectrum Robotics"
+                                class="cross">
+                            <h4 class="title">Why Spectrum Robotics?</h4>
+                            <p>Our products have been successfully launched worldwide with proven results
+                                to improve the efficiency of production with partnerships in 120+ countries
+                                and a rapidly growing clientele of 1000+ US customers.
                             </p>
-                            <p>At XXLando our mission is to empower businesses and organizations through
-                                innovative development solutions. We are committed to delivering exceptional,
-                                tailored software, websites, and applications that not only meet our clients.
-                            </p>
+                            <p><strong>Key Benefits:</strong></p>
+                            <ul style="list-style: none; padding-left: 0; margin: 0;">
+                                <li style="margin-bottom: 10px;">✓ Labor Shortage Solutions</li>
+                                <li style="margin-bottom: 10px;">✓ Reduced Heavy Work for Employees</li>
+                                <li style="margin-bottom: 10px;">✓ Flexible Workforce Allocation</li>
+                                <li style="margin-bottom: 10px;">✓ Attention-Grabbing Technology</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
                 <div class="col-xl-8 col-lg-8 col-md-12 col-sm-12">
                     <div class="ser-card22 v2">
                         <img src="{{ asset('frontend/assets/images/event/ser22-2.png') }}"
-                            alt="AI Agency & Technology HTML Template">
+                            alt="Spectrum Robotics Solutions">
                         <div class="inner-content2">
-                            <h4 class="profection">we create a professional product using artificial intelligence
+                            <h4 class="profection">We deliver complete automation solutions using
+                                cutting-edge robotics and AI technology
                             </h4>
                             <div class="ser-counter22">
                                 <div class="counter-box22">
-                                    <span class="counter-number percent-counter" data-target="500">0</span>
+                                    <span class="counter-number percent-counter" data-target="120">0</span>
                                     <span class="counter-text">+</span>
                                 </div>
-                                <span class="title">Created <br>projects</span>
+                                <span class="title">Countries <br>Worldwide</span>
                             </div>
                         </div>
                         <div class="ser-video-box">
@@ -120,56 +122,87 @@
             </div>
         </div>
     </section>
-    <!-- End service-sec22 -->
+    <!-- End Why Spectrum Robotics Section -->
 
-    <!-- neural-playground -->
+    <!-- Industries We Serve -->
     <section class="neural-playground7 ibt-section-gap">
         <div class="container3">
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-12">
                     <div class="neural-img">
-                        <img src="{{ asset('frontend/assets/images/layers/layer.png') }}"
-                            alt="AI Agency & Technology HTML Template">
+                        <img src="{{ asset('frontend/assets/images/layers/layer.png') }}" alt="Spectrum Robotics">
                     </div>
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12">
                     <div class="neural-content">
-                        <h2 class="gradient-title">Tinker with a <span>Neural Network right here</span> in your
-                            browser. Don’t worry, you can’t break it. We Promise.
+                        <h2 class="gradient-title">Industries We Serve: <span>Restaurants | Hospitals | Hotels |
+                                Senior Living | Airports | Universities | Government | Retail | Factories</span>
                         </h2>
                         <div class="swiper brand">
                             <div class="swiper-wrapper">
                                 <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('frontend/assets/images/brand/brand1.png') }}"
-                                            alt="AI Agency & Technology HTML Template"></a>
+                                    <a href="#" title="">
+                                        <div
+                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                            <span style="color: #fff; font-weight: 600;">Restaurants</span>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('frontend/assets/images/brand/brand2.png') }}"
-                                            alt="AI Agency & Technology HTML Template"></a>
+                                    <a href="#" title="">
+                                        <div
+                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                            <span style="color: #fff; font-weight: 600;">Hospitals</span>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('frontend/assets/images/brand/brand3.png') }}"
-                                            alt="AI Agency & Technology HTML Template"></a>
+                                    <a href="#" title="">
+                                        <div
+                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                            <span style="color: #fff; font-weight: 600;">Hotels</span>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('frontend/assets/images/brand/brand4.png') }}"
-                                            alt="AI Agency & Technology HTML Template"></a>
+                                    <a href="#" title="">
+                                        <div
+                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                            <span style="color: #fff; font-weight: 600;">Senior Living</span>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('frontend/assets/images/brand/brand1.png') }}"
-                                            alt="AI Agency & Technology HTML Template"></a>
+                                    <a href="#" title="">
+                                        <div
+                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                            <span style="color: #fff; font-weight: 600;">Airports</span>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('frontend/assets/images/brand/brand2.png') }}"
-                                            alt="AI Agency & Technology HTML Template"></a>
+                                    <a href="#" title="">
+                                        <div
+                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                            <span style="color: #fff; font-weight: 600;">Universities</span>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('frontend/assets/images/brand/brand3.png') }}"
-                                            alt="AI Agency & Technology HTML Template"></a>
+                                    <a href="#" title="">
+                                        <div
+                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                            <span style="color: #fff; font-weight: 600;">Retail</span>
+                                        </div>
+                                    </a>
                                 </div>
                                 <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('frontend/assets/images/brand/brand4.png') }}"
-                                            alt="AI Agency & Technology HTML Template"></a>
+                                    <a href="#" title="">
+                                        <div
+                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                            <span style="color: #fff; font-weight: 600;">Factories</span>
+                                        </div>
+                                    </a>
                                 </div>
                             </div>
                         </div>
@@ -178,28 +211,28 @@
             </div>
         </div>
     </section>
-    <!-- End neural-playground -->
+    <!-- End Industries We Serve -->
 
-    <!-- team-section -->
+    <!-- Our Team Section -->
     <section class="team-section v2 ibt-section-gapBottom">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6 col-md-12">
                     <div class="team-info">
                         <div class="sec-title">
-                            <span class="sub-title">team</span>
-                            <h2 class="title animated-heading">The Neural Network experts: uniting talent for
-                                intelligent solutions
+                            <span class="sub-title">Our Team</span>
+                            <h2 class="title animated-heading">Nationwide Experts Delivering Exceptional
+                                Robotic Solutions
                             </h2>
                             <div class="team-counter">
                                 <div class="counter-box8">
                                     <span class="counter-text">+</span>
-                                    <span class="counter-number percent-counter" data-target="500">0</span>
+                                    <span class="counter-number percent-counter" data-target="1000">0</span>
                                 </div>
-                                <span class="title">Awesome team members</span>
+                                <span class="title">US Customers Served</span>
                             </div>
-                            <a class='ibt-btn ibt-btn-outline' href='service.html' title>
-                                <span>Explore more</span>
+                            <a class='ibt-btn ibt-btn-outline' href='{{ route('contact') }}' title>
+                                <span>Contact Us</span>
                                 <i class="icon-arrow-top"></i>
                             </a>
                         </div>
@@ -210,26 +243,22 @@
                                 <div class="team-card v1 mb-0">
                                     <div class="team-img">
                                         <img src="{{ asset('frontend/assets/images/team/team1-1.png') }}"
-                                            alt="AI Agency & Technology HTML Template">
-                                        <span class="sub-title">Future</span>
+                                            alt="Spectrum Robotics Team">
+                                        <span class="sub-title">Leadership</span>
                                         <div class="team-shap"></div>
                                     </div>
                                     <div class="team-content">
                                         <div class="share-box">
                                             <span class="share-icon fa fa-share-alt"></span>
                                             <ul class="social-links">
-                                                <li><a href="https://www.youtube.com/" target="_blank" title=""><i
-                                                            class="fab fa-youtube"></i></a></li>
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
                                                             class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="http://www.twitter.com/" target="_blank" title=""><i
+                                                <li><a href="https://www.twitter.com/" target="_blank" title=""><i
                                                             class="fab fa-twitter"></i></a></li>
-                                                <li><a href="https://www.facebook.com/" target="_blank" title=""><i
-                                                            class="fab fa-facebook-f"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="name"><a href='team-single.html' title>Dan Smith</a></h4>
-                                        <span class="designation">/ Manager /</span>
+                                        <h4 class="name"><a href='#' title>Sales Director</a></h4>
+                                        <span class="designation">/ Robotics Expert /</span>
                                     </div>
                                 </div>
                             </div>
@@ -243,51 +272,39 @@
                                 <div class="team-card">
                                     <div class="team-img">
                                         <img src="{{ asset('frontend/assets/images/team/team1-2.png') }}"
-                                            alt="AI Agency & Technology HTML Template">
-                                        <span class="sub-title">Neural</span>
+                                            alt="Spectrum Robotics Team">
+                                        <span class="sub-title">Support</span>
                                         <div class="team-shap"></div>
                                     </div>
                                     <div class="team-content">
                                         <div class="share-box">
                                             <span class="share-icon fa fa-share-alt"></span>
                                             <ul class="social-links">
-                                                <li><a href="https://www.youtube.com/" target="_blank" title=""><i
-                                                            class="fab fa-youtube"></i></a></li>
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
                                                             class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="http://www.twitter.com/" target="_blank" title=""><i
-                                                            class="fab fa-twitter"></i></a></li>
-                                                <li><a href="https://www.facebook.com/" target="_blank" title=""><i
-                                                            class="fab fa-facebook-f"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="name"><a href='team-single.html' title>Alan Begham</a></h4>
-                                        <span class="designation">/ CEO Neuro /</span>
+                                        <h4 class="name"><a href='#' title>Technical Support</a></h4>
+                                        <span class="designation">/ Customer Success /</span>
                                     </div>
                                 </div>
                                 <div class="team-card ">
                                     <div class="team-img">
                                         <img src="{{ asset('frontend/assets/images/team/team1-4.png') }}"
-                                            alt="AI Agency & Technology HTML Template">
-                                        <span class="sub-title">Digital</span>
+                                            alt="Spectrum Robotics Team">
+                                        <span class="sub-title">Integration</span>
                                         <div class="team-shap"></div>
                                     </div>
                                     <div class="team-content">
                                         <div class="share-box">
                                             <span class="share-icon fa fa-share-alt"></span>
                                             <ul class="social-links">
-                                                <li><a href="https://www.youtube.com/" target="_blank" title=""><i
-                                                            class="fab fa-youtube"></i></a></li>
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
                                                             class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="http://www.twitter.com/" target="_blank" title=""><i
-                                                            class="fab fa-twitter"></i></a></li>
-                                                <li><a href="https://www.facebook.com/" target="_blank" title=""><i
-                                                            class="fab fa-facebook-f"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="name"><a href='team-single.html' title>Brandon Adams</a></h4>
-                                        <span class="designation">/ HR Neuro /</span>
+                                        <h4 class="name"><a href='#' title>Systems Engineer</a></h4>
+                                        <span class="designation">/ Integration Specialist /</span>
                                     </div>
                                 </div>
                             </div>
@@ -295,7 +312,7 @@
                                 <div class="team-card v2">
                                     <div class="team-img">
                                         <img src="{{ asset('frontend/assets/images/team/team1-3.png') }}"
-                                            alt="AI Agency & Technology HTML Template">
+                                            alt="Spectrum Robotics Team">
                                         <span class="sub-title">Solutions</span>
                                         <div class="team-shap"></div>
                                     </div>
@@ -303,43 +320,31 @@
                                         <div class="share-box">
                                             <span class="share-icon fa fa-share-alt"></span>
                                             <ul class="social-links">
-                                                <li><a href="https://www.youtube.com/" target="_blank" title=""><i
-                                                            class="fab fa-youtube"></i></a></li>
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
                                                             class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="http://www.twitter.com/" target="_blank" title=""><i
-                                                            class="fab fa-twitter"></i></a></li>
-                                                <li><a href="https://www.facebook.com/" target="_blank" title=""><i
-                                                            class="fab fa-facebook-f"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="name"><a href='team-single.html' title>Arthur Dowson</a></h4>
-                                        <span class="designation">/ AI Programmer /</span>
+                                        <h4 class="name"><a href='#' title>Solutions Architect</a></h4>
+                                        <span class="designation">/ Robotics Specialist /</span>
                                     </div>
                                 </div>
                                 <div class="team-card v3 mb-0">
                                     <div class="team-img">
                                         <img src="{{ asset('frontend/assets/images/team/team1-5.png') }}"
-                                            alt="AI Agency & Technology HTML Template">
-                                        <span class="sub-title">Learning</span>
+                                            alt="Spectrum Robotics Team">
+                                        <span class="sub-title">Operations</span>
                                         <div class="team-shap"></div>
                                     </div>
                                     <div class="team-content">
                                         <div class="share-box">
                                             <span class="share-icon fa fa-share-alt"></span>
                                             <ul class="social-links">
-                                                <li><a href="https://www.youtube.com/" target="_blank" title=""><i
-                                                            class="fab fa-youtube"></i></a></li>
-                                                <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
+                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
                                                             class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="http://www.twitter.com/" target="_blank" title=""><i
-                                                            class="fab fa-twitter"></i></a></li>
-                                                <li><a href="https://www.facebook.com/" target="_blank" title=""><i
-                                                            class="fab fa-facebook-f"></i></a></li>
                                             </ul>
                                         </div>
-                                        <h4 class="name"><a href='team-single.html' title>Alan Begham</a></h4>
-                                        <span class="designation">/ CEO Neuro /</span>
+                                        <h4 class="name"><a href='#' title>Operations Manager</a></h4>
+                                        <span class="designation">/ Logistics Expert /</span>
                                     </div>
                                 </div>
                             </div>
@@ -349,7 +354,7 @@
             </div>
         </div>
     </section>
-    <!-- End team-section -->
+    <!-- End Our Team Section -->
 @endsection
 
 @section('contact_section')
@@ -360,45 +365,43 @@
                 <div class="col-lg-6">
                     <div class="contact-content">
                         <div class="sec-title white">
-                            <span class="sub-title">get in touch</span>
-                            <h2 class="title animated-heading">We are always ready to help you and answer your
-                                questions</h2>
-                            <p>Pacific hake false trevally queen parrotfish black prickleback mosshead
-                                warbonnet sweeper! Greenling sleeper.
+                            <span class="sub-title">Get In Touch</span>
+                            <h2 class="title animated-heading">Ready to Transform Your Business with
+                                Intelligent Robotics?</h2>
+                            <p>Contact our knowledgeable professionals to tailor customize solutions
+                                to increase revenue, lower cost and begin the journey of automating
+                                repetitive tasks.
                             </p>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="contact-info">
                                     <div class="call-center">
-                                        <h4 class="title">Call Center</h4>
-                                        <a href="tel:8003508431" class="nmbr">800 100 975 20 34</a>
-                                        <a href="mailto:support@aiero.com" class="nmbr">+ (123)
-                                            1800-234-5678</a>
+                                        <h4 class="title">Sales & Support</h4>
+                                        <a href="tel:+16308099698" class="nmbr">(630) 809-9698</a>
+                                        <a href="https://wa.me/16308099698" class="nmbr">WhatsApp</a>
                                     </div>
                                     <div class="call-center mb-0">
                                         <h4 class="title">Email</h4>
-                                        <a href="mailto:support@aiero.com" class="gmail">aiero@mail.co</a>
+                                        <a href="mailto:info@spectrumrobotics.ai" class="gmail">info@spectrumrobotics.ai</a>
                                     </div>
                                 </div>
                             </div>
                             <div class="col-lg-6 col-md-6 col-sm-6">
                                 <div class="contact-info">
                                     <div class="call-center">
-                                        <h4 class="title">Our Location</h4>
-                                        <p>USA, New York - 1060 <br>Str. First Avenue 1</p>
+                                        <h4 class="title">Headquarters</h4>
+                                        <p>United States</p>
                                     </div>
                                     <div class="call-center mb-0">
-                                        <h4 class="title">Social network</h4>
+                                        <h4 class="title">Follow Us</h4>
                                         <ul class="social-icon">
-                                            <li><a href="https://www.facebook.com/" target="_blank" title=""><i
-                                                        class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="http://www.twitter.com/" target="_blank" title=""><i
-                                                        class="fab fa-twitter"></i></a></li>
-                                            <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                        class="fab fa-linkedin-in"></i></a></li>
-                                            <li><a href="https://www.youtube.com/" target="_blank" title=""><i
-                                                        class="fab fa-youtube"></i></a></li>
+                                            <li><a href="#" target="_blank" title=""><i class="fab fa-facebook-f"></i></a>
+                                            </li>
+                                            <li><a href="#" target="_blank" title=""><i class="fab fa-twitter"></i></a></li>
+                                            <li><a href="#" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a>
+                                            </li>
+                                            <li><a href="#" target="_blank" title=""><i class="fab fa-youtube"></i></a></li>
                                         </ul>
                                     </div>
                                 </div>
@@ -409,15 +412,16 @@
                 <div class="col-lg-6">
                     <div class="contact-form">
                         <form action="#" method="post" class="custom-form">
-                            <h2>Get in Touch</h2>
+                            <h2>Request a Demo</h2>
                             <input type="text" id="name" name="name" placeholder="Full name" required>
                             <input type="email" id="email" name="email" placeholder="Email" required>
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                            <textarea id="message" name="message" rows="5" placeholder="Write your message..."
-                                required></textarea>
+                            <input type="text" id="company" name="company" placeholder="Company Name">
+                            <input type="text" id="phone" name="phone" placeholder="Phone Number">
+                            <textarea id="message" name="message" rows="4"
+                                placeholder="Tell us about your automation needs..." required></textarea>
 
                             <button type="submit" class="ibt-btn ibt-btn-outline">
-                                <span>Send message</span>
+                                <span>Request Demo</span>
                                 <i class="icon-arrow-top"></i>
                             </button>
                         </form>

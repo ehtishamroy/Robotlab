@@ -70,4 +70,25 @@ class FrontendController extends Controller
     {
         return view('frontend.projects');
     }
+
+    // Industry Pages
+    public function serviceRobots()
+    {
+        return view('frontend.industries.service-robots');
+    }
+
+    public function hospitalityRobots()
+    {
+        return view('frontend.industries.hospitality-robots');
+    }
+
+    public function cleaningRobots()
+    {
+        return view('frontend.industries.cleaning-robots');
+    }
+
+    public function deliveryRobots()
+    {
+        return view('frontend.industries.delivery-robots');
+    }
 }
