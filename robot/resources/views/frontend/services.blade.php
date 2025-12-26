@@ -342,58 +342,58 @@
                         <h2 class="gradient-title">Powered by <span>World-Class Robotics Technology</span> -
                             Backed by Spectrum Robotics expertise and nationwide support.
                         </h2>
-                        <div class="swiper brand">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">SLAM Tech</span>
+                        <!-- <div class="swiper brand">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">SLAM Tech</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">LiDAR Sensors</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">LiDAR Sensors</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">AI Vision</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">AI Vision</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Cloud Platform</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Cloud Platform</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Voice AI</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Voice AI</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">IoT Integration</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">IoT Integration</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                    </div>
+                                </div> -->
                     </div>
                 </div>
             </div>
@@ -403,84 +403,5 @@
 @endsection
 
 @section('contact_section')
-    <!-- contact-sec -->
-    <div class="contact-sec ibt-section-gap">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="contact-content">
-                        <div class="sec-title white">
-                            <span class="sub-title">Schedule a Demo</span>
-                            <h2 class="title animated-heading">Experience Our Technology in Action</h2>
-                            <p>Contact our knowledgeable professionals to see how our robots can
-                                transform your operations. We'll customize solutions to increase
-                                revenue, lower costs, and automate repetitive tasks.
-                            </p>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="contact-info">
-                                    <div class="call-center">
-                                        <h4 class="title">Sales & Support</h4>
-                                        <a href="tel:+16308099698" class="nmbr">(630) 809-9698</a>
-                                        <a href="https://wa.me/16308099698" class="nmbr">WhatsApp</a>
-                                    </div>
-                                    <div class="call-center mb-0">
-                                        <h4 class="title">Email</h4>
-                                        <a href="mailto:info@spectrumrobotics.ai" class="gmail">info@spectrumrobotics.ai</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="contact-info">
-                                    <div class="call-center">
-                                        <h4 class="title">Headquarters</h4>
-                                        <p>United States</p>
-                                    </div>
-                                    <div class="call-center mb-0">
-                                        <h4 class="title">Follow Us</h4>
-                                        <ul class="social-icon">
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-facebook-f"></i></a>
-                                            </li>
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a>
-                                            </li>
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-youtube"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-form">
-                        <form action="#" method="post" class="custom-form">
-                            <h2>Request a Demo</h2>
-                            <input type="text" id="name" name="name" placeholder="Full name" required>
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                            <input type="text" id="company" name="company" placeholder="Company Name">
-                            <select id="robot_type" name="robot_type"
-                                style="width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; border-radius: 5px;">
-                                <option value="">Select Robot Type of Interest</option>
-                                <option value="delivery">Delivery Robots</option>
-                                <option value="cleaning">Cleaning Robots</option>
-                                <option value="hotel">Hotel Delivery Robots</option>
-                                <option value="worker">Worker Robots (Robotic Arms)</option>
-                                <option value="multiple">Multiple Robot Types</option>
-                            </select>
-                            <textarea id="message" name="message" rows="4"
-                                placeholder="Tell us about your automation needs..." required></textarea>
-
-                            <button type="submit" class="ibt-btn ibt-btn-outline">
-                                <span>Request Demo</span>
-                                <i class="icon-arrow-top"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End contact-sec -->
+    @include('partials.contact')
 @endsection

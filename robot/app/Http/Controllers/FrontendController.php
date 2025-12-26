@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Blog;
 
 class FrontendController extends Controller
 {
@@ -33,7 +34,8 @@ class FrontendController extends Controller
 
     public function blog()
     {
-        return view('frontend.blog');
+        $blogs = Blog::with('category')->published()->latest('published_at')->paginate(9);
+        return view('frontend.blog', compact('blogs'));
     }
 
     public function faq()
@@ -46,9 +48,11 @@ class FrontendController extends Controller
         return view('frontend.contact');
     }
 
-    public function blogSingle()
+    public function blogSingle($slug)
     {
-        return view('frontend.blog-single');
+        $blog = Blog::where('slug', $slug)->firstOrFail();
+        $recentPosts = Blog::published()->where('id', '!=', $blog->id)->latest('published_at')->take(3)->get();
+        return view('frontend.blog-single', compact('blog', 'recentPosts'));
     }
 
     public function checkout()
@@ -90,5 +94,10 @@ class FrontendController extends Controller
     public function deliveryRobots()
     {
         return view('frontend.industries.delivery-robots');
+    }
+
+    public function productSingle($slug)
+    {
+        return view('frontend.product-single', compact('slug'));
     }
 }

@@ -38,10 +38,13 @@
         media="print" onload="this.media='all'">
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&amp;display=swap" rel="stylesheet"
         media="print" onload="this.media='all'">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@100..900&display=swap" rel="stylesheet"
+        media="print" onload="this.media='all'">
 
     <!-- Load Font Awesome CSS asynchronously -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.min.css') }}" media="print"
-        onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
 
     <!-- fontello font css -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins/fontello-enqueue.css') }}" media="print"
@@ -68,6 +71,11 @@
         .main-menu ul li:not(.menu-has-items):not(.menu-item-has-children)>a::after,
         .side-menu2 ul li:not(.menu-has-items):not(.menu-item-has-children)>a::after {
             display: none !important;
+        }
+
+        /* Override Header Top Bar Background */
+        .header-top-content4 {
+            background-color: #448E91 !important;
         }
     </style>
 </head>
@@ -122,8 +130,7 @@
                 @if(setting('header_email'))
                     <a href="mailto:{{ setting('header_email') }}" class="email">{{ setting('header_email') }}</a>
                 @endif
-                <a href="{{ setting('header_button_link', '#') }}" title=""
-                    class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+                <a href="#" title="" data-demo-popup class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded open-demo-popup">
                     <span>{{ setting('header_button_text', 'Request Demo') }}</span>
                 </a>
             </div>
@@ -190,7 +197,7 @@
                 <li><a href="#" title=""><i class="fab fa-linkedin-in"></i></a></li>
                 <li><a href="#" title=""><i class="fab fa-youtube"></i></a></li>
             </ul>
-            <a href="#" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded">
+            <a href="#" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded open-demo-popup" data-demo-popup>
                 <span>Request Demo</span>
             </a>
         </div>
@@ -267,7 +274,8 @@
                 <div class="col-auto d-none d-xl-block">
                     <div class="btn-box">
                         <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
-                        <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded' href='{{ route('contact') }}' title>
+                        <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded open-demo-popup' href='#' data-demo-popup
+                            title>
                             <span>Request Demo</span>
                         </a>
                     </div>
@@ -423,8 +431,9 @@
             <div class="footer-top">
                 <div class="container">
                     <div class="footer-content">
-                        <h2 class="title">It’s blow your mind! Meet Neural Networks</h2>
-                        <a href="{{ setting('header_button_link', '#') }}" title="" class="ibt-btn ibt-btn-outline">
+                        <h2 class="title">{{ setting('footer_top_title', 'It’s blow your mind! Meet Neural Networks') }}
+                        </h2>
+                        <a href="#" title="" class="ibt-btn ibt-btn-outline open-demo-popup" data-demo-popup>
                             <span>Get a Quote</span>
                             <i class="icon-arrow-top"></i>
                         </a>
@@ -462,6 +471,13 @@
                                 @if(setting('footer_about'))
                                     <p class="mt-3">{{ setting('footer_about') }}</p>
                                 @endif
+                                <div class="newsletter-subscribe-btn mt-4">
+                                    <a href="#" class="ibt-btn ibt-btn-outline open-newsletter-popup"
+                                        data-newsletter-popup>
+                                        <i class="fas fa-envelope"></i>
+                                        <span>Subscribe to Newsletter</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-xl-4 col-lg-6">
@@ -531,6 +547,12 @@
     <button id="scrollBtn" title="Go to top">
         <i class="fas fa-angle-up"></i>
     </button>
+
+    <!-- Demo Popup Modal -->
+    @include('partials.demo-popup')
+
+    <!-- Newsletter Popup Modal -->
+    @include('partials.newsletter-popup')
 
     <!-- Js Plugin -->
     <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}" defer></script>

@@ -413,6 +413,13 @@
                                     @endif
                                 </ul>
                                 <h2 class="title">{{ setting('footer_since', 'since 2025') }}</h2>
+                                <div class="newsletter-subscribe-btn mt-4">
+                                    <a href="#" class="ibt-btn ibt-btn-outline open-newsletter-popup"
+                                        data-newsletter-popup>
+                                        <i class="fas fa-envelope"></i>
+                                        <span>Subscribe to Newsletter</span>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         <div class="col-lg-8">
@@ -498,6 +505,12 @@
             <i class="fas fa-angle-up"></i>
         </button>
     </div>
+
+    <!-- Demo Popup Modal -->
+    @include('partials.demo-popup')
+
+    <!-- Newsletter Popup Modal -->
+    @include('partials.newsletter-popup')
 
     <!-- Js Plugin -->
     <script src="{{ asset('frontend/assets/js/bootstrap.min.js') }}" defer></script>

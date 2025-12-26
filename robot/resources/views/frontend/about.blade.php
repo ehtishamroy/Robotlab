@@ -138,297 +138,86 @@
                         <h2 class="gradient-title">Industries We Serve: <span>Restaurants | Hospitals | Hotels |
                                 Senior Living | Airports | Universities | Government | Retail | Factories</span>
                         </h2>
-                        <div class="swiper brand">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Restaurants</span>
+                        <!-- <div class="swiper brand">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Restaurants</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Hospitals</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Hospitals</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Hotels</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Hotels</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Senior Living</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Senior Living</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Airports</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Airports</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Universities</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Universities</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Retail</span>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Retail</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Factories</span>
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                        <div class="swiper-slide">
+                                            <a href="#" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Factories</span>
+                                                </div>
+                                            </a>
+                                        </div> -->
                     </div>
                 </div>
             </div>
+        </div>
+        </div>
         </div>
     </section>
     <!-- End Industries We Serve -->
 
     <!-- Our Team Section -->
-    <section class="team-section v2 ibt-section-gapBottom">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-md-12">
-                    <div class="team-info">
-                        <div class="sec-title">
-                            <span class="sub-title">Our Team</span>
-                            <h2 class="title animated-heading">Nationwide Experts Delivering Exceptional
-                                Robotic Solutions
-                            </h2>
-                            <div class="team-counter">
-                                <div class="counter-box8">
-                                    <span class="counter-text">+</span>
-                                    <span class="counter-number percent-counter" data-target="1000">0</span>
-                                </div>
-                                <span class="title">US Customers Served</span>
-                            </div>
-                            <a class='ibt-btn ibt-btn-outline' href='{{ route('contact') }}' title>
-                                <span>Contact Us</span>
-                                <i class="icon-arrow-top"></i>
-                            </a>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-12">
-                            </div>
-                            <div class="col-lg-6 col-md-6">
-                                <div class="team-card v1 mb-0">
-                                    <div class="team-img">
-                                        <img src="{{ asset('frontend/assets/images/team/team1-1.png') }}"
-                                            alt="Spectrum Robotics Team">
-                                        <span class="sub-title">Leadership</span>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                                <li><a href="https://www.twitter.com/" target="_blank" title=""><i
-                                                            class="fab fa-twitter"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href='#' title>Sales Director</a></h4>
-                                        <span class="designation">/ Robotics Expert /</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="team-member">
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="team-card">
-                                    <div class="team-img">
-                                        <img src="{{ asset('frontend/assets/images/team/team1-2.png') }}"
-                                            alt="Spectrum Robotics Team">
-                                        <span class="sub-title">Support</span>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href='#' title>Technical Support</a></h4>
-                                        <span class="designation">/ Customer Success /</span>
-                                    </div>
-                                </div>
-                                <div class="team-card ">
-                                    <div class="team-img">
-                                        <img src="{{ asset('frontend/assets/images/team/team1-4.png') }}"
-                                            alt="Spectrum Robotics Team">
-                                        <span class="sub-title">Integration</span>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href='#' title>Systems Engineer</a></h4>
-                                        <span class="designation">/ Integration Specialist /</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="team-card v2">
-                                    <div class="team-img">
-                                        <img src="{{ asset('frontend/assets/images/team/team1-3.png') }}"
-                                            alt="Spectrum Robotics Team">
-                                        <span class="sub-title">Solutions</span>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href='#' title>Solutions Architect</a></h4>
-                                        <span class="designation">/ Robotics Specialist /</span>
-                                    </div>
-                                </div>
-                                <div class="team-card v3 mb-0">
-                                    <div class="team-img">
-                                        <img src="{{ asset('frontend/assets/images/team/team1-5.png') }}"
-                                            alt="Spectrum Robotics Team">
-                                        <span class="sub-title">Operations</span>
-                                        <div class="team-shap"></div>
-                                    </div>
-                                    <div class="team-content">
-                                        <div class="share-box">
-                                            <span class="share-icon fa fa-share-alt"></span>
-                                            <ul class="social-links">
-                                                <li><a href="https://www.linkedin.com/" target="_blank" title=""><i
-                                                            class="fab fa-linkedin-in"></i></a></li>
-                                            </ul>
-                                        </div>
-                                        <h4 class="name"><a href='#' title>Operations Manager</a></h4>
-                                        <span class="designation">/ Logistics Expert /</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
     <!-- End Our Team Section -->
 @endsection
 
 @section('contact_section')
-    <!-- contact-sec -->
-    <div class="contact-sec ibt-section-gap">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="contact-content">
-                        <div class="sec-title white">
-                            <span class="sub-title">Get In Touch</span>
-                            <h2 class="title animated-heading">Ready to Transform Your Business with
-                                Intelligent Robotics?</h2>
-                            <p>Contact our knowledgeable professionals to tailor customize solutions
-                                to increase revenue, lower cost and begin the journey of automating
-                                repetitive tasks.
-                            </p>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="contact-info">
-                                    <div class="call-center">
-                                        <h4 class="title">Sales & Support</h4>
-                                        <a href="tel:+16308099698" class="nmbr">(630) 809-9698</a>
-                                        <a href="https://wa.me/16308099698" class="nmbr">WhatsApp</a>
-                                    </div>
-                                    <div class="call-center mb-0">
-                                        <h4 class="title">Email</h4>
-                                        <a href="mailto:info@spectrumrobotics.ai" class="gmail">info@spectrumrobotics.ai</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="contact-info">
-                                    <div class="call-center">
-                                        <h4 class="title">Headquarters</h4>
-                                        <p>United States</p>
-                                    </div>
-                                    <div class="call-center mb-0">
-                                        <h4 class="title">Follow Us</h4>
-                                        <ul class="social-icon">
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-facebook-f"></i></a>
-                                            </li>
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-twitter"></i></a></li>
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a>
-                                            </li>
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-youtube"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-form">
-                        <form action="#" method="post" class="custom-form">
-                            <h2>Request a Demo</h2>
-                            <input type="text" id="name" name="name" placeholder="Full name" required>
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                            <input type="text" id="company" name="company" placeholder="Company Name">
-                            <input type="text" id="phone" name="phone" placeholder="Phone Number">
-                            <textarea id="message" name="message" rows="4"
-                                placeholder="Tell us about your automation needs..." required></textarea>
-
-                            <button type="submit" class="ibt-btn ibt-btn-outline">
-                                <span>Request Demo</span>
-                                <i class="icon-arrow-top"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End contact-sec -->
+    @include('partials.contact')
 @endsection

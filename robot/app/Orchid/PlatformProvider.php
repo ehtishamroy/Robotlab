@@ -33,6 +33,17 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.homepage')
                 ->title('Pages'),
 
+            Menu::make('Blog')
+                ->icon('docs')
+                ->list([
+                    Menu::make('All Posts')
+                        ->route('platform.blog.list')
+                        ->icon('list'),
+                    Menu::make('Categories')
+                        ->route('platform.categories')
+                        ->icon('tag'),
+                ]),
+
             Menu::make(__('Users'))
                 ->icon('user')
                 ->route('platform.systems.users')

@@ -37,9 +37,29 @@ class SettingScreen extends Screen
     public function query(): array
     {
         $settings = Setting::all()->pluck('value', 'key')->toArray();
+
+        // Decode JSON values for Matrix fields
+        foreach ($settings as $key => $value) {
+            if (is_string($value) && $this->isJson($value)) {
+                $settings[$key] = json_decode($value, true);
+            }
+        }
+
         return [
             'settings' => $settings,
         ];
+    }
+
+    /**
+     * Check if a string is valid JSON.
+     */
+    private function isJson($string): bool
+    {
+        if (!is_string($string)) {
+            return false;
+        }
+        json_decode($string);
+        return json_last_error() === JSON_ERROR_NONE;
     }
 
     /**
@@ -107,6 +127,77 @@ class SettingScreen extends Screen
                         ->placeholder('Paste your scripts here'),
                 ]),
 
+                'Contact Section' => Layout::rows([
+                    Input::make('settings.contact_subtitle')
+                        ->title('Subtitle')
+                        ->placeholder('Get Started')
+                        ->help('Small text above the main title'),
+
+                    Input::make('settings.contact_title')
+                        ->title('Main Title')
+                        ->placeholder('Ready to Transform Your Restaurant Service?'),
+
+                    TextArea::make('settings.contact_description')
+                        ->title('Description')
+                        ->rows(3)
+                        ->placeholder('Contact our knowledgeable professionals...'),
+
+                    Input::make('settings.contact_phone_title')
+                        ->title('Phone Title')
+                        ->placeholder('Sales & Support'),
+
+                    Input::make('settings.contact_phone')
+                        ->title('Phone Number')
+                        ->placeholder('(630) 809-9698'),
+
+                    Input::make('settings.contact_whatsapp')
+                        ->title('WhatsApp Number')
+                        ->placeholder('16308099698'),
+
+                    Input::make('settings.contact_email_title')
+                        ->title('Email Title')
+                        ->placeholder('Email'),
+
+                    Input::make('settings.contact_email')
+                        ->title('Email Address')
+                        ->placeholder('info@spectrumrobotics.ai'),
+
+                    Input::make('settings.contact_schedule_title')
+                        ->title('Schedule Demo Title')
+                        ->placeholder('Schedule Demo'),
+
+                    Input::make('settings.contact_schedule_link')
+                        ->title('Schedule Demo Link')
+                        ->placeholder('https://calendly.com/spectrumrobotics'),
+
+                    Input::make('settings.contact_schedule_text')
+                        ->title('Schedule Button Text')
+                        ->placeholder('Book Online'),
+
+                    Input::make('settings.contact_social_title')
+                        ->title('Social Title')
+                        ->placeholder('Follow Us'),
+
+                    Input::make('settings.facebook_link')
+                        ->title('Facebook URL'),
+
+                    Input::make('settings.twitter_link')
+                        ->title('Twitter URL'),
+
+                    Input::make('settings.linkedin_link')
+                        ->title('LinkedIn URL'),
+
+                    Input::make('settings.youtube_link')
+                        ->title('YouTube URL'),
+
+                    Input::make('settings.instagram_link')
+                        ->title('Instagram URL'),
+
+                    Input::make('settings.contact_form_title')
+                        ->title('Form Title')
+                        ->placeholder('Request a Service Robot Demo'),
+                ]),
+
                 'Header' => Layout::rows([
                     Input::make('settings.header_address')
                         ->title('Address')
@@ -131,21 +222,13 @@ class SettingScreen extends Screen
                     Input::make('settings.header_button_link')
                         ->title('Button Link')
                         ->placeholder('#'),
-
-                    Input::make('settings.facebook_link')
-                        ->title('Facebook URL'),
-
-                    Input::make('settings.twitter_link')
-                        ->title('Twitter URL'),
-
-                    Input::make('settings.linkedin_link')
-                        ->title('LinkedIn URL'),
-
-                    Input::make('settings.youtube_link')
-                        ->title('YouTube URL'),
                 ]),
 
                 'Footer' => Layout::rows([
+                    Input::make('settings.footer_top_title')
+                        ->title('Footer Top Title')
+                        ->placeholder('It’s blow your mind! Meet Neural Networks'),
+
                     Input::make('settings.footer_since')
                         ->title('Footer Since Text')
                         ->placeholder('since 2025'),

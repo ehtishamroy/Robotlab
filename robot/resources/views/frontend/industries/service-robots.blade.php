@@ -277,42 +277,42 @@
                         <h2 class="gradient-title">Explore Other <span>Robotic Solutions</span>
                             from Spectrum Robotics
                         </h2>
-                        <div class="swiper brand">
-                            <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="{{ route('industries.hospitality') }}" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Hospitality Robots</span>
+                        <!-- <div class="swiper brand">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <a href="{{ route('industries.hospitality') }}" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Hospitality Robots</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="{{ route('industries.cleaning') }}" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Cleaning Robots</span>
+                                        <div class="swiper-slide">
+                                            <a href="{{ route('industries.cleaning') }}" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Cleaning Robots</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="{{ route('industries.delivery') }}" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">Delivery Robots</span>
+                                        <div class="swiper-slide">
+                                            <a href="{{ route('industries.delivery') }}" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">Delivery Robots</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="{{ route('services') }}" title="">
-                                        <div
-                                            style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                            <span style="color: #fff; font-weight: 600;">All Technology</span>
+                                        <div class="swiper-slide">
+                                            <a href="{{ route('services') }}" title="">
+                                                <div
+                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                    <span style="color: #fff; font-weight: 600;">All Technology</span>
+                                                </div>
+                                            </a>
                                         </div>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                                    </div>
+                                </div> -->
                     </div>
                 </div>
             </div>
@@ -322,86 +322,5 @@
 @endsection
 
 @section('contact_section')
-    <!-- contact-sec -->
-    <div class="contact-sec ibt-section-gap">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="contact-content">
-                        <div class="sec-title white">
-                            <span class="sub-title">Get Started</span>
-                            <h2 class="title animated-heading">Ready to Transform Your Restaurant Service?</h2>
-                            <p>Contact our knowledgeable professionals to see how service robots
-                                can increase efficiency, reduce labor costs, and elevate your
-                                guest experience.
-                            </p>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="contact-info">
-                                    <div class="call-center">
-                                        <h4 class="title">Sales & Support</h4>
-                                        <a href="tel:+16308099698" class="nmbr">(630) 809-9698</a>
-                                        <a href="https://wa.me/16308099698" class="nmbr">WhatsApp</a>
-                                    </div>
-                                    <div class="call-center mb-0">
-                                        <h4 class="title">Email</h4>
-                                        <a href="mailto:info@spectrumrobotics.ai" class="gmail">info@spectrumrobotics.ai</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="contact-info">
-                                    <div class="call-center">
-                                        <h4 class="title">Schedule Demo</h4>
-                                        <a href="https://calendly.com/spectrumrobotics" class="nmbr" target="_blank">Book
-                                            Online</a>
-                                    </div>
-                                    <div class="call-center mb-0">
-                                        <h4 class="title">Follow Us</h4>
-                                        <ul class="social-icon">
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-facebook-f"></i></a>
-                                            </li>
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-linkedin-in"></i></a>
-                                            </li>
-                                            <li><a href="#" target="_blank" title=""><i class="fab fa-youtube"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-form">
-                        <form action="#" method="post" class="custom-form">
-                            <h2>Request a Service Robot Demo</h2>
-                            <input type="text" id="name" name="name" placeholder="Full name" required>
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                            <input type="text" id="company" name="company" placeholder="Restaurant/Company Name">
-                            <input type="text" id="location" name="location" placeholder="Location/City">
-                            <select id="venue_type" name="venue_type"
-                                style="width: 100%; padding: 15px; margin-bottom: 15px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: #fff; border-radius: 5px;">
-                                <option value="">Select Venue Type</option>
-                                <option value="restaurant">Restaurant</option>
-                                <option value="casino">Casino Restaurant</option>
-                                <option value="senior">Senior Living Facility</option>
-                                <option value="university">University Dining</option>
-                                <option value="corporate">Corporate Cafeteria</option>
-                                <option value="other">Other</option>
-                            </select>
-                            <textarea id="message" name="message" rows="3" placeholder="Tell us about your operation..."
-                                required></textarea>
-
-                            <button type="submit" class="ibt-btn ibt-btn-outline">
-                                <span>Request Demo</span>
-                                <i class="icon-arrow-top"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End contact-sec -->
+    @include('partials.contact')
 @endsection

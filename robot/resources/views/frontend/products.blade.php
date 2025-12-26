@@ -1,18 +1,13 @@
 @extends('layouts.frontend')
 
-@section('title', 'Products || Aiero AI Agency & Technology HTML Template')
-
-@section('main_sec_class', 'dark')
-
-@section('content')
-    <!-- page-banner9 -->
+@section('title', 'Products || Spectrum Robotics - Service Robot Solutions')@section('content')<!-- page-banner9 -->
     <section class="page-banner9">
         <div class="shape"></div>
         <div class="shape3"></div>
-        <div class="staff-text">Shop</div>
+        <div class="staff-text">Products</div>
         <div class="container">
             <div class="page-content">
-                <h1 class="title">/ Products /</h1>
+                <h1 class="title">/ Our Robots /</h1>
             </div>
         </div>
         <ul class="breadcrumbs">
@@ -23,335 +18,239 @@
     </section>
     <!-- End page-banner9 -->
 
-    <!-- shop-sec -->
-    <div class="shop-sec ibt-section-gap">
-        <button class="sidebar-toggle"></button>
-        <!-- Overlay -->
-        <div class="sidebar-overlay"></div>
+    <!-- Products Showcase Section -->
+    <section class="products-showcase ibt-section-gap">
         <div class="container">
-            <div class="row">
-                <div class="col-xl-9 col-lg-8 col-md-12">
-                    <div class="shop-product">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="shop-card">
-                                    <div class="shop-img">
-                                        <a href='shop-single.html'><img
-                                                src="{{ asset('frontend/assets/images/event/shop1-1.png') }}"
-                                                alt="AI Agency & Technology HTML Template"></a>
-                                        <div class="shop-shap"></div>
-                                    </div>
-                                    <div class="shop-content">
-                                        <a href="#" title="" class="show-now"><i class="fa fa-shopping-cart"></i></a>
-                                        <h4 class="title"><a href='shop-single.html' title>BFF Hoody</a></h4>
-                                        <span class="price">/ $ 32.50 /</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="shop-card">
-                                    <div class="shop-img">
-                                        <a href='shop-single.html'><img
-                                                src="{{ asset('frontend/assets/images/event/shop1-2.png') }}"
-                                                alt="AI Agency & Technology HTML Template"></a>
-                                        <span class="tag">SALE</span>
-                                        <div class="shop-shap"></div>
-                                    </div>
-                                    <div class="shop-content">
-                                        <a href="#" title="" class="show-now"><i class="fa fa-shopping-cart"></i></a>
-                                        <h4 class="title"><a href='shop-single.html' title>Sneakers Blike</a></h4>
-                                        <span class="price v2">/ <del>$ 180.99 -</del><span>$ 32.50</span> /</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="shop-card">
-                                    <div class="shop-img">
-                                        <a href='shop-single.html'><img
-                                                src="{{ asset('frontend/assets/images/event/shop1-3.png') }}"
-                                                alt="AI Agency & Technology HTML Template"></a>
-                                        <div class="shop-shap"></div>
-                                        <span class="tag v2">NEW</span>
-                                    </div>
-                                    <div class="shop-content v2">
-                                        <a href="#" title="" class="show-now"><i class="fa fa-shopping-cart"></i></a>
-                                        <h4 class="title"><a href='shop-single.html' title>Stylish white jacket</a>
-                                        </h4>
-                                        <span class="price">/ $ 149.99 /</span>
-                                        <ul class="rating">
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="shop-card">
-                                    <div class="shop-img">
-                                        <a href='shop-single.html'><img
-                                                src="{{ asset('frontend/assets/images/event/shop1-4.png') }}"
-                                                alt="AI Agency & Technology HTML Template"></a>
-                                        <div class="shop-shap"></div>
-                                    </div>
-                                    <div class="shop-content">
-                                        <a href="#" title="" class="show-now"><i class="fa fa-shopping-cart"></i></a>
-                                        <h4 class="title"><a href='shop-single.html' title>Tri blemd cret T-shirt</a>
-                                        </h4>
-                                        <span class="price">/ $ 5.99 /</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="shop-card">
-                                    <div class="shop-img">
-                                        <a href='shop-single.html'><img
-                                                src="{{ asset('frontend/assets/images/event/shop1-5.png') }}"
-                                                alt="AI Agency & Technology HTML Template"></a>
-                                        <div class="shop-shap"></div>
-                                    </div>
-                                    <div class="shop-content">
-                                        <a href="#" title="" class="show-now"><i class="fa fa-shopping-cart"></i></a>
-                                        <h4 class="title"><a href='shop-single.html' title>White Hoody</a></h4>
-                                        <span class="price">/ $ 0.10 /</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="shop-card">
-                                    <div class="shop-img">
-                                        <a href='shop-single.html'><img
-                                                src="{{ asset('frontend/assets/images/event/shop1-6.png') }}"
-                                                alt="AI Agency & Technology HTML Template"></a>
-                                        <div class="shop-shap"></div>
-                                    </div>
-                                    <div class="shop-content">
-                                        <a href="#" title="" class="show-now"><i class="fa fa-shopping-cart"></i></a>
-                                        <h4 class="title"><a href='shop-single.html' title>Blue dark suit</a></h4>
-                                        <span class="price">/ $ 82.49 /</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="shop-card">
-                                    <div class="shop-img">
-                                        <a href='shop-single.html'><img
-                                                src="{{ asset('frontend/assets/images/event/shop1-7.png') }}"
-                                                alt="AI Agency & Technology HTML Template"></a>
-                                        <div class="shop-shap"></div>
-                                    </div>
-                                    <div class="shop-content">
-                                        <a href="#" title="" class="show-now"><i class="fa fa-shopping-cart"></i></a>
-                                        <h4 class="title"><a href='shop-single.html' title>Perfect black boots</a>
-                                        </h4>
-                                        <span class="price">/ $ 170.99 /</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="shop-card">
-                                    <div class="shop-img">
-                                        <a href='shop-single.html'><img
-                                                src="{{ asset('frontend/assets/images/event/shop1-8.png') }}"
-                                                alt="AI Agency & Technology HTML Template"></a>
-                                        <div class="shop-shap"></div>
-                                    </div>
-                                    <div class="shop-content">
-                                        <a href="#" title="" class="show-now"><i class="fa fa-shopping-cart"></i></a>
-                                        <h4 class="title"><a href='shop-single.html' title>Sport Jacket</a></h4>
-                                        <span class="price">/ $ 9.99 /</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-4 col-lg-6 col-md-6">
-                                <div class="shop-card">
-                                    <div class="shop-img">
-                                        <a href='shop-single.html'><img
-                                                src="{{ asset('frontend/assets/images/event/shop1-9.png') }}"
-                                                alt="AI Agency & Technology HTML Template"></a>
-                                        <div class="shop-shap"></div>
-                                    </div>
-                                    <div class="shop-content">
-                                        <a href="#" title="" class="show-now"><i class="fa fa-shopping-cart"></i></a>
-                                        <h4 class="title"><a href='shop-single.html' title>Sneakers Puama</a></h4>
-                                        <span class="price">/ $ 150.99 /</span>
-                                    </div>
-                                </div>
-                            </div>
+            <div class="sec-title text-center" style="margin-bottom: 60px;">
+                <span class="sub-title">Our Solutions</span>
+                <h2 class="title animated-heading">Intelligent Robots for Every Industry</h2>
+                <p style="max-width: 700px; margin: 20px auto 0; color: var(--color-content-black2);">
+                    Discover our range of AI-powered service robots designed to transform your business operations,
+                    enhance customer experiences, and drive efficiency.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Product Card 1: BellaBot -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="product-showcase-card">
+                        <span class="product-category">DELIVERY ROBOT</span>
+                        <h3 class="product-title">BellaBot</h3>
+                        <p class="product-desc">Premium food delivery robot with an adorable personality. Equipped with AI
+                            navigation and interactive cat-like expressions for an unforgettable dining experience.</p>
+                        <div class="product-image-wrapper">
+                            <img src="{{ asset('frontend/assets/images/robots/bellabot.png') }}"
+                                alt="BellaBot - Food Delivery Robot" class="product-image">
                         </div>
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination v2">
-                                <li class="page-item m-0"><a class="page-link" href="#">1</a></li>
-                                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                <li class="page-item"><a class="page-link v1" href="#">Next<i
-                                            class="icon-arrow-top"></i></a></li>
-                            </ul>
-                        </nav>
+                        <a href="{{ route('product.single', 'bellabot') }}" class="product-learn-more">
+                            LEARN MORE <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-4">
-                    <div class="side-bar2">
-                        <button class="sidebar-close"></button>
-                        <div class="ser-widget side-widget2">
-                            <a href='service-single.html' title>Network Integration</a>
-                            <a href='service-single.html' title>Deep learning solutions</a>
-                            <a href='service-single.html' title>Transfer learning</a>
-                            <a href='service-single.html' title>Model evaluation</a>
-                            <a class='mb-0' href='service-single.html' title>Real-time prediction</a>
+
+                <!-- Product Card 2: KettyBot -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="product-showcase-card">
+                        <span class="product-category">SERVICE ROBOT</span>
+                        <h3 class="product-title">KettyBot</h3>
+                        <p class="product-desc">Versatile advertising and delivery robot featuring a large display screen.
+                            Perfect for promotions, guidance, and autonomous delivery tasks.</p>
+                        <div class="product-image-wrapper">
+                            <img src="{{ asset('frontend/assets/images/robots/kettybot.png') }}"
+                                alt="KettyBot - Service Robot" class="product-image">
                         </div>
-                        <div class="price-filter-widget side-widget2">
-                            <h4 class="side-bar-title">Filter by pricing</h4>
-                            <div class="filter-box">
-                                <div class="slider-container">
-                                    <div class="slider-track"></div>
-                                    <div class="range-input">
-                                        <input type="range" id="min" min="0" max="1000" value="10" step="10">
-                                        <input type="range" id="max" min="0" max="1000" value="1000" step="10">
-                                    </div>
-                                </div>
-                                <div class="price-values">
-                                    <span id="min-value">$100</span>
-                                    <span id="max-value">$900</span>
-                                </div> <button>Apply filter</button>
-                            </div>
+                        <a href="{{ route('product.single', 'kettybot') }}" class="product-learn-more">
+                            LEARN MORE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Card 3: HolaBot -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="product-showcase-card">
+                        <span class="product-category">BUSSING ROBOT</span>
+                        <h3 class="product-title">HolaBot</h3>
+                        <p class="product-desc">Heavy-duty bussing robot with enclosed cabin for dish collection. Summoned
+                            via smart watch, designed for high-volume restaurants and dining halls.</p>
+                        <div class="product-image-wrapper">
+                            <img src="{{ asset('frontend/assets/images/robots/holabot.png') }}"
+                                alt="HolaBot - Bussing Robot" class="product-image">
                         </div>
-                        <div class="post-widget side-widget2">
-                            <h4 class="side-bar-title">Best products</h4>
-                            <div class="recent-post2">
-                                <a href='shop-single.html'><img src="{{ asset('frontend/assets/images/blog/post2-1.png') }}"
-                                        alt="AI Agency & Technology HTML Template"></a>
-                                <h4 class="title"><a href='shop-single.html' title>Sneakers REDdy XL</a></h4>
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                                <span class="sub-title">/ $ 150.00 /</span>
-                            </div>
-                            <div class="recent-post2">
-                                <a href='shop-single.html'><img src="{{ asset('frontend/assets/images/blog/post2-2.png') }}"
-                                        alt="AI Agency & Technology HTML Template"></a>
-                                <h4 class="title"><a href='shop-single.html' title>Evening shoes</a></h4>
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                                <span class="sub-title">/ $ 119.99 /</span>
-                            </div>
-                            <div class="recent-post2 mb-0">
-                                <a href='shop-single.html'><img src="{{ asset('frontend/assets/images/blog/post2-3.png') }}"
-                                        alt="AI Agency & Technology HTML Template"></a>
-                                <h4 class="title"><a href='shop-single.html' title>Jeans shirt</a></h4>
-                                <ul class="rating">
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                    <li><i class="fa fa-star"></i></li>
-                                </ul>
-                                <span class="sub-title">/ $ 29.99 /</span>
-                            </div>
+                        <a href="{{ route('product.single', 'holabot') }}" class="product-learn-more">
+                            LEARN MORE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Card 4: PuduBot 2 -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="product-showcase-card">
+                        <span class="product-category">DELIVERY ROBOT</span>
+                        <h3 class="product-title">PuduBot 2</h3>
+                        <p class="product-desc">Next-generation delivery robot with enhanced capacity and multi-floor
+                            navigation. Ideal for hotels, hospitals, and large-scale hospitality venues.</p>
+                        <div class="product-image-wrapper">
+                            <img src="{{ asset('frontend/assets/images/robots/pudubot2.png') }}"
+                                alt="PuduBot 2 - Delivery Robot" class="product-image">
                         </div>
-                        <div class="tag-list-widget side-widget2">
-                            <h4 class="side-bar-title">Tags</h4>
-                            <ul class="tag-list">
-                                <li><a href="#" title="">/ Neural /</a></li>
-                                <li><a href="#" title="">/ Chat GPT /</a></li>
-                                <li><a href="#" title="">/ AI /</a></li>
-                                <li><a href="#" title="">/ Robot /</a></li>
-                                <li><a href="#" title="">/ Programing /</a></li>
-                                <li><a href="#" title="">/ Neuro /</a></li>
-                            </ul>
+                        <a href="{{ route('product.single', 'pudubot-2') }}" class="product-learn-more">
+                            LEARN MORE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Card 5: CC1 Cleaning Robot -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="product-showcase-card">
+                        <span class="product-category">CLEANING ROBOT</span>
+                        <h3 class="product-title">CC1</h3>
+                        <p class="product-desc">Commercial cleaning robot with intelligent path planning. Handles sweeping,
+                            mopping, and sanitization for large floor areas autonomously.</p>
+                        <div class="product-image-wrapper">
+                            <img src="{{ asset('frontend/assets/images/robots/cc1.png') }}" alt="CC1 - Cleaning Robot"
+                                class="product-image">
                         </div>
+                        <a href="{{ route('product.single', 'cc1') }}" class="product-learn-more">
+                            LEARN MORE <i class="fas fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Product Card 6: Flash Bot -->
+                <div class="col-lg-6 col-md-6">
+                    <div class="product-showcase-card">
+                        <span class="product-category">OUTDOOR DELIVERY</span>
+                        <h3 class="product-title">FlashBot</h3>
+                        <p class="product-desc">All-weather outdoor delivery robot built for last-mile logistics. Features
+                            robust navigation, weather-resistant design, and secure compartments.</p>
+                        <div class="product-image-wrapper">
+                            <img src="{{ asset('frontend/assets/images/robots/flashbot.png') }}"
+                                alt="FlashBot - Outdoor Delivery Robot" class="product-image">
+                        </div>
+                        <a href="{{ route('product.single', 'flashbot') }}" class="product-learn-more">
+                            LEARN MORE <i class="fas fa-arrow-right"></i>
+                        </a>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- End shop-sec -->
+    </section>
+    <!-- End Products Showcase Section -->
+
+    <style>
+        /* Product Showcase Cards */
+        .products-showcase {
+            background-color: #fff;
+        }
+
+        .product-showcase-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 30px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-showcase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .product-category {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #448e91;
+            margin-bottom: 12px;
+        }
+
+        .product-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 15px;
+            font-family: var(--font-primary);
+        }
+
+        .product-desc {
+            font-size: 15px;
+            line-height: 1.7;
+            color: #666;
+            margin-bottom: 25px;
+            flex-grow: 0;
+        }
+
+        .product-image-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 250px;
+            margin-bottom: 20px;
+        }
+
+        .product-image {
+            max-width: 100%;
+            max-height: 280px;
+            object-fit: contain;
+            transition: transform 0.4s ease;
+        }
+
+        .product-showcase-card:hover .product-image {
+            transform: scale(1.05);
+        }
+
+        .product-learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: #000000ff;
+            text-decoration: none;
+            padding: 12px 24px;
+            border: 2px solid #448e91;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .product-learn-more:hover {
+            background: #448e91;
+            color: #fff;
+        }
+
+        .product-learn-more i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .product-learn-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .product-title {
+                font-size: 26px;
+            }
+
+            .product-image-wrapper {
+                min-height: 200px;
+            }
+
+            .product-image {
+                max-height: 200px;
+            }
+        }
+    </style>
 @endsection
 
 @section('contact_section')
-    <!-- contact-sec -->
-    <div class="contact-sec ibt-section-gap">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="contact-content">
-                        <div class="sec-title white">
-                            <span class="sub-title">get in touch</span>
-                            <h2 class="title animated-heading">We are always ready to help you and answer your
-                                questions</h2>
-                            <p>Pacific hake false trevally queen parrotfish black prickleback mosshead
-                                warbonnet sweeper! Greenling sleeper.
-                            </p>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="contact-info">
-                                    <div class="call-center">
-                                        <h4 class="title">Call Center</h4>
-                                        <a href="tel:8003508431" class="nmbr">800 100 975 20 34</a>
-                                        <a href="mailto:support@aiero.com" class="nmbr">+ (123)
-                                            1800-234-5678</a>
-                                    </div>
-                                    <div class="call-center mb-0">
-                                        <h4 class="title">Email</h4>
-                                        <a href="mailto:support@aiero.com" class="gmail">aiero@mail.co</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-6 col-md-6 col-sm-6">
-                                <div class="contact-info">
-                                    <div class="call-center">
-                                        <h4 class="title">Our Location</h4>
-                                        <p>USA, New York - 1060 <br>Str. First Avenue 1</p>
-                                    </div>
-                                    <div class="call-center mb-0">
-                                        <h4 class="title">Social network</h4>
-                                        <ul class="social-icon">
-                                            <li><a href="https://www.facebook.com/" target="_blank" title=""><i
-                                                        class="fab fa-facebook-f"></i></a></li>
-                                            <li><a href="http://www.twitter.com/" target="_blank" title=""><i
-                                                        class="fab fa-twitter"></i></a></li>
-                                            <li><a href="http://www.linkedin.com/" target="_blank" title=""><i
-                                                        class="fab fa-linkedin-in"></i></a></li>
-                                            <li><a href="https://www.youtube.com/" target="_blank" title=""><i
-                                                        class="fab fa-youtube"></i></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="contact-form">
-                        <form action="#" method="post" class="custom-form">
-                            <h2>Get in Touch</h2>
-                            <input type="text" id="name" name="name" placeholder="Full name" required>
-                            <input type="email" id="email" name="email" placeholder="Email" required>
-                            <input type="text" id="subject" name="subject" placeholder="Subject" required>
-                            <textarea id="message" name="message" rows="5" placeholder="Write your message..."
-                                required></textarea>
-
-                            <button type="submit" class="ibt-btn ibt-btn-outline">
-                                <span>Send message</span>
-                                <i class="icon-arrow-top"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- End contact-sec -->
+    @include('partials.contact')
 @endsection

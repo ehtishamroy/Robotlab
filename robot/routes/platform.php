@@ -109,4 +109,39 @@ Route::screen('homepage', HomepageScreen::class)
             ->push(__('Homepage Content'), route('platform.homepage'));
     });
 
+// Platform > Blog
+Route::screen('blog', \App\Orchid\Screens\Blog\BlogListScreen::class)
+    ->name('platform.blog.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Blog'), route('platform.blog.list'));
+    });
+
+Route::screen('blog/create', \App\Orchid\Screens\Blog\BlogEditScreen::class)
+    ->name('platform.blog.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.blog.list')
+            ->push(__('Create Blog'));
+    });
+
+Route::screen('blog/{blog}/edit', \App\Orchid\Screens\Blog\BlogEditScreen::class)
+    ->name('platform.blog.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.blog.list')
+            ->push(__('Edit Blog'));
+    });
+
+Route::screen('categories', \App\Orchid\Screens\Blog\CategoryListScreen::class)
+    ->name('platform.categories')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Categories'), route('platform.categories'));
+    });
+
 //Route::screen('idea', 'Idea::class','platform.screens.idea');
+
+
