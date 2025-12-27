@@ -21,7 +21,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', setting('meta_title', 'Home-5 (Startup) || Aiero AI Agency & Technology HTML Template'))
+    <title>@yield('title', setting('meta_title', 'Spectrum Robotics'))
     </title>
     <meta name="description" content="{{ setting('meta_description') }}">
     <meta name="keywords" content="{{ setting('meta_keywords') }}">
@@ -42,8 +42,9 @@
 
 
     <!-- Load Font Awesome CSS asynchronously -->
-    <link rel="stylesheet" href="{{ asset('frontend/assets/css/font-awesome.min.css') }}" media="print"
-        onload="this.media='all'">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" media="print" onload="this.media='all'" />
 
     <!-- fontello font css -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/css/plugins/fontello-enqueue.css') }}" media="print"
@@ -78,18 +79,38 @@
         .side-menu2 ul li:not(.menu-has-items):not(.menu-item-has-children)>a::after {
             display: none !important;
         }
+
+        /* Newsletter Button Default State - White Text & Border */
+        .newsletter-subscribe-btn .ibt-btn {
+            color: #ffffff !important;
+        }
+
+        .newsletter-subscribe-btn .ibt-btn i {
+            color: #ffffff !important;
+        }
+
+        /* The ::before pseudo-element creates the border */
+        .newsletter-subscribe-btn .ibt-btn::before {
+            background: #ffffff !important;
+        }
+
+        /* Newsletter Button Hover State - Primary Background */
+        .newsletter-subscribe-btn .ibt-btn:hover::after,
+        .newsletter-subscribe-btn .ibt-btn:hover::before {
+            background: var(--color-primary) !important;
+            opacity: 1;
+        }
+
+        /* Footer about text white */
+        .about-widget.footer-widget>p {
+            color: #ffffff !important;
+        }
     </style>
 </head>
 
 <body>
     <div class="wrapper">
-        <!-- Preloader -->
-        <div id="preloader">
-            <div class="loader">
-                <img src="{{ asset('frontend/assets/images/preloader-dark.png') }}" alt="Loading...">
-            </div>
-        </div>
-        <!-- End Preloader -->
+
 
 
         <div class="video-modal">
@@ -161,8 +182,7 @@
             </div>
             <ul>
                 <li>
-                    <a href="#">Home</a>
-                    <!-- Submenu omitted for brevity, can be added if needed or dynamic -->
+                    <a href="{{ route('home') }}">Home</a>
                 </li>
                 <li>
                     <a href="{{ route('about') }}">About Spectrum Robotics</a>
@@ -176,16 +196,18 @@
                         <li><a href="{{ route('industries.delivery') }}">Delivery Robots</a></li>
                     </ul>
                 </li>
+                {{-- Hidden Technology page
                 <li>
                     <a href="#">Technology</a>
                 </li>
+                --}}
                 <li>
-                    <a href="#">Products</a>
+                    <a href="{{ route('products') }}">Products</a>
                 </li>
                 <li>
-                    <a href="#">News</a>
+                    <a href="{{ route('blog') }}">News</a>
                 </li>
-                <li><a href="#">Contacts</a></li>
+                <li><a href="{{ route('contact') }}">Contacts</a></li>
             </ul>
             <div class="menu-contact">
                 <span>Contacts</span>
@@ -247,12 +269,14 @@
                                         <li><a href="{{ route('industries.delivery') }}">Delivery Robots</a></li>
                                     </ul>
                                 </li>
+                                {{-- Hidden Technology page
                                 <li>
-                                    <a href='{{ route('services') }}'>
+                                    <a href='{{ route(' services') }}'>
                                         <span class="menu-item">Technology</span>
                                         <span class="menu-item2">Technology</span>
                                     </a>
                                 </li>
+                                --}}
                                 <li>
                                     <a href='{{ route('products') }}'>
                                         <span class="menu-item">Products</span>
@@ -334,12 +358,14 @@
                                             <li><a href="{{ route('industries.delivery') }}">Delivery Robots</a></li>
                                         </ul>
                                     </li>
+                                    {{-- Hidden Technology page
                                     <li>
-                                        <a href='{{ route('services') }}'>
+                                        <a href='{{ route(' services') }}'>
                                             <span class="menu-item">Technology</span>
                                             <span class="menu-item2">Technology</span>
                                         </a>
                                     </li>
+                                    --}}
                                     <li>
                                         <a href='{{ route('products') }}'>
                                             <span class="menu-item">Products</span>
@@ -383,127 +409,134 @@
 
         @yield('content')
 
-        <!-- footer-style2 -->
-        <footer class="footer-style2">
-            <div class="widget-area2">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-4">
-                            <div class="about-widget v2 footer-widget">
-                                <div class="footer-logo">
-                                    <img src="{{ $logo_url }}" style="width: {{ $logo_width }}px; height: auto;"
-                                        alt="{{ setting('site_name', 'AI Agency & Technology HTML Template') }}">
-                                </div>
-                                <ul class="social-icon">
-                                    @if(setting('facebook_link'))
-                                        <li><a href="{{ setting('facebook_link') }}" title=""><i
-                                                    class="fab fa-facebook-f"></i></a></li>
+        <!-- main-sec -->
+        <section class="main-sec">
+            <!-- footer-style1 -->
+            <footer class="footer-style1 ibt-section-gapTop">
+                <div class="footer-top">
+                    <div class="container">
+                        <div class="footer-content">
+                            <h2 class="title">
+                                {{ setting('footer_top_title', "It's blow your mind! Meet Neural Networks") }}
+                            </h2>
+                            <a href="#" title="" class="ibt-btn ibt-btn-outline open-demo-popup" data-demo-popup>
+                                <span>Get a Quote</span>
+                                <i class="icon-arrow-top"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="widget-area ibt-section-gapTop">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-xl-8 col-lg-6">
+                                <div class="about-widget footer-widget">
+                                    <div class="footer-logo">
+                                        <img src="{{ $logo_url }}" style="width: {{ $logo_width }}px; height: auto;"
+                                            alt="{{ setting('site_name', 'AI Agency & Technology HTML Template') }}">
+                                    </div>
+                                    <ul class="social-icon">
+                                        @if(setting('facebook_link'))
+                                            <li><a href="{{ setting('facebook_link') }}" title=""><i
+                                                        class="fab fa-facebook-f"></i></a></li>
+                                        @endif
+                                        @if(setting('twitter_link'))
+                                            <li><a href="{{ setting('twitter_link') }}" title=""><i
+                                                        class="fab fa-twitter"></i></a></li>
+                                        @endif
+                                        @if(setting('linkedin_link'))
+                                            <li><a href="{{ setting('linkedin_link') }}" title=""><i
+                                                        class="fab fa-linkedin-in"></i></a></li>
+                                        @endif
+                                        @if(setting('youtube_link'))
+                                            <li><a href="{{ setting('youtube_link') }}" title=""><i
+                                                        class="fab fa-youtube"></i></a></li>
+                                        @endif
+                                    </ul>
+                                    <h2 class="title">{{ setting('footer_since', 'since 2025') }}</h2>
+                                    @if(setting('footer_about'))
+                                        <p class="mt-3">{{ setting('footer_about') }}</p>
                                     @endif
-                                    @if(setting('twitter_link'))
-                                        <li><a href="{{ setting('twitter_link') }}" title=""><i
-                                                    class="fab fa-twitter"></i></a></li>
-                                    @endif
-                                    @if(setting('linkedin_link'))
-                                        <li><a href="{{ setting('linkedin_link') }}" title=""><i
-                                                    class="fab fa-linkedin-in"></i></a></li>
-                                    @endif
-                                    @if(setting('youtube_link'))
-                                        <li><a href="{{ setting('youtube_link') }}" title=""><i
-                                                    class="fab fa-youtube"></i></a></li>
-                                    @endif
-                                </ul>
-                                <h2 class="title">{{ setting('footer_since', 'since 2025') }}</h2>
-                                <div class="newsletter-subscribe-btn mt-4">
-                                    <a href="#" class="ibt-btn ibt-btn-outline open-newsletter-popup"
-                                        data-newsletter-popup>
-                                        <i class="fas fa-envelope"></i>
-                                        <span>Subscribe to Newsletter</span>
-                                    </a>
+                                    <div class="newsletter-subscribe-btn mt-4">
+                                        <a href="#" class="ibt-btn ibt-btn-outline open-newsletter-popup"
+                                            data-newsletter-popup>
+                                            <i class="fas fa-envelope"></i>
+                                            <span>Subscribe to Newsletter</span>
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-lg-8">
-                            <div class="footer-menu v2">
-                                <div class="contact-widget footer-widget">
-                                    <h4 class="widget-title">Contacts</h4>
-                                    <p>{!! setting('header_address', 'Aiero, New York - 1060 Str. First Avenue 1') !!}
-                                    </p>
-                                    @if(setting('header_phone_1'))
-                                        <a href="tel:{{ str_replace(' ', '', setting('header_phone_1')) }}"
-                                            class="nmbr">{{ setting('header_phone_1') }}</a>
-                                    @endif
-                                    @if(setting('header_phone_2'))
-                                        <a href="tel:{{ str_replace(' ', '', setting('header_phone_2')) }}"
-                                            class="nmbr">{{ setting('header_phone_2') }}</a>
-                                    @endif
-                                    @if(setting('header_email'))
-                                        <a href="mailto:{{ setting('header_email') }}"
-                                            class="gmail">{{ setting('header_email') }}</a>
-                                    @endif
-                                </div>
-                                <div class="footer-links footer-widget">
-                                    <h4 class="widget-title">Company</h4>
-                                    <ul>
-                                        @php
-                                            $company_links = json_decode(setting('footer_company_links', '[]'), true);
-                                        @endphp
-                                        @if($company_links)
-                                            @foreach($company_links as $link)
-                                                <li><a href="{{ $link['link'] ?? '#' }}" title="">{{ $link['title'] ?? '' }}</a>
-                                                </li>
-                                            @endforeach
-                                        @else
-                                            <li><a href='{{ route('about') }}' title>About</a></li>
-                                            <li><a href="#" title="">Expertise</a></li>
-                                            <li><a href="#" title="">Sustainability</a></li>
-                                            <li><a href="#" title="">News & Media</a></li>
-                                            <li><a href="#" title="">Case Studies</a></li>
-                                            <li><a href='{{ route('contact') }}' title="">Contacts</a></li>
-                                        @endif
-                                    </ul>
-                                </div>
-                                <div class="footer-links footer-widget m-0">
-                                    <h4 class="widget-title">Services</h4>
-                                    <ul>
-                                        @php
-                                            $services_links = json_decode(setting('footer_services_links', '[]'), true);
-                                        @endphp
-                                        @if($services_links)
-                                            @foreach($services_links as $link)
-                                                <li><a href="{{ $link['link'] ?? '#' }}" title="">{{ $link['title'] ?? '' }}</a>
-                                                </li>
-                                            @endforeach
-                                        @else
-                                            <li><a href="#" title="">Air Freight</a></li>
-                                            <li><a href="#" title="">Sea Freight</a></li>
-                                            <li><a href="#" title="">Land Transport</a></li>
-                                            <li><a href="#" title="">Groupage</a></li>
-                                            <li><a href="#" title="">Consultancy</a></li>
-                                            <li><a href="#" title="">Value Added Services</a></li>
-                                        @endif
-                                    </ul>
+                            <div class="col-xl-4 col-lg-6">
+                                <div class="footer-menu">
+                                    <div class="footer-links footer-widget">
+                                        <h4 class="widget-title">Company</h4>
+                                        <ul>
+                                            @php
+                                                $company_links = json_decode(setting('footer_company_links', '[]'), true);
+                                            @endphp
+                                            @if($company_links)
+                                                @foreach($company_links as $link)
+                                                    <li><a href="{{ $link['link'] ?? '#' }}"
+                                                            title="">{{ $link['title'] ?? '' }}</a>
+                                                    </li>
+                                                @endforeach
+                                            @else
+                                                <li><a href='{{ route('about') }}' title>About</a></li>
+                                                <li><a href="#" title="">Expertise</a></li>
+                                                <li><a href="#" title="">Sustainability</a></li>
+                                                <li><a href="#" title="">News & Media</a></li>
+                                                <li><a href="#" title="">Case Studies</a></li>
+                                                <li><a href='{{ route('contact') }}' title="">Contacts</a></li>
+                                            @endif
+                                        </ul>
+                                    </div>
+                                    <div class="footer-links footer-widget">
+                                        <h4 class="widget-title">Services</h4>
+                                        <ul>
+                                            @php
+                                                $services_links = json_decode(setting('footer_services_links', '[]'), true);
+                                            @endphp
+                                            @if($services_links)
+                                                @foreach($services_links as $link)
+                                                    <li><a href="{{ $link['link'] ?? '#' }}"
+                                                            title="">{{ $link['title'] ?? '' }}</a>
+                                                    </li>
+                                                @endforeach
+                                            @else
+                                                <li><a href="#" title="">Air Freight</a></li>
+                                                <li><a href="#" title="">Sea Freight</a></li>
+                                                <li><a href="#" title="">Land Transport</a></li>
+                                                <li><a href="#" title="">Groupage</a></li>
+                                                <li><a href="#" title="">Consultancy</a></li>
+                                                <li><a href="#" title="">Value Added Services</a></li>
+                                            @endif
+                                        </ul>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="footer-botom">
-                <div class="container">
-                    <div class="footer-box">
-                        <p><a href="#">{{ setting('footer_copyright', '©Aiero 2025. All rights reserved.') }}</a></p>
-                        <span><a href="{{ setting('terms_link', '#') }}">Terms of use</a> <a
-                                href="{{ setting('privacy_link', '#') }}">Privacy Policy</a></span>
+                <div class="footer-botom">
+                    <div class="container">
+                        <div class="footer-box">
+                            <p><a href="#">{{ setting('footer_copyright', '©Aiero 2025. All rights reserved.') }}</a>
+                            </p>
+                            <span><a href="{{ route('terms') }}">Terms of use</a> <a
+                                    href="{{ route('privacy') }}">Privacy Policy</a></span>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </footer>
-        <!-- footer-style2 -->
+            </footer>
+            <!-- footer-style1 -->
+        </section>
+        <!-- End main-sec -->
 
-        <!-- Scroll Button -->
+        <!-- Scroll Button - Hidden
         <button id="scrollBtn" title="Go to top">
             <i class="fas fa-angle-up"></i>
         </button>
+        -->
     </div>
 
     <!-- Demo Popup Modal -->

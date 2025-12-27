@@ -33,6 +33,27 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.homepage')
                 ->title('Pages'),
 
+            Menu::make('Products')
+                ->icon('bulb')
+                ->route('platform.products.list')
+                ->title('Content'),
+
+            Menu::make('Brands')
+                ->icon('building')
+                ->route('platform.brands.list'),
+
+            Menu::make('Demo Requests')
+                ->icon('envelope')
+                ->route('platform.demo-requests')
+                ->badge(function () {
+                    return \App\Models\DemoRequest::where('is_read', false)->count() ?: null;
+                })
+                ->title('Leads'),
+
+            Menu::make('Discount Codes')
+                ->icon('tag')
+                ->route('platform.discount-codes'),
+
             Menu::make('Blog')
                 ->icon('docs')
                 ->list([

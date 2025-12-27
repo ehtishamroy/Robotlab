@@ -21,7 +21,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@yield('title', setting('meta_title', 'Aiero AI Agency & Technology HTML Template'))</title>
+    <title>@yield('title', setting('meta_title', 'Spectrum Robotics'))</title>
     <meta name="description" content="{{ setting('meta_description') }}">
     <meta name="keywords" content="{{ setting('meta_keywords') }}">
     {!! setting('google_analytics') !!}
@@ -77,18 +77,38 @@
         .header-top-content4 {
             background-color: #448E91 !important;
         }
+
+        /* Newsletter Button Default State - White Text & Border */
+        .newsletter-subscribe-btn .ibt-btn {
+            color: #ffffff !important;
+        }
+
+        .newsletter-subscribe-btn .ibt-btn i {
+            color: #ffffff !important;
+        }
+
+        /* The ::before pseudo-element creates the border */
+        .newsletter-subscribe-btn .ibt-btn::before {
+            background: #ffffff !important;
+        }
+
+        /* Newsletter Button Hover State - Primary Background */
+        .newsletter-subscribe-btn .ibt-btn:hover::after,
+        .newsletter-subscribe-btn .ibt-btn:hover::before {
+            background: var(--color-primary) !important;
+            opacity: 1;
+        }
+
+        /* Footer about text white */
+        .about-widget.footer-widget>p {
+            color: #ffffff !important;
+        }
     </style>
 </head>
 
 <body>
 
-    <!-- Preloader -->
-    <div id="preloader">
-        <div class="loader">
-            <img src="{{ asset('frontend/assets/images/preloader-dark.png') }}" alt="Loading...">
-        </div>
-    </div>
-    <!-- End Preloader -->
+
 
 
     <div class="video-modal">
@@ -173,9 +193,11 @@
                     <li><a href="{{ route('industries.delivery') }}">Delivery Robots</a></li>
                 </ul>
             </li>
+            {{-- Hidden Technology page
             <li>
                 <a href="{{ route('services') }}">Technology</a>
             </li>
+            --}}
             <li>
                 <a href="{{ route('products') }}">Products</a>
             </li>
@@ -244,12 +266,14 @@
                                     <li><a href="{{ route('industries.delivery') }}">Delivery Robots</a></li>
                                 </ul>
                             </li>
+                            {{-- Hidden Technology page
                             <li>
-                                <a href='{{ route('services') }}'>
+                                <a href='{{ route(' services') }}'>
                                     <span class="menu-item">Technology</span>
                                     <span class="menu-item2">Technology</span>
                                 </a>
                             </li>
+                            --}}
                             <li>
                                 <a href='{{ route('products') }}'>
                                     <span class="menu-item">Products</span>
@@ -371,12 +395,14 @@
                                             <li><a href="{{ route('industries.delivery') }}">Delivery Robots</a></li>
                                         </ul>
                                     </li>
+                                    {{-- Hidden Technology page
                                     <li>
-                                        <a href='{{ route('services') }}'>
+                                        <a href='{{ route(' services') }}'>
                                             <span class="menu-item">Technology</span>
                                             <span class="menu-item2">Technology</span>
                                         </a>
                                     </li>
+                                    --}}
                                     <li>
                                         <a href='{{ route('products') }}'>
                                             <span class="menu-item">Products</span>
@@ -533,8 +559,8 @@
                 <div class="container">
                     <div class="footer-box">
                         <p><a href="#">{{ setting('footer_copyright', '©Aiero 2025. All rights reserved.') }}</a></p>
-                        <span><a href="{{ setting('terms_link', '#') }}">Terms of use</a> <a
-                                href="{{ setting('privacy_link', '#') }}">Privacy Policy</a></span>
+                        <span><a href="{{ route('terms') }}">Terms of use</a> <a href="{{ route('privacy') }}">Privacy
+                                Policy</a></span>
                     </div>
                 </div>
             </div>
@@ -543,10 +569,11 @@
     </section>
     <!-- End main-sec -->
 
-    <!-- Scroll Button -->
+    <!-- Scroll Button - Hidden
     <button id="scrollBtn" title="Go to top">
         <i class="fas fa-angle-up"></i>
     </button>
+    -->
 
     <!-- Demo Popup Modal -->
     @include('partials.demo-popup')

@@ -1,0 +1,31 @@
+/* Custom Admin Styles for Product Management */
+
+/* Make Cropper preview images smaller */
+.cropper-preview.img-fluid.img-full {
+    max-height: 150px !important;
+    width: auto !important;
+    object-fit: contain;
+}
+
+/* Constrain the cropper container */
+.fields-cropper-container {
+    max-height: 160px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f8f9fa;
+    border-radius: 4px;
+    margin-bottom: 10px;
+}
+
+/* Smaller preview for better UX */
+.cropper-actions .fields-cropper-container img {
+    max-height: 150px !important;
+    max-width: 200px !important;
+}
+
+/* Gallery upload previews smaller */
+.upload-file .upload-gallery img {
+    max-height: 80px;
+}

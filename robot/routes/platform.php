@@ -142,6 +142,73 @@ Route::screen('categories', \App\Orchid\Screens\Blog\CategoryListScreen::class)
             ->push(__('Categories'), route('platform.categories'));
     });
 
-//Route::screen('idea', 'Idea::class','platform.screens.idea');
+// Platform > Products
+Route::screen('products', \App\Orchid\Screens\Product\ProductListScreen::class)
+    ->name('platform.products.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Products'), route('platform.products.list'));
+    });
 
+Route::screen('products/create', \App\Orchid\Screens\Product\ProductEditScreen::class)
+    ->name('platform.products.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.products.list')
+            ->push(__('Create Product'));
+    });
+
+Route::screen('products/{product}/edit', \App\Orchid\Screens\Product\ProductEditScreen::class)
+    ->name('platform.products.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.products.list')
+            ->push(__('Edit Product'));
+    });
+
+// Platform > Brands
+Route::screen('brands', \App\Orchid\Screens\Brand\BrandListScreen::class)
+    ->name('platform.brands.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Brands'), route('platform.brands.list'));
+    });
+
+Route::screen('brands/create', \App\Orchid\Screens\Brand\BrandEditScreen::class)
+    ->name('platform.brands.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.brands.list')
+            ->push(__('Add Brand'));
+    });
+
+Route::screen('brands/{brand}/edit', \App\Orchid\Screens\Brand\BrandEditScreen::class)
+    ->name('platform.brands.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.brands.list')
+            ->push(__('Edit Brand'));
+    });
+
+// Platform > Demo Requests
+Route::screen('demo-requests', \App\Orchid\Screens\DemoRequestListScreen::class)
+    ->name('platform.demo-requests')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Demo Requests'), route('platform.demo-requests'));
+    });
+
+// Platform > Discount Codes
+Route::screen('discount-codes', \App\Orchid\Screens\DiscountCodeScreen::class)
+    ->name('platform.discount-codes')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Discount Codes'), route('platform.discount-codes'));
+    });
+
+//Route::screen('idea', 'Idea::class','platform.screens.idea');
 

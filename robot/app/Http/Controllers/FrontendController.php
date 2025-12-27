@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Blog;
+use App\Models\Product;
+use App\Models\Brand;
 
 class FrontendController extends Controller
 {
@@ -29,7 +31,8 @@ class FrontendController extends Controller
 
     public function products()
     {
-        return view('frontend.products');
+        $products = Product::published()->orderBy('sort_order')->get();
+        return view('frontend.products', compact('products'));
     }
 
     public function blog()
@@ -98,6 +101,21 @@ class FrontendController extends Controller
 
     public function productSingle($slug)
     {
-        return view('frontend.product-single', compact('slug'));
+        $product = Product::with(['features', 'specifications', 'galleries'])
+            ->where('slug', $slug)
+            ->firstOrFail();
+        $brands = Brand::active()->orderBy('sort_order')->get();
+        return view('frontend.product-single', compact('product', 'brands', 'slug'));
+    }
+
+    public function termsOfUse()
+    {
+        return view('frontend.terms');
+    }
+
+    public function privacyPolicy()
+    {
+        return view('frontend.privacy');
     }
 }
+

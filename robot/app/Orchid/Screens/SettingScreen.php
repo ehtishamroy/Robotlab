@@ -8,6 +8,7 @@ use Orchid\Screen\Actions\Button;
 use Orchid\Screen\Fields\Input;
 use Orchid\Screen\Fields\Matrix;
 use Orchid\Screen\Fields\Picture;
+use Orchid\Screen\Fields\Quill;
 use Orchid\Screen\Fields\TextArea;
 use Orchid\Screen\Screen;
 use Orchid\Support\Facades\Alert;
@@ -227,7 +228,7 @@ class SettingScreen extends Screen
                 'Footer' => Layout::rows([
                     Input::make('settings.footer_top_title')
                         ->title('Footer Top Title')
-                        ->placeholder('It’s blow your mind! Meet Neural Networks'),
+                        ->placeholder("It's blow your mind! Meet Neural Networks"),
 
                     Input::make('settings.footer_since')
                         ->title('Footer Since Text')
@@ -254,14 +255,16 @@ class SettingScreen extends Screen
                     Input::make('settings.footer_copyright')
                         ->title('Copyright Text')
                         ->placeholder('©Aiero 2025. All rights reserved.'),
+                ]),
 
-                    Input::make('settings.terms_link')
-                        ->title('Terms of Use Link')
-                        ->placeholder('#'),
+                'Legal Pages' => Layout::rows([
+                    Quill::make('settings.terms_content')
+                        ->title('Terms of Use Content')
+                        ->height('400px'),
 
-                    Input::make('settings.privacy_link')
-                        ->title('Privacy Policy Link')
-                        ->placeholder('#'),
+                    Quill::make('settings.privacy_content')
+                        ->title('Privacy Policy Content')
+                        ->height('400px'),
                 ]),
             ]),
         ];

@@ -40,12 +40,20 @@
                 <div class="form-row">
                     <textarea name="message" rows="3" placeholder="Tell us about your needs..."></textarea>
                 </div>
+                <div class="form-row discount-code-row">
+                    <input type="text" name="discount_code" id="discountCodeInput"
+                        placeholder="Have a referral/discount code? (Optional)">
+                    <span class="discount-code-status" id="discountCodeStatus"></span>
+                </div>
                 <input type="hidden" name="product_source" id="demoProductSource" value="">
                 <input type="hidden" name="page_url" id="demoPageUrl" value="">
                 <button type="submit" class="demo-popup-submit">
                     <span>Request Demo</span>
                     <i class="fa fa-arrow-right"></i>
                 </button>
+                <div class="demo-popup-message" id="demoPopupMessage"
+                    style="display: none; margin-top: 15px; padding: 15px; border-radius: 10px; text-align: center;">
+                </div>
             </form>
         </div>
     </div>
@@ -235,12 +243,50 @@
             font-size: 24px;
         }
     }
+
+    /* Discount Code Validation Styles */
+    .discount-code-row {
+        position: relative;
+    }
+
+    .discount-code-status {
+        position: absolute;
+        right: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 12px;
+        font-weight: 600;
+    }
+
+    .discount-code-status.valid {
+        color: #28a745;
+    }
+
+    .discount-code-status.invalid {
+        color: #dc3545;
+    }
+
+    .discount-code-status.checking {
+        color: #ffc107;
+    }
+
+    #discountCodeInput.valid-code {
+        border-color: #28a745 !important;
+        background: rgba(40, 167, 69, 0.1) !important;
+    }
+
+    #discountCodeInput.invalid-code {
+        border-color: #dc3545 !important;
+        background: rgba(220, 53, 69, 0.1) !important;
+    }
 </style>
 
 <script>
     document.addEventListener('DOMContentLoaded', function () {
         const overlay = document.getElementById('demoPopupOverlay');
         const closeBtn = document.getElementById('demoPopupClose');
+        const form = document.getElementById('demoPopupForm');
+        const messageDiv = document.getElementById('demoPopupMessage');
 
         // Open popup when clicking Request Demo buttons
         document.querySelectorAll('.open-demo-popup, [data-demo-popup]').forEach(function (btn) {
@@ -258,10 +304,149 @@
                     pageUrl.value = window.location.href;
                 }
 
+                // Reset form and message
+                form.reset();
+                messageDiv.style.display = 'none';
+                
+                // Reset discount code status
+                const codeInput = document.getElementById('discountCodeInput');
+                const codeStatus = document.getElementById('discountCodeStatus');
+                if (codeInput) {
+                    codeInput.classList.remove('valid-code', 'invalid-code');
+                    codeInput.value = '';
+                }
+                if (codeStatus) {
+                    codeStatus.innerHTML = '';
+                    codeStatus.className = 'discount-code-status';
+                }
+
                 overlay.classList.add('active');
                 document.body.style.overflow = 'hidden';
             });
         });
+
+        // Discount Code Validation
+        const discountInput = document.getElementById('discountCodeInput');
+        const discountStatus = document.getElementById('discountCodeStatus');
+        let validationTimeout;
+
+        if (discountInput && discountStatus) {
+            discountInput.addEventListener('input', function() {
+                const code = this.value.trim();
+                
+                // Reset states
+                clearTimeout(validationTimeout);
+                this.classList.remove('valid-code', 'invalid-code');
+                discountStatus.innerHTML = '';
+                discountStatus.className = 'discount-code-status';
+
+                if (code.length === 0) return;
+
+                // Show checking state
+                discountStatus.innerHTML = '<i class="fa fa-spinner fa-spin"></i> Checking...';
+                discountStatus.classList.add('checking');
+
+                // Debounce validation
+                validationTimeout = setTimeout(() => {
+                    fetch('{{ route("discount.validate") }}', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
+                        },
+                        body: JSON.stringify({ code: code })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        discountStatus.classList.remove('checking');
+                        
+                        if (data.valid) {
+                            discountInput.classList.add('valid-code');
+                            discountStatus.innerHTML = '<i class="fa fa-check"></i> ' + data.message;
+                            discountStatus.classList.add('valid');
+                        } else {
+                            discountInput.classList.add('invalid-code');
+                            discountStatus.innerHTML = '<i class="fa fa-times"></i> ' + data.message;
+                            discountStatus.classList.add('invalid');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error validating code:', error);
+                        discountStatus.innerHTML = '';
+                    });
+                }, 500); // 500ms delay
+            });
+        }
+
+        // Form submission via AJAX
+        if (form) {
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+
+                const submitBtn = form.querySelector('.demo-popup-submit');
+                const originalBtnText = submitBtn.innerHTML;
+
+                // Disable button and show loading
+                submitBtn.disabled = true;
+                submitBtn.innerHTML = '<span>Sending...</span> <i class="fa fa-spinner fa-spin"></i>';
+
+                // Hide previous messages
+                messageDiv.style.display = 'none';
+
+                // Get form data
+                const formData = new FormData(form);
+
+                fetch('{{ route("demo.request") }}', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest',
+                        'Accept': 'application/json',
+                    }
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+
+                        if (data.success) {
+                            // Show success message
+                            messageDiv.style.display = 'block';
+                            messageDiv.style.background = 'rgba(68, 142, 145, 0.3)';
+                            messageDiv.style.color = '#fff';
+                            messageDiv.innerHTML = '<i class="fa fa-check-circle" style="margin-right: 8px;"></i>' + data.message;
+
+                            // Reset form
+                            form.reset();
+
+                            // Close popup after 3 seconds
+                            setTimeout(function () {
+                                overlay.classList.remove('active');
+                                document.body.style.overflow = '';
+                                messageDiv.style.display = 'none';
+                            }, 3000);
+                        } else {
+                            // Show error message
+                            messageDiv.style.display = 'block';
+                            messageDiv.style.background = 'rgba(220, 53, 69, 0.3)';
+                            messageDiv.style.color = '#fff';
+                            messageDiv.innerHTML = '<i class="fa fa-exclamation-circle" style="margin-right: 8px;"></i>' + (data.message || 'Something went wrong. Please try again.');
+                        }
+                    })
+                    .catch(error => {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
+
+                        // Show error message
+                        messageDiv.style.display = 'block';
+                        messageDiv.style.background = 'rgba(220, 53, 69, 0.3)';
+                        messageDiv.style.color = '#fff';
+                        messageDiv.innerHTML = '<i class="fa fa-exclamation-circle" style="margin-right: 8px;"></i>Something went wrong. Please try again.';
+
+                        console.error('Error:', error);
+                    });
+            });
+        }
 
         // Close popup
         if (closeBtn) {

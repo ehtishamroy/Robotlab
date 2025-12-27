@@ -56,27 +56,6 @@ class HomepageScreen extends Screen
                 'partners' => [
                     'title' => setting('homepage.partners.title', 'Trusted Technology Partners Powering Our Robotic Fleet—Industry-Leading Innovation'),
                 ],
-                'products' => [
-                    'subtitle' => setting('homepage.products.subtitle', 'our robots'),
-                    'title' => setting('homepage.products.title', 'Featured Robotic Solutions'),
-                    'description' => setting('homepage.products.description', 'Explore our cutting-edge AI-powered robots designed to transform your business operations'),
-                    'product_1_title' => setting('homepage.products.product_1_title', 'BellaBot'),
-                    'product_1_category' => setting('homepage.products.product_1_category', 'Food Delivery Robot'),
-                    'product_1_desc' => setting('homepage.products.product_1_desc', 'Advanced food delivery robot with voice interaction and obstacle avoidance for restaurants'),
-                    'product_1_image' => setting('homepage.products.product_1_image', 'frontend/assets/images/products/bellabot.png'),
-                    'product_2_title' => setting('homepage.products.product_2_title', 'KettyBot'),
-                    'product_2_category' => setting('homepage.products.product_2_category', 'Reception & Greeting Robot'),
-                    'product_2_desc' => setting('homepage.products.product_2_desc', 'Interactive reception robot with advertising display and customer engagement features'),
-                    'product_2_image' => setting('homepage.products.product_2_image', 'frontend/assets/images/products/kettybot.png'),
-                    'product_3_title' => setting('homepage.products.product_3_title', 'HolaBot'),
-                    'product_3_category' => setting('homepage.products.product_3_category', 'Heavy-Duty Service Robot'),
-                    'product_3_desc' => setting('homepage.products.product_3_desc', 'High-capacity delivery robot for hotels, restaurants, and large venues with smart navigation'),
-                    'product_3_image' => setting('homepage.products.product_3_image', 'frontend/assets/images/products/holabot.png'),
-                    'product_4_title' => setting('homepage.products.product_4_title', 'Matradee X'),
-                    'product_4_category' => setting('homepage.products.product_4_category', 'Premium Delivery Robot'),
-                    'product_4_desc' => setting('homepage.products.product_4_desc', 'Premium robotic solution with advanced AI and multi-functional service capabilities'),
-                    'product_4_image' => setting('homepage.products.product_4_image', 'frontend/assets/images/products/matradee.png'),
-                ],
                 'solutions' => [
                     'subtitle' => setting('homepage.solutions.subtitle', 'solutions'),
                     'title' => setting('homepage.solutions.title', 'End-to-End Robotic Solutions for Every Industry'),
@@ -244,78 +223,6 @@ class HomepageScreen extends Screen
                 'Partners' => Layout::rows([
                     Input::make('settings.partners.title')
                         ->title('Partners Section Title'),
-                ]),
-
-                'Featured Products' => Layout::rows([
-                    Input::make('settings.products.subtitle')
-                        ->title('Subtitle'),
-
-                    Input::make('settings.products.title')
-                        ->title('Section Title'),
-
-                    TextArea::make('settings.products.description')
-                        ->title('Description')
-                        ->rows(2),
-
-                    // Product 1
-                    Input::make('settings.products.product_1_title')
-                        ->title('Product 1 - Title'),
-
-                    Input::make('settings.products.product_1_category')
-                        ->title('Product 1 - Category'),
-
-                    TextArea::make('settings.products.product_1_desc')
-                        ->title('Product 1 - Description')
-                        ->rows(2),
-
-                    Picture::make('settings.products.product_1_image')
-                        ->title('Product 1 - Image')
-                        ->targetRelativeUrl(),
-
-                    // Product 2
-                    Input::make('settings.products.product_2_title')
-                        ->title('Product 2 - Title'),
-
-                    Input::make('settings.products.product_2_category')
-                        ->title('Product 2 - Category'),
-
-                    TextArea::make('settings.products.product_2_desc')
-                        ->title('Product 2 - Description')
-                        ->rows(2),
-
-                    Picture::make('settings.products.product_2_image')
-                        ->title('Product 2 - Image')
-                        ->targetRelativeUrl(),
-
-                    // Product 3
-                    Input::make('settings.products.product_3_title')
-                        ->title('Product 3 - Title'),
-
-                    Input::make('settings.products.product_3_category')
-                        ->title('Product 3 - Category'),
-
-                    TextArea::make('settings.products.product_3_desc')
-                        ->title('Product 3 - Description')
-                        ->rows(2),
-
-                    Picture::make('settings.products.product_3_image')
-                        ->title('Product 3 - Image')
-                        ->targetRelativeUrl(),
-
-                    // Product 4
-                    Input::make('settings.products.product_4_title')
-                        ->title('Product 4 - Title'),
-
-                    Input::make('settings.products.product_4_category')
-                        ->title('Product 4 - Category'),
-
-                    TextArea::make('settings.products.product_4_desc')
-                        ->title('Product 4 - Description')
-                        ->rows(2),
-
-                    Picture::make('settings.products.product_4_image')
-                        ->title('Product 4 - Image')
-                        ->targetRelativeUrl(),
                 ]),
 
                 'Solutions' => Layout::rows([

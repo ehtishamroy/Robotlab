@@ -264,7 +264,7 @@
 
         /* Hero Video Image Resize */
         .hero-img5 .video-img {
-            max-width: 170px;
+            max-width: 145px;
             /* Constrain the width of the video preview */
             width: 100%;
             border-radius: 10px;
@@ -340,7 +340,7 @@
                                         <h4 class="title">
                                             {{ setting('homepage.hero.right_title', 'Next-Gen Automation for Your Business') }}
                                         </h4>
-                                        <a class='ser-btn3' href='{{ route("services") }}' title>View Solutions</a>
+                                        <a class='ser-btn3' href='{{ route("products") }}' title>View Solutions</a>
                                     </div>
                                 </div>
                             </div>
@@ -389,7 +389,7 @@
                             class="clickable-image" onclick="openSpectrumLightbox(this.src)"
                             alt="{{ setting('homepage.features.card_1_title', 'Autonomous Navigation') }}">
                         <h4 class="title"><a
-                                href='{{ route("services") }}'>{{ setting('homepage.features.card_1_title', 'Autonomous Navigation') }}</a>
+                                href='{{ route("products") }}'>{{ setting('homepage.features.card_1_title', 'Autonomous Navigation') }}</a>
                         </h4>
                         <p>{{ setting('homepage.features.card_1_desc', 'Advanced SLAM technology enables our robots to navigate complex environments safely, avoiding obstacles in real-time.') }}
                         </p>
@@ -401,7 +401,7 @@
                             class="clickable-image" onclick="openSpectrumLightbox(this.src)"
                             alt="{{ setting('homepage.features.card_2_title', 'Industry Solutions') }}">
                         <h4 class="title"><a
-                                href='{{ route("services") }}'>{{ setting('homepage.features.card_2_title', 'Industry Solutions') }}</a>
+                                href='{{ route("products") }}'>{{ setting('homepage.features.card_2_title', 'Industry Solutions') }}</a>
                         </h4>
                         <p>{{ setting('homepage.features.card_2_desc', 'Purpose-built robots for hospitality, healthcare, retail, and logistics—configured for your operational needs.') }}
                         </p>
@@ -413,7 +413,7 @@
                             class="clickable-image" onclick="openSpectrumLightbox(this.src)"
                             alt="{{ setting('homepage.features.card_3_title', '24/7 Reliability') }}">
                         <h4 class="title"><a
-                                href='{{ route("services") }}'>{{ setting('homepage.features.card_3_title', '24/7 Reliability') }}</a>
+                                href='{{ route("products") }}'>{{ setting('homepage.features.card_3_title', '24/7 Reliability') }}</a>
                         </h4>
                         <p>{{ setting('homepage.features.card_3_desc', 'Designed for continuous operation with self-charging capabilities and 99.5% average uptime across deployments.') }}
                         </p>
@@ -425,7 +425,7 @@
                             class="clickable-image" onclick="openSpectrumLightbox(this.src)"
                             alt="{{ setting('homepage.features.card_4_title', 'Full-Service Support') }}">
                         <h4 class="title"><a
-                                href='{{ route("services") }}'>{{ setting('homepage.features.card_4_title', 'Full-Service Support') }}</a>
+                                href='{{ route("products") }}'>{{ setting('homepage.features.card_4_title', 'Full-Service Support') }}</a>
                         </h4>
                         <p>{{ setting('homepage.features.card_4_desc', 'From consultation to installation and maintenance, we ensure seamless integration with your existing workflows.') }}
                         </p>

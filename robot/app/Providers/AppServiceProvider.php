@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use App\Models\Product;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -23,6 +25,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        //
+        // Share published products with all layout views for navigation menu
+        View::composer(['layouts.home', 'layouts.frontend'], function ($view) {
+            $view->with('menuProducts', Product::published()->orderBy('sort_order')->orderBy('name')->take(8)->get());
+        });
     }
 }

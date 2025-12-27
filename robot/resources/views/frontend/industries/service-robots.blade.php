@@ -278,41 +278,41 @@
                             from Spectrum Robotics
                         </h2>
                         <!-- <div class="swiper brand">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('industries.hospitality') }}" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Hospitality Robots</span>
-                                                </div>
-                                            </a>
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <a href="{{ route('industries.hospitality') }}" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">Hospitality Robots</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="{{ route('industries.cleaning') }}" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">Cleaning Robots</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="{{ route('industries.delivery') }}" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">Delivery Robots</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="{{ route('products') }}" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">All Products</span>
+                                                    </div>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('industries.cleaning') }}" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Cleaning Robots</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('industries.delivery') }}" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Delivery Robots</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('services') }}" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">All Technology</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                    </div> -->
                     </div>
                 </div>
             </div>

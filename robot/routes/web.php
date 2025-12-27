@@ -3,11 +3,14 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsletterController;
+use App\Http\Controllers\DemoRequestController;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
+Route::post('/demo-request', [DemoRequestController::class, 'store'])->name('demo.request');
+Route::post('/validate-discount-code', [DemoRequestController::class, 'validateCode'])->name('discount.validate');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
-Route::get('/services', [FrontendController::class, 'services'])->name('services');
+// Route::get('/services', [FrontendController::class, 'services'])->name('services'); // Hidden Technology page
 Route::get('/projects', [FrontendController::class, 'projects'])->name('projects');
 Route::get('/products', [FrontendController::class, 'products'])->name('products');
 Route::get('/products/{slug}', [FrontendController::class, 'productSingle'])->name('product.single');
@@ -25,4 +28,8 @@ Route::get('/industries/service-robots', [FrontendController::class, 'serviceRob
 Route::get('/industries/hospitality-robots', [FrontendController::class, 'hospitalityRobots'])->name('industries.hospitality');
 Route::get('/industries/cleaning-robots', [FrontendController::class, 'cleaningRobots'])->name('industries.cleaning');
 Route::get('/industries/delivery-robots', [FrontendController::class, 'deliveryRobots'])->name('industries.delivery');
+
+// Legal Pages
+Route::get('/terms-of-use', [FrontendController::class, 'termsOfUse'])->name('terms');
+Route::get('/privacy-policy', [FrontendController::class, 'privacyPolicy'])->name('privacy');
 

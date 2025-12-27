@@ -1,118 +1,27 @@
 @extends('layouts.frontend')
 
-@php
-    // Static product data for now - will be dynamic later
-    $products = [
-        'bellabot' => [
-            'name' => 'BellaBot',
-            'tagline' => 'Your Adorable Restaurant Assistant',
-            'category' => 'Delivery Robot',
-            'hero_text' => 'A first look at our smart food delivery robot, designed to transform the future of restaurant service.',
-            'image' => 'robots/bellabot.png',
-            'hero_bg' => 'robots/bellabot-hero.jpg',
-            'description' => 'BellaBot is an intelligent delivery robot designed for restaurants, hotels, and hospitality venues. With its expressive cat-like face and interactive features, BellaBot creates memorable dining experiences while improving service efficiency.',
-            'features' => [
-                'AI-powered autonomous navigation',
-                'Multi-tray delivery (up to 4 trays)',
-                'Interactive cat expressions and sounds',
-                'Obstacle detection and avoidance',
-                'Multi-robot collaboration',
-                'Voice interaction capabilities'
-            ],
-            'specs' => [
-                'Height' => '1288 mm',
-                'Width' => '516 mm',
-                'Depth' => '538 mm',
-                'Weight' => '48 kg',
-                'Max Speed' => '1.0 m/s',
-                'Navigation' => 'SLAM + Multi-sensor fusion',
-                'Battery Life' => '8-12 hours',
-                'Charging Time' => '4.5 hours',
-                'Payload' => '40 kg (10 kg per tray)',
-                'Display' => '10.1" Touch Screen'
-            ],
-            'gallery' => [
-                'robots/bellabot-1.jpg',
-                'robots/bellabot-2.jpg',
-                'robots/bellabot-3.jpg'
-            ]
-        ],
-        'kettybot' => [
-            'name' => 'KettyBot',
-            'tagline' => 'Reception & Delivery Excellence',
-            'category' => 'Service Robot',
-            'hero_text' => 'KettyBot combines advertising display, autonomous delivery, and reception guidance into one versatile robot platform.',
-            'image' => 'robots/kettybot.png',
-            'hero_bg' => 'robots/kettybot-hero.jpg',
-            'description' => 'KettyBot is a versatile service robot featuring a large 18.5" display screen, perfect for advertising, promotions, customer guidance, and autonomous delivery tasks in hotels, restaurants, and retail spaces.',
-            'features' => [
-                '18.5" HD advertising display',
-                'Autonomous delivery & guidance',
-                'Voice recognition & interaction',
-                'Customizable screen content',
-                'Multi-floor navigation',
-                'Integration with elevator systems'
-            ],
-            'specs' => [
-                'Height' => '1150 mm',
-                'Width' => '500 mm',
-                'Depth' => '500 mm',
-                'Weight' => '52 kg',
-                'Max Speed' => '1.0 m/s',
-                'Navigation' => 'LiDAR + RGBD Camera',
-                'Battery Life' => '8-10 hours',
-                'Charging Time' => '4 hours',
-                'Payload' => '30 kg',
-                'Display' => '18.5" HD Touch Screen'
-            ]
-        ],
-        'holabot' => [
-            'name' => 'HolaBot',
-            'tagline' => 'Heavy-Duty Bussing Solution',
-            'category' => 'Bussing Robot',
-            'hero_text' => 'HolaBot is designed for dish collection and bussing tasks with an enclosed cabin and smart watch summoning system.',
-            'image' => 'robots/holabot.png',
-            'hero_bg' => 'robots/holabot-hero.jpg',
-            'description' => 'HolaBot is a professional bussing robot with enclosed cabin design, perfect for high-volume restaurants and dining halls. Staff can summon it via smart watch with a single tap.',
-            'features' => [
-                'Enclosed cabin for hygiene',
-                'Smart watch summoning',
-                'High-capacity dish collection',
-                'Smooth ride technology',
-                'Easy-clean surfaces',
-                'Multiple collection points'
-            ],
-            'specs' => [
-                'Height' => '1088 mm',
-                'Width' => '559 mm',
-                'Depth' => '535 mm',
-                'Weight' => '56 kg',
-                'Max Speed' => '1.0 m/s',
-                'Navigation' => 'LiDAR SLAM',
-                'Battery Life' => '8-10 hours',
-                'Charging Time' => '4.5 hours',
-                'Payload' => '60 kg',
-                'Cabin' => 'Enclosed with cover'
-            ]
-        ]
-    ];
-
-    $product = $products[$slug] ?? $products['bellabot'];
-@endphp
-
-@section('title', $product['name'] . ' || Spectrum Robotics')
+@section('title', $product->name . ' || Spectrum Robotics')
 
 @section('content')
     <!-- Product Hero Section - Full Width Background -->
     <section class="product-hero-fullwidth">
         <!-- Background Image/Video -->
         <div class="hero-media">
-            @if(isset($product['video']))
+            @php
+                $videoAttachment = $product->attachment('video')->first();
+            @endphp
+            @if($videoAttachment)
                 <video autoplay muted loop playsinline class="hero-video">
-                    <source src="{{ asset('frontend/assets/videos/' . $product['video']) }}" type="video/mp4">
+                    <source src="{{ $videoAttachment->url }}" type="{{ $videoAttachment->mime }}">
                 </video>
+            @elseif($product->video)
+                <video autoplay muted loop playsinline class="hero-video">
+                    <source src="{{ asset('frontend/assets/videos/' . $product->video) }}" type="video/mp4">
+                </video>
+            @elseif($product->hero_bg)
+                <img src="{{ asset($product->hero_bg) }}" alt="{{ $product->name }}" class="hero-bg-image">
             @else
-                <img src="{{ asset('frontend/assets/images/' . $product['hero_bg']) }}" alt="{{ $product['name'] }}"
+                <img src="{{ asset('frontend/assets/images/robots/default-hero.jpg') }}" alt="{{ $product->name }}"
                     class="hero-bg-image">
             @endif
         </div>
@@ -124,9 +33,9 @@
             <div class="container">
                 <div class="hero-content-inner">
                     <h1 class="hero-main-title">
-                        Meet {{ $product['name'] }}: {{ $product['tagline'] }}
+                        Meet {{ $product->name }}: {{ $product->tagline ?? 'Intelligent Robot Solution' }}
                     </h1>
-                    <p class="hero-subtitle">{{ $product['hero_text'] }}</p>
+                    <p class="hero-subtitle">{{ $product->hero_text }}</p>
 
                     <!-- Scroll Indicator -->
                     <a href="#features" class="scroll-indicator">
@@ -138,9 +47,13 @@
 
         <!-- Side Info Card (optional) -->
         <div class="hero-side-card">
-            <span class="side-card-label">Speak to our team about {{ $product['name'] }}!</span>
+            <span class="side-card-label">Speak to our team about {{ $product->name }}!</span>
             <div class="side-card-image">
-                <img src="{{ asset('frontend/assets/images/' . $product['image']) }}" alt="{{ $product['name'] }}">
+                @if($product->image)
+                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                @else
+                    <img src="{{ asset('frontend/assets/images/robots/default-robot.png') }}" alt="{{ $product->name }}">
+                @endif
             </div>
             <a href="#" class="side-card-btn open-demo-popup" data-demo-popup data-product="{{ $slug }}">
                 GET MORE INFO <i class="fas fa-arrow-right"></i>
@@ -154,29 +67,29 @@
         <div class="container">
             <div class="features-header">
                 <h2 class="features-title">Key Features</h2>
-                <p class="features-subtitle">{{ $product['description'] }}</p>
+                <p class="features-subtitle">{!! $product->description !!}</p>
             </div>
             <div class="features-grid">
-                @php
-                    $featureIcons = [
-                        'fa-layer-group',
-                        'fa-weight-hanging',
-                        'fa-robot',
-                        'fa-battery-full',
-                        'fa-microphone',
-                        'fa-mobile-alt',
-                        'fa-clock',
-                        'fa-bolt'
-                    ];
-                @endphp
-                @foreach($product['features'] as $index => $feature)
+                @forelse($product->features as $feature)
                     <div class="feature-item">
                         <div class="feature-icon">
-                            <i class="fas {{ $featureIcons[$index % count($featureIcons)] }}"></i>
+                            @if($feature->custom_icon)
+                                <img src="{{ asset($feature->custom_icon) }}" alt="{{ $feature->title }}"
+                                    style="max-width: 40px; max-height: 40px; object-fit: contain;">
+                            @else
+                                <i class="fas {{ $feature->icon ?? 'fa-robot' }}"></i>
+                            @endif
                         </div>
-                        <span class="feature-text">{{ $feature }}</span>
+                        <span class="feature-text">{{ $feature->title }}</span>
                     </div>
-                @endforeach
+                @empty
+                    <div class="feature-item">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <span class="feature-text">Advanced AI Technology</span>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -184,45 +97,53 @@
     <!-- Feature Image Section with Fade -->
     <section class="feature-image-section">
         <div class="feature-image-wrapper">
-            <img src="{{ asset('frontend/assets/images/' . ($product['feature_image'] ?? $product['image'])) }}"
-                alt="{{ $product['name'] }}">
+            @if($product->feature_image)
+                <img src="{{ asset($product->feature_image) }}" alt="{{ $product->name }}">
+            @elseif($product->image)
+                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+            @endif
             <div class="feature-image-fade"></div>
         </div>
     </section>
     <!-- End Product Features -->
 
     <!-- Technical Specifications -->
-    <section class="product-specs">
-        <div class="container">
-            <h2 class="specs-main-title">Technical specifications</h2>
-            <div class="specs-content-wrapper">
-                <div class="specs-table-col">
-                    <div class="specs-list">
-                        @foreach($product['specs'] as $key => $value)
-                            <div class="spec-row">
-                                <span class="spec-label">{{ $key }}</span>
-                                <span class="spec-value">{{ $value }}</span>
-                            </div>
-                        @endforeach
+    @if($product->specifications->count() > 0)
+        <section class="product-specs">
+            <div class="container">
+                <h2 class="specs-main-title">Technical specifications</h2>
+                <div class="specs-content-wrapper">
+                    <div class="specs-table-col">
+                        <div class="specs-list">
+                            @foreach($product->specifications as $spec)
+                                <div class="spec-row">
+                                    <span class="spec-label">{{ $spec->label }}</span>
+                                    <span class="spec-value">{{ $spec->value }}</span>
+                                </div>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="specs-image-col">
+                        @if($product->specs_image)
+                            <img src="{{ asset($product->specs_image) }}" alt="{{ $product->name }} Specifications">
+                        @elseif($product->image)
+                            <img src="{{ asset($product->image) }}" alt="{{ $product->name }} Specifications">
+                        @endif
                     </div>
                 </div>
-                <div class="specs-image-col">
-                    <img src="{{ asset('frontend/assets/images/' . ($product['specs_image'] ?? $product['image'])) }}"
-                        alt="{{ $product['name'] }} Specifications">
-                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
     <!-- End Technical Specifications -->
 
-    @if(isset($product['gallery']))
+    @if($product->galleries->count() > 0)
         <!-- Product Gallery Section -->
         <section class="product-gallery-section">
             <div class="container">
                 <div class="gallery-grid">
-                    @foreach($product['gallery'] as $image)
+                    @foreach($product->galleries as $gallery)
                         <div class="gallery-item">
-                            <img src="{{ asset('frontend/assets/images/' . $image) }}" alt="{{ $product['name'] }} Gallery">
+                            <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->alt_text ?? $product->name . ' Gallery' }}">
                         </div>
                     @endforeach
                 </div>
@@ -231,67 +152,23 @@
     @endif
 
     <!-- Brand Slider Section -->
-    <section class="brand-slider-section">
-        <div class="container">
-            <div class="swiper brand">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_11_1620e63f74.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_13_4dd3d62e53.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_14_6516450a79.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_16_c4ce5213aa.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_18_a1afa46fde.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_19_b4a546c986.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_1_4e2e3599ba.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_20_13c1d3053b.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_21_4c6cb3b9d3.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_23_8a4362d457.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_26_faf1e83c0c.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_29_0147e74bef.png') }}"
-                                alt="Technology Partner"></a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a href="#" title=""><img src="{{ asset('icons/logo_en_9_f4ba736769.png') }}"
-                                alt="Technology Partner"></a>
+    @if($brands->count() > 0)
+        <section class="brand-slider-section">
+            <div class="container">
+                <div class="swiper brand">
+                    <div class="swiper-wrapper">
+                        @foreach($brands as $brand)
+                            <div class="swiper-slide">
+                                <a href="{{ $brand->url ?? '#' }}" title="{{ $brand->name }}">
+                                    <img src="{{ asset($brand->logo) }}" alt="{{ $brand->name }}">
+                                </a>
+                            </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
-        </div>
-        </div>
-    </section>
+        </section>
+    @endif
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -299,10 +176,6 @@
                 slidesPerView: 2,
                 spaceBetween: 30,
                 loop: true,
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
                 autoplay: {
                     delay: 2500,
                     disableOnInteraction: false,
@@ -329,18 +202,38 @@
     <section class="product-cta-section" id="request-demo">
         <div class="container">
             <div class="cta-card">
-                <h2 class="cta-headline">Ready to Elevate Your Business with {{ $product['name'] }}?</h2>
+                <h2 class="cta-headline">Ready to Elevate Your Business with {{ $product->name }}?</h2>
                 <p class="cta-subtext">Experience the future of service robotics. Request a personalized demo to see how
-                    {{ $product['name'] }} can transform your operations.
+                    {{ $product->name }} can transform your operations.
                 </p>
                 <a href="#" class="cta-button open-demo-popup" data-demo-popup data-product="{{ $slug }}">
-                    <span>Contact Us for {{ $product['name'] }} Demo</span>
+                    <span>Contact Us for {{ $product->name }} Demo</span>
                     <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
         </div>
     </section>
     <!-- End Request Demo CTA -->
+
+    <!-- Sticky CTA Button - Desktop (Right Side) -->
+    <div class="sticky-cta-desktop">
+        <a href="#" class="sticky-cta-btn open-demo-popup" data-demo-popup data-product="{{ $slug }}">
+            <span class="sticky-cta-icon"><i class="fas fa-robot"></i></span>
+            <span class="sticky-cta-text">
+                <span class="sticky-cta-label">Get a Demo</span>
+                <span class="sticky-cta-product">{{ $product->name }}</span>
+            </span>
+            <span class="sticky-cta-arrow"><i class="fas fa-arrow-right"></i></span>
+        </a>
+    </div>
+
+    <!-- Sticky CTA Button - Mobile (Bottom Bar) -->
+    <div class="sticky-cta-mobile">
+        <a href="#" class="sticky-mobile-btn open-demo-popup" data-demo-popup data-product="{{ $slug }}">
+            <i class="fas fa-headset"></i>
+            <span>Contact Us for {{ $product->name }} Demo</span>
+        </a>
+    </div>
 
     <style>
         /* Product Hero Section - Full Width */
@@ -645,7 +538,7 @@
 
         .specs-table-col {
             flex: 1;
-            max-width: 600px;
+            max-width: 800px;
         }
 
         .specs-image-col {
@@ -690,6 +583,75 @@
             color: #000;
             flex: 0 0 50%;
             text-align: left;
+        }
+
+        /* Specs responsive */
+        @media (max-width: 991px) {
+            .specs-content-wrapper {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .specs-table-col {
+                max-width: 100%;
+                order: 1;
+            }
+
+            .specs-image-col {
+                flex: 0 0 auto;
+                width: 100%;
+                order: 2;
+            }
+
+            .specs-image-col img {
+                max-height: 350px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .product-specs {
+                padding: 50px 0 60px;
+            }
+
+            .product-specs .container {
+                padding-left: 0;
+                padding-right: 0;
+                max-width: 100%;
+            }
+
+            .specs-main-title {
+                font-size: 28px;
+                margin-bottom: 30px;
+                padding-left: 15px;
+            }
+
+            .specs-table-col {
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .specs-list {
+                width: 100%;
+            }
+
+            .spec-row {
+                padding: 14px 15px;
+                margin: 0;
+            }
+
+            .spec-label,
+            .spec-value {
+                font-size: 14px;
+            }
+
+            .specs-image-col {
+                padding: 0 15px;
+            }
+
+            .specs-image-col img {
+                max-height: 280px;
+                width: 100%;
+            }
         }
 
         /* Product Gallery */
@@ -873,6 +835,143 @@
 
             .cta-title {
                 font-size: 28px;
+            }
+        }
+
+        /* Sticky CTA Button - Desktop */
+        .sticky-cta-desktop {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            display: block;
+        }
+
+        .sticky-cta-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #2c6b6e 0%, #448E91 100%);
+            color: #fff;
+            padding: 16px 24px;
+            border-radius: 12px 0 0 12px;
+            text-decoration: none;
+            box-shadow: -4px 4px 20px rgba(44, 107, 110, 0.4);
+            transition: all 0.3s ease;
+            transform: translateX(calc(100% - 60px));
+        }
+
+        .sticky-cta-btn:hover {
+            transform: translateX(0);
+            background: linear-gradient(135deg, #1a5a5d 0%, #357577 100%);
+            color: #fff;
+        }
+
+        .sticky-cta-icon {
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            flex-shrink: 0;
+        }
+
+        .sticky-cta-text {
+            display: flex;
+            flex-direction: column;
+            white-space: nowrap;
+        }
+
+        .sticky-cta-label {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.8;
+        }
+
+        .sticky-cta-product {
+            font-size: 16px;
+            font-weight: 600;
+        }
+
+        .sticky-cta-arrow {
+            width: 32px;
+            height: 32px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .sticky-cta-btn:hover .sticky-cta-arrow {
+            transform: translateX(3px);
+        }
+
+        /* Sticky CTA Button - Mobile */
+        .sticky-cta-mobile {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 12px 15px;
+            padding-bottom: calc(12px + env(safe-area-inset-bottom));
+            background: linear-gradient(135deg, #2c6b6e 0%, #448E91 100%);
+            box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .sticky-mobile-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #fff;
+            color: #2c6b6e;
+            padding: 14px 20px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .sticky-mobile-btn:hover {
+            background: #f0f0f0;
+            color: #1a5a5d;
+        }
+
+        .sticky-mobile-btn i {
+            font-size: 16px;
+        }
+
+        /* Hide/show based on viewport */
+        @media (max-width: 991px) {
+            .sticky-cta-desktop {
+                display: none;
+            }
+
+            .sticky-cta-mobile {
+                display: block;
+            }
+
+            /* Add padding to body to prevent content being hidden behind sticky bar */
+            body {
+                padding-bottom: 80px;
+            }
+        }
+
+        /* Hide sticky on very small hero section visibility */
+        @media (max-height: 500px) {
+            .sticky-cta-desktop {
+                display: none;
             }
         }
     </style>
