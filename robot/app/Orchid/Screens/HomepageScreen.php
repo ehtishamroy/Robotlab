@@ -74,15 +74,19 @@ class HomepageScreen extends Screen
                     'tab_1_title' => setting('homepage.capabilities.tab_1_title', 'Autonomous Navigation'),
                     'tab_1_heading' => setting('homepage.capabilities.tab_1_heading', 'Advanced SLAM Technology'),
                     'tab_1_desc' => setting('homepage.capabilities.tab_1_desc', 'Our robots use cutting-edge Simultaneous Localization and Mapping (SLAM) technology to navigate complex environments with precision.'),
+                    'tab_1_image' => setting('homepage.capabilities.tab_1_image', 'frontend/assets/images/feature/feature6-1.png'),
                     'tab_2_title' => setting('homepage.capabilities.tab_2_title', 'AI-Powered Interaction'),
                     'tab_2_heading' => setting('homepage.capabilities.tab_2_heading', 'Intelligent Customer Engagement'),
                     'tab_2_desc' => setting('homepage.capabilities.tab_2_desc', 'Equipped with voice recognition, facial detection, and natural language processing.'),
+                    'tab_2_image' => setting('homepage.capabilities.tab_2_image', 'frontend/assets/images/feature/feature6-2.png'),
                     'tab_3_title' => setting('homepage.capabilities.tab_3_title', 'Seamless Integration'),
                     'tab_3_heading' => setting('homepage.capabilities.tab_3_heading', 'Works With Your Systems'),
                     'tab_3_desc' => setting('homepage.capabilities.tab_3_desc', 'Our robots integrate seamlessly with your existing POS, kitchen display systems, and management software.'),
+                    'tab_3_image' => setting('homepage.capabilities.tab_3_image', 'frontend/assets/images/feature/feature6-3.png'),
                     'tab_4_title' => setting('homepage.capabilities.tab_4_title', 'Scalable Deployment'),
                     'tab_4_heading' => setting('homepage.capabilities.tab_4_heading', 'Grow at Your Own Pace'),
                     'tab_4_desc' => setting('homepage.capabilities.tab_4_desc', 'Start with a single robot and scale up as needed.'),
+                    'tab_4_image' => setting('homepage.capabilities.tab_4_image', 'frontend/assets/images/feature/feature6-1.png'),
                 ],
             ],
         ];
@@ -278,6 +282,10 @@ class HomepageScreen extends Screen
                         ->title('Tab 1 - Description')
                         ->rows(3),
 
+                    Picture::make('settings.capabilities.tab_1_image')
+                        ->title('Tab 1 - Image')
+                        ->targetRelativeUrl(),
+
                     // Tab 2
                     Input::make('settings.capabilities.tab_2_title')
                         ->title('Tab 2 - Tab Title'),
@@ -288,6 +296,10 @@ class HomepageScreen extends Screen
                     TextArea::make('settings.capabilities.tab_2_desc')
                         ->title('Tab 2 - Description')
                         ->rows(3),
+
+                    Picture::make('settings.capabilities.tab_2_image')
+                        ->title('Tab 2 - Image')
+                        ->targetRelativeUrl(),
 
                     // Tab 3
                     Input::make('settings.capabilities.tab_3_title')
@@ -300,6 +312,10 @@ class HomepageScreen extends Screen
                         ->title('Tab 3 - Description')
                         ->rows(3),
 
+                    Picture::make('settings.capabilities.tab_3_image')
+                        ->title('Tab 3 - Image')
+                        ->targetRelativeUrl(),
+
                     // Tab 4
                     Input::make('settings.capabilities.tab_4_title')
                         ->title('Tab 4 - Tab Title'),
@@ -310,6 +326,10 @@ class HomepageScreen extends Screen
                     TextArea::make('settings.capabilities.tab_4_desc')
                         ->title('Tab 4 - Description')
                         ->rows(3),
+
+                    Picture::make('settings.capabilities.tab_4_image')
+                        ->title('Tab 4 - Image')
+                        ->targetRelativeUrl(),
                 ]),
             ]),
         ];

@@ -35,7 +35,12 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-content9">
-                        <h4 class="title">Richie Hotel Delivery Robot</h4>
+                        @if(setting('hospitality_robots_hero_image'))
+                            <img src="{{ setting('hospitality_robots_hero_image') }}" alt="Richie Hotel Delivery Robot"
+                                style="max-width: 100%; height: auto; border-radius: 8px;">
+                        @else
+                            <h4 class="title">Richie Hotel Delivery Robot</h4>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -66,28 +71,32 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature1.svg') }}" alt="Elevator Integration">
+                        <img src="{{ setting('hospitality_robots_feature_icon_1') ?: asset('frontend/assets/images/feature/feature1.svg') }}"
+                            alt="Elevator Integration">
                         <h4 class="title">Elevator Integration</h4>
                         <p>Automatically calls and rides elevators to navigate between floors autonomously.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature2.svg') }}" alt="Secure Compartments">
+                        <img src="{{ setting('hospitality_robots_feature_icon_2') ?: asset('frontend/assets/images/feature/feature2.svg') }}"
+                            alt="Secure Compartments">
                         <h4 class="title">Secure Compartments</h4>
                         <p>Locked compartments ensure guest items are delivered safely and privately.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature3.svg') }}" alt="Guest Notifications">
+                        <img src="{{ setting('hospitality_robots_feature_icon_3') ?: asset('frontend/assets/images/feature/feature3.svg') }}"
+                            alt="Guest Notifications">
                         <h4 class="title">Guest Notifications</h4>
                         <p>Automated phone calls and app notifications alert guests when delivery arrives.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature4.svg') }}" alt="24/7 Operation">
+                        <img src="{{ setting('hospitality_robots_feature_icon_4') ?: asset('frontend/assets/images/feature/feature4.svg') }}"
+                            alt="24/7 Operation">
                         <h4 class="title">24/7 Operation</h4>
                         <p>Never sleeps, never takes breaks - available around the clock for guest needs.</p>
                     </div>
@@ -108,40 +117,121 @@
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12">
                     <div class="neural-content">
-                        <h2 class="gradient-title">Explore Other <span>Robotic Solutions</span></h2>
-                        <!-- <div class="swiper brand">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('industries.service') }}">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Service Robots</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('industries.cleaning') }}">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Cleaning Robots</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('industries.delivery') }}">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Delivery Robots</span>
-                                                </div>
+                        <h2 class="gradient-title" style="font-size: 1.8rem;">Explore Other <span>Robotic Solutions</span>
+                        </h2>
+
+                        <!-- Random Products Section -->
+                        @if(isset($randomProducts) && $randomProducts->count() > 0)
+                            <div class="row g-4 mt-4">
+                                @foreach($randomProducts as $product)
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="product-showcase-card">
+                                            <span class="product-category">{{ strtoupper($product->category ?? 'ROBOT') }}</span>
+                                            <h3 class="product-title">{{ $product->name }}</h3>
+                                            <p class="product-desc">{{ Str::limit(strip_tags($product->description), 100) }}</p>
+                                            <div class="product-image-wrapper">
+                                                @if($product->image)
+                                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
+                                                        class="product-image">
+                                                @else
+                                                    <img src="{{ asset('frontend/assets/images/robots/default-robot.png') }}"
+                                                        alt="{{ $product->name }}" class="product-image">
+                                                @endif
+                                            </div>
+                                            <a href="{{ route('product.single', $product->slug) }}" class="product-learn-more">
+                                                LEARN MORE <i class="fas fa-arrow-right"></i>
                                             </a>
                                         </div>
                                     </div>
-                                </div> -->
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        .neural-content .product-showcase-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .neural-content .product-showcase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .neural-content .product-category {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #448e91;
+            margin-bottom: 8px;
+        }
+
+        .neural-content .product-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .neural-content .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 0;
+        }
+
+        .neural-content .product-image-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            margin-bottom: 15px;
+        }
+
+        .neural-content .product-image {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+        }
+
+        .neural-content .product-learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #000;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #448e91;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .neural-content .product-learn-more:hover {
+            background: #448e91;
+            color: #fff;
+        }
+
+        /* Reduce feature card icon size */
+        .feature-card10 img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+    </style>
 @endsection
 
 @section('contact_section')

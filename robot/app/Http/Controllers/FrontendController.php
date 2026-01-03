@@ -11,7 +11,8 @@ class FrontendController extends Controller
 {
     public function index()
     {
-        return view('frontend.home');
+        $products = Product::published()->orderBy('sort_order')->take(6)->get();
+        return view('frontend.home', compact('products'));
     }
 
     public function about()
@@ -75,28 +76,32 @@ class FrontendController extends Controller
 
     public function media()
     {
-        return view('frontend.projects');
+        return view('frontend.media');
     }
 
     // Industry Pages
     public function serviceRobots()
     {
-        return view('frontend.industries.service-robots');
+        $randomProducts = Product::published()->inRandomOrder()->take(3)->get();
+        return view('frontend.industries.service-robots', compact('randomProducts'));
     }
 
     public function hospitalityRobots()
     {
-        return view('frontend.industries.hospitality-robots');
+        $randomProducts = Product::published()->inRandomOrder()->take(3)->get();
+        return view('frontend.industries.hospitality-robots', compact('randomProducts'));
     }
 
     public function cleaningRobots()
     {
-        return view('frontend.industries.cleaning-robots');
+        $randomProducts = Product::published()->inRandomOrder()->take(3)->get();
+        return view('frontend.industries.cleaning-robots', compact('randomProducts'));
     }
 
     public function deliveryRobots()
     {
-        return view('frontend.industries.delivery-robots');
+        $randomProducts = Product::published()->inRandomOrder()->take(3)->get();
+        return view('frontend.industries.delivery-robots', compact('randomProducts'));
     }
 
     public function productSingle($slug)
@@ -116,6 +121,39 @@ class FrontendController extends Controller
     public function privacyPolicy()
     {
         return view('frontend.privacy');
+    }
+
+    public function search(Request $request)
+    {
+        $query = $request->get('q', '');
+        $products = collect();
+        $blogs = collect();
+
+        if (strlen($query) >= 2) {
+            $products = Product::published()
+                ->where(function ($q) use ($query) {
+                    $q->where('name', 'LIKE', "%{$query}%")
+                        ->orWhere('description', 'LIKE', "%{$query}%")
+                        ->orWhere('category', 'LIKE', "%{$query}%");
+                })
+                ->orderBy('sort_order')
+                ->get();
+
+            $blogs = Blog::published()
+                ->where(function ($q) use ($query) {
+                    $q->where('title', 'LIKE', "%{$query}%")
+                        ->orWhere('content', 'LIKE', "%{$query}%");
+                })
+                ->latest('published_at')
+                ->get();
+        }
+
+        return view('frontend.search', compact('query', 'products', 'blogs'));
+    }
+
+    public function applications()
+    {
+        return view('frontend.applications');
     }
 }
 

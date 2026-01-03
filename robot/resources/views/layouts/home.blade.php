@@ -122,9 +122,9 @@
         <!-- search-popup -->
         <div class="search-popup" data-popup="1">
             <div class="search-popup-content">
-                <form>
+                <form action="{{ route('search') }}" method="GET">
                     <button type="submit"><i class="fa fa-search"></i></button>
-                    <input type="text" placeholder="Type Your Search..." required>
+                    <input type="text" name="q" placeholder="Search products and news..." required>
                 </form>
                 <button type="button" class="close-popup"></button>
             </div>
@@ -205,6 +205,12 @@
                     <a href="{{ route('products') }}">Products</a>
                 </li>
                 <li>
+                    <a href="{{ route('applications') }}">Applications</a>
+                </li>
+                <li>
+                    <a href="{{ route('media') }}">Media</a>
+                </li>
+                <li>
                     <a href="{{ route('blog') }}">News</a>
                 </li>
                 <li><a href="{{ route('contact') }}">Contacts</a></li>
@@ -281,6 +287,18 @@
                                     <a href='{{ route('products') }}'>
                                         <span class="menu-item">Products</span>
                                         <span class="menu-item2">Products</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='{{ route('applications') }}'>
+                                        <span class="menu-item">Applications</span>
+                                        <span class="menu-item2">Applications</span>
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href='{{ route('media') }}'>
+                                        <span class="menu-item">Media</span>
+                                        <span class="menu-item2">Media</span>
                                     </a>
                                 </li>
                                 <li>
@@ -370,6 +388,18 @@
                                         <a href='{{ route('products') }}'>
                                             <span class="menu-item">Products</span>
                                             <span class="menu-item2">Products</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='{{ route('applications') }}'>
+                                            <span class="menu-item">Applications</span>
+                                            <span class="menu-item2">Applications</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='{{ route('media') }}'>
+                                            <span class="menu-item">Media</span>
+                                            <span class="menu-item2">Media</span>
                                         </a>
                                     </li>
                                     <li>

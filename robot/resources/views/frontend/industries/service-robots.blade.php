@@ -38,7 +38,12 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-content9">
-                        <h4 class="title">Matradee Serving Robots</h4>
+                        @if(setting('service_robots_hero_image'))
+                            <img src="{{ setting('service_robots_hero_image') }}" alt="Matradee Serving Robots"
+                                style="max-width: 100%; height: auto; border-radius: 8px;">
+                        @else
+                            <h4 class="title">Matradee Serving Robots</h4>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -67,8 +72,12 @@
         <div class="container2">
             <div class="row">
                 <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="ser-card">
-                        <img src="{{ asset('frontend/assets/images/service/service6-1.png') }}" alt="12 Hour Battery">
+                    <div class="ser-card" @if(setting('service_robots_card1_bg'))
+                        style="background-image: url('{{ setting('service_robots_card1_bg') }}'); background-size: cover; background-position: center;"
+                    @endif>
+                        @if(!setting('service_robots_card1_bg'))
+                            <img src="{{ asset('frontend/assets/images/service/service6-1.png') }}" alt="12 Hour Battery">
+                        @endif
                         <div class="ser-content">
                             <h4 class="title"><a href="#" title="">12 Hours Battery Life</a></h4>
                             <p>Extended operation time ensures your robot can work through the busiest
@@ -101,8 +110,12 @@
                     </div>
                 </div>
                 <div class="col-xl-3 col-lg-6 col-md-6">
-                    <div class="ser-card v5">
-                        <img src="{{ asset('frontend/assets/images/service/service6-5.png') }}" alt="Table Navigation">
+                    <div class="ser-card v5" @if(setting('service_robots_card5_bg'))
+                        style="background-image: url('{{ setting('service_robots_card5_bg') }}'); background-size: cover; background-position: center;"
+                    @endif>
+                        @if(!setting('service_robots_card5_bg'))
+                            <img src="{{ asset('frontend/assets/images/service/service6-5.png') }}" alt="Table Navigation">
+                        @endif
                         <div class="ser-content v2">
                             <h4 class="title"><a href="#" title="">Smart Table Navigation</a></h4>
                             <p>Pre-programmed routes and real-time obstacle avoidance ensures
@@ -138,7 +151,8 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature1.svg') }}" alt="Restaurants">
+                        <img src="{{ setting('service_robots_app_icon_1') ?: asset('frontend/assets/images/feature/feature1.svg') }}"
+                            alt="Restaurants">
                         <h4 class="title">Restaurants</h4>
                         <p>Full-service and casual dining restaurants use our robots to run food
                             from kitchen to table and bus dirty dishes back.
@@ -147,7 +161,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature2.svg') }}" alt="Casinos">
+                        <img src="{{ setting('service_robots_app_icon_2') ?: asset('frontend/assets/images/feature/feature2.svg') }}"
+                            alt="Casinos">
                         <h4 class="title">Casino Restaurants</h4>
                         <p>High-volume casino dining operations rely on robot servers to maintain
                             speed and consistency during peak hours.
@@ -156,7 +171,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature3.svg') }}" alt="Senior Living">
+                        <img src="{{ setting('service_robots_app_icon_3') ?: asset('frontend/assets/images/feature/feature3.svg') }}"
+                            alt="Senior Living">
                         <h4 class="title">Senior Living</h4>
                         <p>Assisted living cafeterias use service robots to deliver meals to
                             residents, reducing staff strain and wait times.
@@ -165,7 +181,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature4.svg') }}" alt="Universities">
+                        <img src="{{ setting('service_robots_app_icon_4') ?: asset('frontend/assets/images/feature/feature4.svg') }}"
+                            alt="Universities">
                         <h4 class="title">University Dining</h4>
                         <p>Campus dining halls deploy serving robots to manage high student
                             traffic and deliver orders efficiently.
@@ -174,7 +191,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature5.svg') }}" alt="Buffets">
+                        <img src="{{ setting('service_robots_app_icon_5') ?: asset('frontend/assets/images/feature/feature5.svg') }}"
+                            alt="Buffets">
                         <h4 class="title">Buffet Service</h4>
                         <p>Robots assist in clearing used plates from buffet tables, keeping
                             stations clean and ready for guests.
@@ -183,7 +201,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature6.svg') }}" alt="Corporate Cafeterias">
+                        <img src="{{ setting('service_robots_app_icon_6') ?: asset('frontend/assets/images/feature/feature6.svg') }}"
+                            alt="Corporate Cafeterias">
                         <h4 class="title">Corporate Cafeterias</h4>
                         <p>Office building cafeterias use service robots to speed up lunch
                             service and reduce employee wait times.
@@ -192,7 +211,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature7.svg') }}" alt="Stadiums">
+                        <img src="{{ setting('service_robots_app_icon_7') ?: asset('frontend/assets/images/feature/feature7.svg') }}"
+                            alt="Stadiums">
                         <h4 class="title">Stadium Concessions</h4>
                         <p>Sports venues employ serving robots to deliver orders to premium
                             seating areas and suites.
@@ -201,7 +221,8 @@
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature8.svg') }}" alt="Convention Centers">
+                        <img src="{{ setting('service_robots_app_icon_8') ?: asset('frontend/assets/images/feature/feature8.svg') }}"
+                            alt="Convention Centers">
                         <h4 class="title">Convention Centers</h4>
                         <p>Large event spaces use robots for catering delivery during
                             conferences and banquets.
@@ -225,13 +246,13 @@
                             <p>Spectrum Robotics service robots deliver measurable ROI
                                 and operational improvements:
                             </p>
-                            <ul style="list-style: none; padding-left: 0; margin: 0;">
-                                <li style="margin-bottom: 10px;">✓ Reduce server walking time by 60%</li>
-                                <li style="margin-bottom: 10px;">✓ Increase table turnover rates</li>
-                                <li style="margin-bottom: 10px;">✓ Address labor shortage challenges</li>
-                                <li style="margin-bottom: 10px;">✓ Improve order accuracy</li>
-                                <li style="margin-bottom: 10px;">✓ Create memorable guest experiences</li>
-                                <li style="margin-bottom: 10px;">✓ Reduce employee fatigue and injury</li>
+                            <ul style="list-style: none; padding-left: 0; margin: 0; color: #ffffff;">
+                                <li style="margin-bottom: 10px; color: #ffffff;">✓ Reduce server walking time by 60%</li>
+                                <li style="margin-bottom: 10px; color: #ffffff;">✓ Increase table turnover rates</li>
+                                <li style="margin-bottom: 10px; color: #ffffff;">✓ Address labor shortage challenges</li>
+                                <li style="margin-bottom: 10px; color: #ffffff;">✓ Improve order accuracy</li>
+                                <li style="margin-bottom: 10px; color: #ffffff;">✓ Create memorable guest experiences</li>
+                                <li style="margin-bottom: 10px; color: #ffffff;">✓ Reduce employee fatigue and injury</li>
                             </ul>
                         </div>
                     </div>
@@ -243,18 +264,6 @@
                             <h4 class="profection">Ready to assist in delivering food,
                                 bussing tables, and enhancing guest experiences
                             </h4>
-                            <div class="ser-counter22">
-                                <div class="counter-box22">
-                                    <span class="counter-number percent-counter" data-target="88">0</span>
-                                    <span class="counter-text">lbs</span>
-                                </div>
-                                <span class="title">Carrying <br>Capacity</span>
-                            </div>
-                        </div>
-                        <div class="ser-video-box">
-                            <a href="#" class="video-popup" data-video="https://www.youtube.com/embed/aircAruvnKk">
-                                <i class="fa fa-play"></i> Watch Demo
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -274,51 +283,124 @@
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12">
                     <div class="neural-content">
-                        <h2 class="gradient-title">Explore Other <span>Robotic Solutions</span>
+                        <h2 class="gradient-title" style="font-size: 1.8rem;">Explore Other <span>Robotic Solutions</span>
                             from Spectrum Robotics
                         </h2>
-                        <!-- <div class="swiper brand">
-                                        <div class="swiper-wrapper">
-                                            <div class="swiper-slide">
-                                                <a href="{{ route('industries.hospitality') }}" title="">
-                                                    <div
-                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                        <span style="color: #fff; font-weight: 600;">Hospitality Robots</span>
-                                                    </div>
-                                                </a>
+
+                        <!-- Random Products Section -->
+                        @if(isset($randomProducts) && $randomProducts->count() > 0)
+                            <div class="row g-4 mt-4">
+                                @foreach($randomProducts as $product)
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="product-showcase-card">
+                                            <span class="product-category">{{ strtoupper($product->category ?? 'ROBOT') }}</span>
+                                            <h3 class="product-title">{{ $product->name }}</h3>
+                                            <p class="product-desc">{{ Str::limit(strip_tags($product->description), 100) }}</p>
+                                            <div class="product-image-wrapper">
+                                                @if($product->image)
+                                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
+                                                        class="product-image">
+                                                @else
+                                                    <img src="{{ asset('frontend/assets/images/robots/default-robot.png') }}"
+                                                        alt="{{ $product->name }}" class="product-image">
+                                                @endif
                                             </div>
-                                            <div class="swiper-slide">
-                                                <a href="{{ route('industries.cleaning') }}" title="">
-                                                    <div
-                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                        <span style="color: #fff; font-weight: 600;">Cleaning Robots</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="{{ route('industries.delivery') }}" title="">
-                                                    <div
-                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                        <span style="color: #fff; font-weight: 600;">Delivery Robots</span>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="swiper-slide">
-                                                <a href="{{ route('products') }}" title="">
-                                                    <div
-                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                        <span style="color: #fff; font-weight: 600;">All Products</span>
-                                                    </div>
-                                                </a>
-                                            </div>
+                                            <a href="{{ route('product.single', $product->slug) }}" class="product-learn-more">
+                                                LEARN MORE <i class="fas fa-arrow-right"></i>
+                                            </a>
                                         </div>
-                                    </div> -->
+                                    </div>
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </section>
     <!-- End Other Industries Section -->
+
+    <style>
+        /* Product Cards for Industry Pages */
+        .neural-content .product-showcase-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .neural-content .product-showcase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .neural-content .product-category {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #448e91;
+            margin-bottom: 8px;
+        }
+
+        .neural-content .product-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .neural-content .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 0;
+        }
+
+        .neural-content .product-image-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            margin-bottom: 15px;
+        }
+
+        .neural-content .product-image {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+        }
+
+        .neural-content .product-learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #000;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #448e91;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .neural-content .product-learn-more:hover {
+            background: #448e91;
+            color: #fff;
+        }
+
+        /* Reduce feature card icon size */
+        .feature-card10 img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+    </style>
 @endsection
 
 @section('contact_section')

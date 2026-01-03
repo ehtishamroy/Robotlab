@@ -4,11 +4,13 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\NewsletterController;
 use App\Http\Controllers\DemoRequestController;
+use App\Http\Controllers\ConsultationBookingController;
 
 Route::get('/', [FrontendController::class, 'index'])->name('home');
 Route::post('/newsletter/subscribe', [NewsletterController::class, 'subscribe'])->name('newsletter.subscribe');
 Route::post('/demo-request', [DemoRequestController::class, 'store'])->name('demo.request');
 Route::post('/validate-discount-code', [DemoRequestController::class, 'validateCode'])->name('discount.validate');
+Route::post('/consultation-booking', [ConsultationBookingController::class, 'store'])->name('consultation.booking');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 // Route::get('/services', [FrontendController::class, 'services'])->name('services'); // Hidden Technology page
 Route::get('/projects', [FrontendController::class, 'projects'])->name('projects');
@@ -22,6 +24,8 @@ Route::get('/checkout', [FrontendController::class, 'checkout'])->name('checkout
 Route::get('/cart', [FrontendController::class, 'cart'])->name('cart');
 Route::get('/careers', [FrontendController::class, 'careers'])->name('careers');
 Route::get('/media', [FrontendController::class, 'media'])->name('media');
+Route::get('/search', [FrontendController::class, 'search'])->name('search');
+Route::get('/applications', [FrontendController::class, 'applications'])->name('applications');
 
 // Industries Routes
 Route::get('/industries/service-robots', [FrontendController::class, 'serviceRobots'])->name('industries.service');

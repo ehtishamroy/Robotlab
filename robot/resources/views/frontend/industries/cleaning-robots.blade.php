@@ -35,7 +35,12 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-content9">
-                        <h4 class="title">CC1 Pro & DUST-E Series</h4>
+                        @if(setting('cleaning_robots_hero_image'))
+                            <img src="{{ setting('cleaning_robots_hero_image') }}" alt="CC1 Pro & DUST-E Series"
+                                style="max-width: 100%; height: auto; border-radius: 8px;">
+                        @else
+                            <h4 class="title">CC1 Pro & DUST-E Series</h4>
+                        @endif
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -66,56 +71,64 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature1.svg') }}" alt="Floor Washing">
+                        <img src="{{ setting('cleaning_robots_feature_icon_1') ?: asset('frontend/assets/images/feature/feature1.svg') }}"
+                            alt="Floor Washing">
                         <h4 class="title">Floor Washing</h4>
                         <p>5 hours of continuous floor washing with powerful scrubbing action.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature2.svg') }}" alt="Sweep & Vacuum">
+                        <img src="{{ setting('cleaning_robots_feature_icon_2') ?: asset('frontend/assets/images/feature/feature2.svg') }}"
+                            alt="Sweep & Vacuum">
                         <h4 class="title">Sweep, Suction & Push</h4>
                         <p>5 hours of sweeping and vacuuming for comprehensive floor care.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature3.svg') }}" alt="Carpet Vacuuming">
+                        <img src="{{ setting('cleaning_robots_feature_icon_3') ?: asset('frontend/assets/images/feature/feature3.svg') }}"
+                            alt="Carpet Vacuuming">
                         <h4 class="title">Carpet Vacuuming</h4>
                         <p>4 hours of powerful carpet cleaning and debris removal.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature4.svg') }}" alt="UV Disinfection">
+                        <img src="{{ setting('cleaning_robots_feature_icon_4') ?: asset('frontend/assets/images/feature/feature4.svg') }}"
+                            alt="UV Disinfection">
                         <h4 class="title">UV Disinfection</h4>
                         <p>UV-C light disinfection for enhanced hygiene in healthcare environments.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature5.svg') }}" alt="Coverage">
+                        <img src="{{ setting('cleaning_robots_feature_icon_5') ?: asset('frontend/assets/images/feature/feature5.svg') }}"
+                            alt="Coverage">
                         <h4 class="title">8,600 sq. ft./hour</h4>
                         <p>High-speed coverage for large commercial spaces.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature6.svg') }}" alt="Silent Operation">
+                        <img src="{{ setting('cleaning_robots_feature_icon_6') ?: asset('frontend/assets/images/feature/feature6.svg') }}"
+                            alt="Silent Operation">
                         <h4 class="title">Silent Dust Push</h4>
                         <p>9 hours of silent operation for occupied buildings.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature7.svg') }}" alt="Autonomous">
+                        <img src="{{ setting('cleaning_robots_feature_icon_7') ?: asset('frontend/assets/images/feature/feature7.svg') }}"
+                            alt="Autonomous">
                         <h4 class="title">Fully Autonomous</h4>
                         <p>Operates during low-traffic hours without human supervision.</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-6">
                     <div class="feature-card10">
-                        <img src="{{ asset('frontend/assets/images/feature/feature8.svg') }}" alt="AI Perception">
+                        <img src="{{ setting('cleaning_robots_feature_icon_8') ?: asset('frontend/assets/images/feature/feature8.svg') }}"
+                            alt="AI Perception">
                         <h4 class="title">AI Perception</h4>
                         <p>Detects and avoids obstacles with advanced sensor fusion.</p>
                     </div>
@@ -136,40 +149,121 @@
                 </div>
                 <div class="col-lg-10 col-md-10 col-sm-12">
                     <div class="neural-content">
-                        <h2 class="gradient-title">Explore Other <span>Robotic Solutions</span></h2>
-                        <!-- <div class="swiper brand">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('industries.service') }}">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Service Robots</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('industries.hospitality') }}">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Hospitality Robots</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="{{ route('industries.delivery') }}">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Delivery Robots</span>
-                                                </div>
+                        <h2 class="gradient-title" style="font-size: 1.8rem;">Explore Other <span>Robotic Solutions</span>
+                        </h2>
+
+                        <!-- Random Products Section -->
+                        @if(isset($randomProducts) && $randomProducts->count() > 0)
+                            <div class="row g-4 mt-4">
+                                @foreach($randomProducts as $product)
+                                    <div class="col-lg-4 col-md-6">
+                                        <div class="product-showcase-card">
+                                            <span class="product-category">{{ strtoupper($product->category ?? 'ROBOT') }}</span>
+                                            <h3 class="product-title">{{ $product->name }}</h3>
+                                            <p class="product-desc">{{ Str::limit(strip_tags($product->description), 100) }}</p>
+                                            <div class="product-image-wrapper">
+                                                @if($product->image)
+                                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
+                                                        class="product-image">
+                                                @else
+                                                    <img src="{{ asset('frontend/assets/images/robots/default-robot.png') }}"
+                                                        alt="{{ $product->name }}" class="product-image">
+                                                @endif
+                                            </div>
+                                            <a href="{{ route('product.single', $product->slug) }}" class="product-learn-more">
+                                                LEARN MORE <i class="fas fa-arrow-right"></i>
                                             </a>
                                         </div>
                                     </div>
-                                </div> -->
+                                @endforeach
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
         </div>
     </section>
+
+    <style>
+        .neural-content .product-showcase-card {
+            background: #f8f9fa;
+            border-radius: 16px;
+            padding: 20px;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: all 0.3s ease;
+        }
+
+        .neural-content .product-showcase-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .neural-content .product-category {
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            color: #448e91;
+            margin-bottom: 8px;
+        }
+
+        .neural-content .product-title {
+            font-size: 22px;
+            font-weight: 700;
+            color: #1a1a2e;
+            margin-bottom: 10px;
+        }
+
+        .neural-content .product-desc {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+            flex-grow: 0;
+        }
+
+        .neural-content .product-image-wrapper {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 150px;
+            margin-bottom: 15px;
+        }
+
+        .neural-content .product-image {
+            max-width: 100%;
+            max-height: 150px;
+            object-fit: contain;
+        }
+
+        .neural-content .product-learn-more {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+            font-weight: 600;
+            color: #000;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid #448e91;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .neural-content .product-learn-more:hover {
+            background: #448e91;
+            color: #fff;
+        }
+
+        /* Reduce feature card icon size */
+        .feature-card10 img {
+            width: 48px;
+            height: 48px;
+            object-fit: contain;
+        }
+    </style>
 @endsection
 
 @section('contact_section')

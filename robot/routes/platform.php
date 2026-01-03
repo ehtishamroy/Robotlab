@@ -10,6 +10,7 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\SettingScreen;
 use App\Orchid\Screens\HomepageScreen;
+use App\Orchid\Screens\IndustryPageScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
 
@@ -109,6 +110,15 @@ Route::screen('homepage', HomepageScreen::class)
             ->push(__('Homepage Content'), route('platform.homepage'));
     });
 
+// Platform > Industry Pages
+Route::screen('industry-pages', IndustryPageScreen::class)
+    ->name('platform.industry-pages')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Industry Pages'), route('platform.industry-pages'));
+    });
+
 // Platform > Blog
 Route::screen('blog', \App\Orchid\Screens\Blog\BlogListScreen::class)
     ->name('platform.blog.list')
@@ -199,6 +209,15 @@ Route::screen('demo-requests', \App\Orchid\Screens\DemoRequestListScreen::class)
         return $trail
             ->parent('platform.index')
             ->push(__('Demo Requests'), route('platform.demo-requests'));
+    });
+
+// Platform > Consultation Bookings
+Route::screen('consultation-bookings', \App\Orchid\Screens\ConsultationBookingListScreen::class)
+    ->name('platform.consultation-bookings')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Consultation Bookings'), route('platform.consultation-bookings'));
     });
 
 // Platform > Discount Codes

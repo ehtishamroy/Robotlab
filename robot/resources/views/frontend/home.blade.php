@@ -313,6 +313,10 @@
                                 <span>{{ setting('homepage.hero.button_text', 'Explore Products') }}</span>
                                 <i class="icon-arrow-top"></i>
                             </a>
+                            <a href="https://calendly.com/spectrumrobotics" target="_blank" title="" class="ibt-btn ibt-btn-outline" style="margin-left: 15px;">
+                                <i class="fas fa-calendar-alt" style="margin-right: 8px;"></i>
+                                <span>Book a Meeting</span>
+                            </a>
                         </div>
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
@@ -528,107 +532,30 @@
                 </div>
 
                 <div class="row g-4">
-                    <!-- Product Card 1: BellaBot -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="product-showcase-card">
-                            <span class="product-category">DELIVERY ROBOT</span>
-                            <h3 class="product-title">BellaBot</h3>
-                            <p class="product-desc">Premium food delivery robot with an adorable personality. Equipped with AI
-                                navigation and interactive cat-like expressions for an unforgettable dining experience.</p>
-                            <div class="product-image-wrapper">
-                                <img src="{{ asset('frontend/assets/images/robots/bellabot.png') }}"
-                                    alt="BellaBot - Food Delivery Robot" class="product-image">
+                    @forelse($products as $product)
+                        <div class="col-lg-6 col-md-6">
+                            <div class="product-showcase-card">
+                                <span class="product-category">{{ strtoupper($product->category ?? 'ROBOT') }}</span>
+                                <h3 class="product-title">{{ $product->name }}</h3>
+                                <p class="product-desc">{{ Str::limit(strip_tags($product->description), 150) }}</p>
+                                <div class="product-image-wrapper">
+                                    @if($product->image)
+                                        <img src="{{ asset($product->image) }}" alt="{{ $product->name }}" class="product-image">
+                                    @else
+                                        <img src="{{ asset('frontend/assets/images/robots/default-robot.png') }}"
+                                            alt="{{ $product->name }}" class="product-image">
+                                    @endif
+                                </div>
+                                <a href="{{ route('product.single', $product->slug) }}" class="product-learn-more">
+                                    LEARN MORE <i class="fas fa-arrow-right"></i>
+                                </a>
                             </div>
-                            <a href="{{ route('product.single', 'bellabot') }}" class="product-learn-more">
-                                LEARN MORE <i class="fas fa-arrow-right"></i>
-                            </a>
                         </div>
-                    </div>
-
-                    <!-- Product Card 2: KettyBot -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="product-showcase-card">
-                            <span class="product-category">SERVICE ROBOT</span>
-                            <h3 class="product-title">KettyBot</h3>
-                            <p class="product-desc">Versatile advertising and delivery robot featuring a large display screen.
-                                Perfect for promotions, guidance, and autonomous delivery tasks.</p>
-                            <div class="product-image-wrapper">
-                                <img src="{{ asset('frontend/assets/images/robots/kettybot.png') }}"
-                                    alt="KettyBot - Service Robot" class="product-image">
-                            </div>
-                            <a href="{{ route('product.single', 'kettybot') }}" class="product-learn-more">
-                                LEARN MORE <i class="fas fa-arrow-right"></i>
-                            </a>
+                    @empty
+                        <div class="col-12 text-center">
+                            <p>No products available at the moment.</p>
                         </div>
-                    </div>
-
-                    <!-- Product Card 3: HolaBot -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="product-showcase-card">
-                            <span class="product-category">BUSSING ROBOT</span>
-                            <h3 class="product-title">HolaBot</h3>
-                            <p class="product-desc">Heavy-duty bussing robot with enclosed cabin for dish collection. Summoned
-                                via smart watch, designed for high-volume restaurants and dining halls.</p>
-                            <div class="product-image-wrapper">
-                                <img src="{{ asset('frontend/assets/images/robots/holabot.png') }}"
-                                    alt="HolaBot - Bussing Robot" class="product-image">
-                            </div>
-                            <a href="{{ route('product.single', 'holabot') }}" class="product-learn-more">
-                                LEARN MORE <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 4: PuduBot 2 -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="product-showcase-card">
-                            <span class="product-category">DELIVERY ROBOT</span>
-                            <h3 class="product-title">PuduBot 2</h3>
-                            <p class="product-desc">Next-generation delivery robot with enhanced capacity and multi-floor
-                                navigation. Ideal for hotels, hospitals, and large-scale hospitality venues.</p>
-                            <div class="product-image-wrapper">
-                                <img src="{{ asset('frontend/assets/images/robots/pudubot2.png') }}"
-                                    alt="PuduBot 2 - Delivery Robot" class="product-image">
-                            </div>
-                            <a href="{{ route('product.single', 'pudubot-2') }}" class="product-learn-more">
-                                LEARN MORE <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 5: CC1 Cleaning Robot -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="product-showcase-card">
-                            <span class="product-category">CLEANING ROBOT</span>
-                            <h3 class="product-title">CC1</h3>
-                            <p class="product-desc">Commercial cleaning robot with intelligent path planning. Handles sweeping,
-                                mopping, and sanitization for large floor areas autonomously.</p>
-                            <div class="product-image-wrapper">
-                                <img src="{{ asset('frontend/assets/images/robots/cc1.png') }}" alt="CC1 - Cleaning Robot"
-                                    class="product-image">
-                            </div>
-                            <a href="{{ route('product.single', 'cc1') }}" class="product-learn-more">
-                                LEARN MORE <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Product Card 6: Flash Bot -->
-                    <div class="col-lg-6 col-md-6">
-                        <div class="product-showcase-card">
-                            <span class="product-category">OUTDOOR DELIVERY</span>
-                            <h3 class="product-title">FlashBot</h3>
-                            <p class="product-desc">All-weather outdoor delivery robot built for last-mile logistics. Features
-                                robust navigation, weather-resistant design, and secure compartments.</p>
-                            <div class="product-image-wrapper">
-                                <img src="{{ asset('frontend/assets/images/robots/flashbot.png') }}"
-                                    alt="FlashBot - Outdoor Delivery Robot" class="product-image">
-                            </div>
-                            <a href="{{ route('product.single', 'flashbot') }}" class="product-learn-more">
-                                LEARN MORE <i class="fas fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
+                    @endforelse
                 </div>
                 <div class="text-center mt-5">
                     <a href="{{ route('products') }}" class="ibt-btn ibt-btn-outline">
@@ -707,26 +634,26 @@
                 <div class="feature-tabs6">
                     <nav>
                         <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                            <a href="#" title="" class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
+                            <a href="javascript:void(0)" title="" class="nav-link active" id="nav-home-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">
                                 <div class="tab-heade">
                                     <!-- SVG Code omitted for brevity -->
                                     <h4 class="title">{{ setting('homepage.capabilities.tab_1_title', 'Autonomous Navigation') }}</h4>
                                 </div>
                             </a>
-                            <a href="#" title="" class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
+                            <a href="javascript:void(0)" title="" class="nav-link" id="nav-profile-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">
                                 <div class="tab-heade">
                                     <h4 class="title">{{ setting('homepage.capabilities.tab_2_title', 'AI-Powered Interaction') }}</h4>
                                 </div>
                             </a>
-                            <a href="#" title="" class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
+                            <a href="javascript:void(0)" title="" class="nav-link" id="nav-contact-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">
                                 <div class="tab-heade">
                                     <h4 class="title">{{ setting('homepage.capabilities.tab_3_title', 'Seamless Integration') }}</h4>
                                 </div>
                             </a>
-                            <a href="#" title="" class="nav-link" id="nav-scale-tab" data-bs-toggle="tab"
+                            <a href="javascript:void(0)" title="" class="nav-link" id="nav-scale-tab" data-bs-toggle="tab"
                                 data-bs-target="#nav-scale" role="tab" aria-controls="nav-scale" aria-selected="false">
                                 <div class="tab-heade">
                                     <h4 class="title">{{ setting('homepage.capabilities.tab_4_title', 'Scalable Deployment') }}</h4>
@@ -739,7 +666,7 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="tab-img">
-                                        <img src="{{ asset('frontend/assets/images/feature/feature6-1.png') }}"
+                                        <img src="{{ asset(setting('homepage.capabilities.tab_1_image', 'frontend/assets/images/feature/feature6-1.png')) }}"
                                             alt="Autonomous Navigation">
                                     </div>
                                 </div>
@@ -761,7 +688,7 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="tab-img">
-                                        <img src="{{ asset('frontend/assets/images/feature/feature6-2.png') }}"
+                                        <img src="{{ asset(setting('homepage.capabilities.tab_2_image', 'frontend/assets/images/feature/feature6-2.png')) }}"
                                             alt="AI-Powered Interaction">
                                     </div>
                                 </div>
@@ -783,7 +710,7 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="tab-img">
-                                        <img src="{{ asset('frontend/assets/images/feature/feature6-3.png') }}"
+                                        <img src="{{ asset(setting('homepage.capabilities.tab_3_image', 'frontend/assets/images/feature/feature6-3.png')) }}"
                                             alt="Seamless Integration">
                                     </div>
                                 </div>
@@ -805,7 +732,7 @@
                             <div class="row align-items-center">
                                 <div class="col-lg-6">
                                     <div class="tab-img">
-                                        <img src="{{ asset('frontend/assets/images/feature/feature6-1.png') }}"
+                                        <img src="{{ asset(setting('homepage.capabilities.tab_4_image', 'frontend/assets/images/feature/feature6-1.png')) }}"
                                             alt="Scalable Deployment">
                                     </div>
                                 </div>

@@ -1,6 +1,6 @@
 @extends('layouts.frontend')
 
-@section('title', 'Contact || Aiero AI Agency & Technology HTML Template')
+@section('title', 'Contacts | ' . setting('site_name', 'Spectrum Robotics'))
 
 @section('content')
     <!-- page-banner9 -->

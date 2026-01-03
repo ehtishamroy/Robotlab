@@ -2,6 +2,14 @@
 
 @section('title', 'About Spectrum Robotics || Enterprise Robotic Solutions')
 
+@push('styles')
+    <style>
+        a.video-popup {
+            display: none !important;
+        }
+    </style>
+@endpush
+
 @section('content')
     <!-- page-banner -->
     <section class="page-banner11">
@@ -36,7 +44,8 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="about-content9">
-                        <h4 class="title">Spectrum Robotics</h4>
+                        <img src="{{ asset('frontend/assets/images/event/about1-1.png') }}" alt="Spectrum Robotics"
+                            style="border-radius: 20px; width: 100%;">
                     </div>
                 </div>
                 <div class="col-lg-6">
@@ -87,11 +96,14 @@
                                 and a rapidly growing clientele of 1000+ US customers.
                             </p>
                             <p><strong>Key Benefits:</strong></p>
-                            <ul style="list-style: none; padding-left: 0; margin: 0;">
-                                <li style="margin-bottom: 10px;">✓ Labor Shortage Solutions</li>
-                                <li style="margin-bottom: 10px;">✓ Reduced Heavy Work for Employees</li>
-                                <li style="margin-bottom: 10px;">✓ Flexible Workforce Allocation</li>
-                                <li style="margin-bottom: 10px;">✓ Attention-Grabbing Technology</li>
+                            <ul style="list-style: none; padding-left: 0; margin: 0; color: #ffffff !important;">
+                                <li style="margin-bottom: 10px; color: #ffffff !important;">✓ Labor Shortage Solutions</li>
+                                <li style="margin-bottom: 10px; color: #ffffff !important;">✓ Reduced Heavy Work for
+                                    Employees</li>
+                                <li style="margin-bottom: 10px; color: #ffffff !important;">✓ Flexible Workforce Allocation
+                                </li>
+                                <li style="margin-bottom: 10px; color: #ffffff !important;">✓ Attention-Grabbing Technology
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -104,13 +116,7 @@
                             <h4 class="profection">We deliver complete automation solutions using
                                 cutting-edge robotics and AI technology
                             </h4>
-                            <div class="ser-counter22">
-                                <div class="counter-box22">
-                                    <span class="counter-number percent-counter" data-target="120">0</span>
-                                    <span class="counter-text">+</span>
-                                </div>
-                                <span class="title">Countries <br>Worldwide</span>
-                            </div>
+
                         </div>
                         <div class="ser-video-box">
                             <a href="#" class="video-popup" data-video="https://www.youtube.com/embed/aircAruvnKk">
@@ -125,7 +131,7 @@
     <!-- End Why Spectrum Robotics Section -->
 
     <!-- Industries We Serve -->
-    <section class="neural-playground7 ibt-section-gap">
+    <section class="neural-playground7 ibt-section-gap" style="display:none !important;">
         <div class="container3">
             <div class="row">
                 <div class="col-lg-2 col-md-2 col-sm-12">
@@ -139,71 +145,71 @@
                                 Senior Living | Airports | Universities | Government | Retail | Factories</span>
                         </h2>
                         <!-- <div class="swiper brand">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Restaurants</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Hospitals</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Hotels</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Senior Living</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Airports</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Universities</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Retail</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Factories</span>
-                                                </div>
-                                            </a>
-                                        </div> -->
+                                                    <div class="swiper-wrapper">
+                                                        <div class="swiper-slide">
+                                                            <a href="#" title="">
+                                                                <div
+                                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                                    <span style="color: #fff; font-weight: 600;">Restaurants</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <a href="#" title="">
+                                                                <div
+                                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                                    <span style="color: #fff; font-weight: 600;">Hospitals</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <a href="#" title="">
+                                                                <div
+                                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                                    <span style="color: #fff; font-weight: 600;">Hotels</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <a href="#" title="">
+                                                                <div
+                                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                                    <span style="color: #fff; font-weight: 600;">Senior Living</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <a href="#" title="">
+                                                                <div
+                                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                                    <span style="color: #fff; font-weight: 600;">Airports</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <a href="#" title="">
+                                                                <div
+                                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                                    <span style="color: #fff; font-weight: 600;">Universities</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <a href="#" title="">
+                                                                <div
+                                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                                    <span style="color: #fff; font-weight: 600;">Retail</span>
+                                                                </div>
+                                                            </a>
+                                                        </div>
+                                                        <div class="swiper-slide">
+                                                            <a href="#" title="">
+                                                                <div
+                                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                                    <span style="color: #fff; font-weight: 600;">Factories</span>
+                                                                </div>
+                                                            </a>
+                                                        </div> -->
                     </div>
                 </div>
             </div>

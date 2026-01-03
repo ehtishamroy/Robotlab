@@ -64,6 +64,15 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-12" style="margin-top: 25px;">
+                            <a href="https://calendly.com/spectrumrobotics" target="_blank"
+                                class="ibt-btn ibt-btn-outline"
+                                style="display: inline-flex; align-items: center; gap: 10px; border-color: #fff; color: #fff;">
+                                <i class="fas fa-calendar-alt" style="color: #fff;"></i>
+                                <span style="color: #fff;">Book a Meeting</span>
+                                <i class="icon-arrow-top" style="color: #fff;"></i>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

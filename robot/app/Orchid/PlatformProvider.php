@@ -33,6 +33,11 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.homepage')
                 ->title('Pages'),
 
+            Menu::make('Industry Pages')
+                ->icon('briefcase')
+                ->route('platform.industry-pages')
+                ->title('Content Control'),
+
             Menu::make('Products')
                 ->icon('bulb')
                 ->route('platform.products.list')
@@ -49,6 +54,13 @@ class PlatformProvider extends OrchidServiceProvider
                     return \App\Models\DemoRequest::where('is_read', false)->count() ?: null;
                 })
                 ->title('Leads'),
+
+            Menu::make('Consultation Bookings')
+                ->icon('calendar')
+                ->route('platform.consultation-bookings')
+                ->badge(function () {
+                    return \App\Models\ConsultationBooking::where('is_read', false)->count() ?: null;
+                }),
 
             Menu::make('Discount Codes')
                 ->icon('tag')
