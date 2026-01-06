@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\Blog;
 use App\Models\Product;
 use App\Models\Brand;
+use App\Models\Application;
+use App\Models\Media;
+use App\Models\Faq;
+use App\Models\Career;
 
 class FrontendController extends Controller
 {
@@ -44,7 +48,8 @@ class FrontendController extends Controller
 
     public function faq()
     {
-        return view('frontend.faq');
+        $faqs = Faq::active()->ordered()->get();
+        return view('frontend.faq', compact('faqs'));
     }
 
     public function contact()
@@ -71,12 +76,14 @@ class FrontendController extends Controller
 
     public function careers()
     {
-        return view('frontend.blog');
+        $careers = Career::active()->ordered()->get();
+        return view('frontend.careers', compact('careers'));
     }
 
     public function media()
     {
-        return view('frontend.media');
+        $mediaItems = Media::active()->ordered()->get();
+        return view('frontend.media', compact('mediaItems'));
     }
 
     // Industry Pages
@@ -153,7 +160,8 @@ class FrontendController extends Controller
 
     public function applications()
     {
-        return view('frontend.applications');
+        $applications = Application::active()->ordered()->get();
+        return view('frontend.applications', compact('applications'));
     }
 }
 

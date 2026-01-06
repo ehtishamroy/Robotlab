@@ -163,6 +163,7 @@
 @section('content')
     <!-- page-banner -->
     <section class="page-banner9">
+        @include('partials.banner-dynamic', ['key' => 'media', 'class' => 'page-banner9'])
         <div class="shape"></div>
         <div class="shape3"></div>
         <div class="staff-text">Media</div>
@@ -185,13 +186,13 @@
 
             <!-- Product Catalog Section -->
             <!-- <div class="catalog-section">
-                                                <h3>Product Catalog</h3>
-                                                <p>Explore our complete range of robotic solutions in our interactive eCatalog. Discover specifications,
-                                                    features, and applications for all our products.</p>
-                                                <a href="https://online.flippingbook.com/view/376522849/" target="_blank" class="catalog-btn">
-                                                    <i class="fas fa-book-open"></i> View eCatalog
-                                                </a>
-                                            </div> -->
+                                                    <h3>Product Catalog</h3>
+                                                    <p>Explore our complete range of robotic solutions in our interactive eCatalog. Discover specifications,
+                                                        features, and applications for all our products.</p>
+                                                    <a href="https://online.flippingbook.com/view/376522849/" target="_blank" class="catalog-btn">
+                                                        <i class="fas fa-book-open"></i> View eCatalog
+                                                    </a>
+                                                </div> -->
 
             <!-- Featured Video Section -->
             <div class="featured-video-section">
@@ -240,57 +241,24 @@
             </div>
 
             <div class="media-video-grid">
-                <!-- Video 1: Matradee Creating Excitement -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/yvgXXRJ84wU" allowfullscreen
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                @forelse($mediaItems as $media)
+                    <div class="video-card">
+                        <div class="video-wrapper">
+                            <iframe src="{{ $media->embed_url }}" allowfullscreen
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
+                        </div>
+                        <div class="video-content">
+                            <h4>{{ $media->title }}</h4>
+                            @if($media->description)
+                                <p>{{ $media->description }}</p>
+                            @endif
+                        </div>
                     </div>
-                    <div class="video-content">
-                        <h4>Matradee Creating Excitement!</h4>
-                        <p>Matradee L Serving and Bussing in Gaming & Entertainment venues. Watch how our robots transform
-                            customer experiences.</p>
+                @empty
+                    <div class="text-center">
+                        <p>No videos available at the moment.</p>
                     </div>
-                </div>
-
-                <!-- Video 2: Titan Testimonial -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/1BYEgxJ127A" allowfullscreen
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-                    </div>
-                    <div class="video-content">
-                        <h4>Titan Testimonial</h4>
-                        <p>Deliver heavy loads up to 330 lbs. with ease. See real customer testimonials about the Titan
-                            robot's capabilities.</p>
-                    </div>
-                </div>
-
-                <!-- Video 3: ADAM Robot -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/i19nQbvSdX8" allowfullscreen
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-                    </div>
-                    <div class="video-content">
-                        <h4>Meet ADAM</h4>
-                        <p>ADAM is an interactive robot bartender, barista, chef, and more! Perfect for events and
-                            hospitality venues.</p>
-                    </div>
-                </div>
-
-                <!-- Video 4: BellaBot Overview -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/MMUkyfJ9Yhc" allowfullscreen
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
-                    </div>
-                    <div class="video-content">
-                        <h4>BellaBot Overview</h4>
-                        <p>Premium food delivery robot with an adorable personality and interactive cat-like expressions.
-                        </p>
-                    </div>
-                </div>
+                @endforelse
             </div>
 
         </div>

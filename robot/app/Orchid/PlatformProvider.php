@@ -33,6 +33,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->route('platform.homepage')
                 ->title('Pages'),
 
+            Menu::make('About Page Content')
+                ->icon('info')
+                ->route('platform.about-page'),
+
             Menu::make('Industry Pages')
                 ->icon('briefcase')
                 ->route('platform.industry-pages')
@@ -46,6 +50,26 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Brands')
                 ->icon('building')
                 ->route('platform.brands.list'),
+
+            Menu::make('Applications')
+                ->icon('grid')
+                ->route('platform.applications.list'),
+
+            Menu::make('Media')
+                ->icon('camrecorder')
+                ->route('platform.media.list'),
+
+            Menu::make('FAQs')
+                ->icon('question')
+                ->route('platform.faqs.list'),
+
+            Menu::make('Careers')
+                ->icon('user-follow')
+                ->route('platform.careers.list'),
+
+            Menu::make('Page Banners')
+                ->icon('picture')
+                ->route('platform.page-banners'),
 
             Menu::make('Demo Requests')
                 ->icon('envelope')

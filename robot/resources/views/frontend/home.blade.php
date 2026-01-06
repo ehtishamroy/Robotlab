@@ -457,58 +457,27 @@
                         </h2>
                         <div class="swiper brand">
                             <div class="swiper-wrapper">
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_11_1620e63f74.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_13_4dd3d62e53.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_14_6516450a79.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_16_c4ce5213aa.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_18_a1afa46fde.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_19_b4a546c986.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_1_4e2e3599ba.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_20_13c1d3053b.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_21_4c6cb3b9d3.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_23_8a4362d457.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_26_faf1e83c0c.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_29_0147e74bef.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="#" title=""><img src="{{ asset('icons/logo_en_9_f4ba736769.png') }}"
-                                            alt="Technology Partner"></a>
-                                </div>
+                                @php
+                                    $partnerLogos = [
+                                        setting('homepage.partners.logo_1', 'icons/logo_en_11_1620e63f74.png'),
+                                        setting('homepage.partners.logo_2', 'icons/logo_en_13_4dd3d62e53.png'),
+                                        setting('homepage.partners.logo_3', 'icons/logo_en_14_6516450a79.png'),
+                                        setting('homepage.partners.logo_4', 'icons/logo_en_16_c4ce5213aa.png'),
+                                        setting('homepage.partners.logo_5', 'icons/logo_en_18_a1afa46fde.png'),
+                                        setting('homepage.partners.logo_6', 'icons/logo_en_19_b4a546c986.png'),
+                                        setting('homepage.partners.logo_7', 'icons/logo_en_1_4e2e3599ba.png'),
+                                        setting('homepage.partners.logo_8', 'icons/logo_en_20_13c1d3053b.png'),
+                                        setting('homepage.partners.logo_9', 'icons/logo_en_21_4c6cb3b9d3.png'),
+                                        setting('homepage.partners.logo_10', 'icons/logo_en_23_8a4362d457.png'),
+                                    ];
+                                @endphp
+                                @foreach($partnerLogos as $logo)
+                                    @if($logo)
+                                        <div class="swiper-slide">
+                                            <a href="#" title=""><img src="{{ asset($logo) }}" alt="Technology Partner"></a>
+                                        </div>
+                                    @endif
+                                @endforeach
                             </div>
                             <div class="swiper-pagination"></div>
                         </div>

@@ -55,6 +55,16 @@ class HomepageScreen extends Screen
                 ],
                 'partners' => [
                     'title' => setting('homepage.partners.title', 'Trusted Technology Partners Powering Our Robotic Fleet—Industry-Leading Innovation'),
+                    'logo_1' => setting('homepage.partners.logo_1', 'icons/logo_en_11_1620e63f74.png'),
+                    'logo_2' => setting('homepage.partners.logo_2', 'icons/logo_en_13_4dd3d62e53.png'),
+                    'logo_3' => setting('homepage.partners.logo_3', 'icons/logo_en_14_6516450a79.png'),
+                    'logo_4' => setting('homepage.partners.logo_4', 'icons/logo_en_16_c4ce5213aa.png'),
+                    'logo_5' => setting('homepage.partners.logo_5', 'icons/logo_en_18_a1afa46fde.png'),
+                    'logo_6' => setting('homepage.partners.logo_6', 'icons/logo_en_19_b4a546c986.png'),
+                    'logo_7' => setting('homepage.partners.logo_7', 'icons/logo_en_1_4e2e3599ba.png'),
+                    'logo_8' => setting('homepage.partners.logo_8', 'icons/logo_en_20_13c1d3053b.png'),
+                    'logo_9' => setting('homepage.partners.logo_9', 'icons/logo_en_21_4c6cb3b9d3.png'),
+                    'logo_10' => setting('homepage.partners.logo_10', 'icons/logo_en_23_8a4362d457.png'),
                 ],
                 'solutions' => [
                     'subtitle' => setting('homepage.solutions.subtitle', 'solutions'),
@@ -227,6 +237,46 @@ class HomepageScreen extends Screen
                 'Partners' => Layout::rows([
                     Input::make('settings.partners.title')
                         ->title('Partners Section Title'),
+
+                    Picture::make('settings.partners.logo_1')
+                        ->title('Partner Logo 1')
+                        ->targetRelativeUrl(),
+
+                    Picture::make('settings.partners.logo_2')
+                        ->title('Partner Logo 2')
+                        ->targetRelativeUrl(),
+
+                    Picture::make('settings.partners.logo_3')
+                        ->title('Partner Logo 3')
+                        ->targetRelativeUrl(),
+
+                    Picture::make('settings.partners.logo_4')
+                        ->title('Partner Logo 4')
+                        ->targetRelativeUrl(),
+
+                    Picture::make('settings.partners.logo_5')
+                        ->title('Partner Logo 5')
+                        ->targetRelativeUrl(),
+
+                    Picture::make('settings.partners.logo_6')
+                        ->title('Partner Logo 6')
+                        ->targetRelativeUrl(),
+
+                    Picture::make('settings.partners.logo_7')
+                        ->title('Partner Logo 7')
+                        ->targetRelativeUrl(),
+
+                    Picture::make('settings.partners.logo_8')
+                        ->title('Partner Logo 8')
+                        ->targetRelativeUrl(),
+
+                    Picture::make('settings.partners.logo_9')
+                        ->title('Partner Logo 9')
+                        ->targetRelativeUrl(),
+
+                    Picture::make('settings.partners.logo_10')
+                        ->title('Partner Logo 10')
+                        ->targetRelativeUrl(),
                 ]),
 
                 'Solutions' => Layout::rows([

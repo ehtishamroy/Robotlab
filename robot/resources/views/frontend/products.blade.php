@@ -2,6 +2,7 @@
 
 @section('title', 'Products || Spectrum Robotics - Service Robot Solutions')@section('content')<!-- page-banner9 -->
     <section class="page-banner9">
+        @include('partials.banner-dynamic', ['key' => 'products', 'class' => 'page-banner9'])
         <div class="shape"></div>
         <div class="shape3"></div>
         <div class="staff-text">Products</div>

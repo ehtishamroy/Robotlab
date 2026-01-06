@@ -5,6 +5,7 @@
 @section('content')
     <!-- page-banner -->
     <section class="page-banner3">
+        @include('partials.banner-dynamic', ['key' => 'services', 'class' => 'page-banner3'])
         <div class="shape"></div>
         <div class="shape3"></div>
         <div class="staff-text">Technology</div>
@@ -343,57 +344,57 @@
                             Backed by Spectrum Robotics expertise and nationwide support.
                         </h2>
                         <!-- <div class="swiper brand">
-                                    <div class="swiper-wrapper">
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">SLAM Tech</span>
-                                                </div>
-                                            </a>
+                                        <div class="swiper-wrapper">
+                                            <div class="swiper-slide">
+                                                <a href="#" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">SLAM Tech</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">LiDAR Sensors</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">AI Vision</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">Cloud Platform</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">Voice AI</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                            <div class="swiper-slide">
+                                                <a href="#" title="">
+                                                    <div
+                                                        style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
+                                                        <span style="color: #fff; font-weight: 600;">IoT Integration</span>
+                                                    </div>
+                                                </a>
+                                            </div>
                                         </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">LiDAR Sensors</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">AI Vision</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Cloud Platform</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">Voice AI</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                        <div class="swiper-slide">
-                                            <a href="#" title="">
-                                                <div
-                                                    style="background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%); padding: 20px 30px; border-radius: 10px; text-align: center;">
-                                                    <span style="color: #fff; font-weight: 600;">IoT Integration</span>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div> -->
+                                    </div> -->
                     </div>
                 </div>
             </div>

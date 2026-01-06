@@ -73,6 +73,11 @@
             display: none !important;
         }
 
+        /* Hide hidden iframes injected by third-party scripts */
+        iframe[aria-hidden="true"][style*="z-index: -1"] {
+            display: none !important;
+        }
+
         /* Override Header Top Bar Background */
         .header-top-content4 {
             background-color: #448E91 !important;
@@ -151,7 +156,7 @@
                     <a href="mailto:{{ setting('header_email') }}" class="email">{{ setting('header_email') }}</a>
                 @endif
                 <a href="#" title="" data-demo-popup class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded open-demo-popup">
-                    <span>{{ setting('header_button_text', 'Request Demo') }}</span>
+                    <span>{{ setting('header_button_text', 'Book a Meeting') }}</span>
                 </a>
             </div>
             <ul class="social-icon">
@@ -182,7 +187,7 @@
                 <a href="{{ route('home') }}">Home</a>
             </li>
             <li>
-                <a href="{{ route('about') }}">About Spectrum Robotics</a>
+                <a href="{{ route('about') }}">About</a>
             </li>
             <li class="menu-has-items">
                 <a href="#">Industries</a>
@@ -211,6 +216,8 @@
                 <a href="{{ route('blog') }}">News</a>
             </li>
             <li><a href="{{ route('contact') }}">Contacts</a></li>
+            <li><a href="{{ route('faq') }}">FAQ</a></li>
+            <li><a href="{{ route('careers') }}">Careers</a></li>
         </ul>
         <div class="menu-contact">
             <span>Contacts</span>
@@ -226,7 +233,7 @@
                 <li><a href="#" title=""><i class="fab fa-youtube"></i></a></li>
             </ul>
             <a href="#" title="" class="ibt-btn ibt-btn-outline-3 ibt-btn-rounded open-demo-popup" data-demo-popup>
-                <span>Request Demo</span>
+                <span>Book a Meeting</span>
             </a>
         </div>
     </div>
@@ -256,8 +263,8 @@
                             </li>
                             <li>
                                 <a href='{{ route('about') }}'>
-                                    <span class="menu-item">About Spectrum Robotics</span>
-                                    <span class="menu-item2">About Spectrum Robotics</span>
+                                    <span class="menu-item">About</span>
+                                    <span class="menu-item2">About</span>
                                 </a>
                             </li>
                             <li class="menu-has-items">
@@ -310,16 +317,28 @@
                                     <span class="menu-item2">Contacts</span>
                                 </a>
                             </li>
+                            <li>
+                                <a href='{{ route('faq') }}'>
+                                    <span class="menu-item">FAQ</span>
+                                    <span class="menu-item2">FAQ</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href='{{ route('careers') }}'>
+                                    <span class="menu-item">Careers</span>
+                                    <span class="menu-item2">Careers</span>
+                                </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
                 <div class="col-auto d-none d-xl-block">
                     <div class="btn-box">
                         <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
-                        <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded open-demo-popup' href='#' data-demo-popup
+                        {{-- <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded open-demo-popup' href='#' data-demo-popup
                             title>
-                            <span>Request Demo</span>
-                        </a>
+                            <span>Book a Meeting</span>
+                        </a> --}}
                     </div>
                 </div>
             </div>
@@ -396,8 +415,8 @@
                                     </li>
                                     <li>
                                         <a href='{{ route('about') }}'>
-                                            <span class="menu-item">About Spectrum Robotics</span>
-                                            <span class="menu-item2">About Spectrum Robotics</span>
+                                            <span class="menu-item">About</span>
+                                            <span class="menu-item2">About</span>
                                         </a>
                                     </li>
                                     <li class="menu-has-items">
@@ -451,16 +470,28 @@
                                             <span class="menu-item2">Contacts</span>
                                         </a>
                                     </li>
+                                    <li>
+                                        <a href='{{ route('faq') }}'>
+                                            <span class="menu-item">FAQ</span>
+                                            <span class="menu-item2">FAQ</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href='{{ route('careers') }}'>
+                                            <span class="menu-item">Careers</span>
+                                            <span class="menu-item2">Careers</span>
+                                        </a>
+                                    </li>
                                 </ul>
                             </nav>
                         </div>
                         <div class="col-auto d-none d-xl-block">
                             <div class="btn-box">
                                 <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
-                                <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded' href='{{ route('contact') }}'
+                                {{-- <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded' href='{{ route('contact') }}'
                                     title>
-                                    <span>Request Demo</span>
-                                </a>
+                                    <span>Book a Meeting</span>
+                                </a> --}}
                             </div>
                         </div>
                     </div>

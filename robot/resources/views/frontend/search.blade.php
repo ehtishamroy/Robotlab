@@ -244,6 +244,7 @@
 @section('content')
     <!-- page-banner -->
     <section class="page-banner9">
+        @include('partials.banner-dynamic', ['key' => 'search', 'class' => 'page-banner9'])
         <div class="shape"></div>
         <div class="shape3"></div>
         <div class="staff-text">Search</div>

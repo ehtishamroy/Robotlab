@@ -10,6 +10,7 @@ use App\Orchid\Screens\User\UserListScreen;
 use App\Orchid\Screens\User\UserProfileScreen;
 use App\Orchid\Screens\SettingScreen;
 use App\Orchid\Screens\HomepageScreen;
+use App\Orchid\Screens\AboutPageScreen;
 use App\Orchid\Screens\IndustryPageScreen;
 use Illuminate\Support\Facades\Route;
 use Tabuna\Breadcrumbs\Trail;
@@ -110,6 +111,15 @@ Route::screen('homepage', HomepageScreen::class)
             ->push(__('Homepage Content'), route('platform.homepage'));
     });
 
+// Platform > About Page Content
+Route::screen('about-page', AboutPageScreen::class)
+    ->name('platform.about-page')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('About Page Content'), route('platform.about-page'));
+    });
+
 // Platform > Industry Pages
 Route::screen('industry-pages', IndustryPageScreen::class)
     ->name('platform.industry-pages')
@@ -117,6 +127,115 @@ Route::screen('industry-pages', IndustryPageScreen::class)
         return $trail
             ->parent('platform.index')
             ->push(__('Industry Pages'), route('platform.industry-pages'));
+    });
+
+// Platform > Applications
+Route::screen('applications', \App\Orchid\Screens\Application\ApplicationListScreen::class)
+    ->name('platform.applications.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Applications'), route('platform.applications.list'));
+    });
+
+Route::screen('applications/create', \App\Orchid\Screens\Application\ApplicationEditScreen::class)
+    ->name('platform.applications.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.applications.list')
+            ->push(__('Create Application'));
+    });
+
+Route::screen('applications/{application}/edit', \App\Orchid\Screens\Application\ApplicationEditScreen::class)
+    ->name('platform.applications.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.applications.list')
+            ->push(__('Edit Application'));
+    });
+
+// Platform > Media
+Route::screen('media', \App\Orchid\Screens\Media\MediaListScreen::class)
+    ->name('platform.media.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Media'), route('platform.media.list'));
+    });
+
+Route::screen('media/create', \App\Orchid\Screens\Media\MediaEditScreen::class)
+    ->name('platform.media.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.media.list')
+            ->push(__('Add Video'));
+    });
+
+Route::screen('media/{media}/edit', \App\Orchid\Screens\Media\MediaEditScreen::class)
+    ->name('platform.media.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.media.list')
+            ->push(__('Edit Video'));
+    });
+
+// Platform > FAQs
+Route::screen('faqs', \App\Orchid\Screens\Faq\FaqListScreen::class)
+    ->name('platform.faqs.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('FAQs'), route('platform.faqs.list'));
+    });
+
+Route::screen('faqs/create', \App\Orchid\Screens\Faq\FaqEditScreen::class)
+    ->name('platform.faqs.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.faqs.list')
+            ->push(__('Add FAQ'));
+    });
+
+Route::screen('faqs/{faq}/edit', \App\Orchid\Screens\Faq\FaqEditScreen::class)
+    ->name('platform.faqs.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.faqs.list')
+            ->push(__('Edit FAQ'));
+    });
+
+// Platform > Careers
+Route::screen('careers', \App\Orchid\Screens\Career\CareerListScreen::class)
+    ->name('platform.careers.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Careers'), route('platform.careers.list'));
+    });
+
+Route::screen('careers/create', \App\Orchid\Screens\Career\CareerEditScreen::class)
+    ->name('platform.careers.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.careers.list')
+            ->push(__('Add Position'));
+    });
+
+Route::screen('careers/{career}/edit', \App\Orchid\Screens\Career\CareerEditScreen::class)
+    ->name('platform.careers.edit')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.careers.list')
+            ->push(__('Edit Position'));
+    });
+
+// Platform > Page Banners
+Route::screen('page-banners', \App\Orchid\Screens\PageBannerScreen::class)
+    ->name('platform.page-banners')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Page Banners'), route('platform.page-banners'));
     });
 
 // Platform > Blog

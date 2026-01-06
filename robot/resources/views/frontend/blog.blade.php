@@ -5,6 +5,7 @@
 @section('content')
     <!-- page-banner9 -->
     <section class="page-banner9">
+        @include('partials.banner-dynamic', ['key' => 'blog', 'class' => 'page-banner9'])
         <div class="shape"></div>
         <div class="shape3"></div>
         <div class="staff-text">Articles</div>

@@ -290,6 +290,7 @@
 @section('content')
     <!-- page-banner -->
     <section class="page-banner9">
+        @include('partials.banner-dynamic', ['key' => 'applications', 'class' => 'page-banner9'])
         <div class="shape"></div>
         <div class="shape3"></div>
         <div class="staff-text">Applications</div>
@@ -317,84 +318,29 @@
             </div>
 
             <div class="applications-grid">
-                @php
-                    $applications = [
-                        [
-                            'title' => 'Richie - The hotel robot that works all day and night!',
-                            'duration' => '45 mins',
-                            'pricing' => 'Call for pricing',
-                            'description' => 'Introducing Richie, the tireless hotel robot designed to assist guests 24/7! With a sleek suit and tie, Richie stands ready at the doorway, illuminated by vibrant blue lights. Experience unparalleled service in the hospitality industry. Fully Autonomous Service Robot. Ground level, multi-level, indoor and outdoor areas. 1 Year Warranty Included.'
-                        ],
-                        [
-                            'title' => 'ADAM - An engaging worker robot that can function as a robot bartender, barista, boba tea maker, and more!',
-                            'duration' => '45 mins',
-                            'pricing' => 'Call for pricing',
-                            'description' => 'ADAM is a versatile worker robot offering a professional touch to your business. From serving coffee to mixing cocktails, ADAM excels as a bartender, barista, and boba tea maker. With precision movements and consistent quality, ADAM delivers an unforgettable customer experience while reducing labor costs.'
-                        ],
-                        [
-                            'title' => 'ARM - Automatic Robotic Module',
-                            'duration' => '45 mins',
-                            'pricing' => 'Call for pricing',
-                            'description' => 'Introducing ARM, a cutting-edge robotic service designed for deep frying functions requiring baskets, spatulas, and more! As a robotic barista, ARM can prepare beverages with precision and consistency. Perfect for high-volume food service operations looking to automate repetitive tasks.'
-                        ],
-                        [
-                            'title' => 'DUST-E CX - maintains shining floors - all on its own.',
-                            'duration' => '45 mins',
-                            'pricing' => 'Call for pricing',
-                            'description' => 'Introducing DUST-E CX - the ultimate autonomous floor maintenance service. With sleek efficiency, it keeps floors shining effortlessly, leaving you with spotless surfaces without the manual labor. Perfect for retail spaces, offices, and hospitality venues.'
-                        ],
-                        [
-                            'title' => 'DUST-E SX automatic vacuuming and sweeper is effective in a wide variety of environments.',
-                            'duration' => '45 mins',
-                            'pricing' => 'Call for pricing',
-                            'description' => 'Introducing the DUST-E SX automatic vacuuming and sweeper service. This efficient robot operates effortlessly in diverse environments, exemplified by its reliable performance in warehouses, convention centers, airports, and large retail spaces.'
-                        ],
-                        [
-                            'title' => 'DUST-E MX - cleaning machine can adapt to provide efficient and safe cleaning.',
-                            'duration' => '45 mins',
-                            'pricing' => 'Call for pricing',
-                            'description' => 'Introducing DUST-E MX, a versatile cleaning machine that effortlessly adapts to efficiently and safely clean warehouses. With its advanced capabilities, it navigates complex environments while maintaining optimal performance and safety standards.'
-                        ],
-                        [
-                            'title' => 'Matradee - S - Food and Beverage Delivery',
-                            'duration' => '45 mins',
-                            'pricing' => 'Call for pricing',
-                            'description' => 'Matradee - S is a professional food and beverage delivery service stocked with delicious food, ready to be served at your tables, chairs, and stools with precision and care. Perfect for restaurants, hotels, and event venues.'
-                        ],
-                        [
-                            'title' => 'Matradee X - food and beverage delivery, bussing tables in any environment',
-                            'duration' => '45 mins',
-                            'pricing' => 'Call for pricing',
-                            'description' => 'Matradee X is a versatile service offering food and beverage delivery, as well as efficient table bussing, in any setting. Satisfy cravings with your menu items delivered promptly while maintaining a clean dining environment.'
-                        ],
-                        [
-                            'title' => 'Product Innovation Discussion',
-                            'duration' => '15 mins',
-                            'pricing' => 'Free',
-                            'description' => 'Join our Product Innovation Discussion to brainstorm and collaborate on cutting-edge ideas. Let\'s push the boundaries of creativity together! Perfect for businesses looking to explore custom robotic solutions.'
-                        ],
-                    ];
-                @endphp
-
-                @foreach($applications as $index => $app)
+                @forelse($applications as $app)
                     <div class="application-card">
                         <div class="application-header">
-                            <h3 class="application-title">{{ $app['title'] }}</h3>
+                            <h3 class="application-title">{{ $app->title }}</h3>
                             <div class="application-meta">
-                                <span><i class="far fa-clock"></i> {{ $app['duration'] }}</span>
+                                <span><i class="far fa-clock"></i> {{ $app->duration }}</span>
                                 <span>|</span>
-                                <span class="application-pricing">{{ $app['pricing'] }}</span>
+                                <span class="application-pricing">{{ $app->pricing }}</span>
                             </div>
                         </div>
-                        <p class="application-description">{{ $app['description'] }}</p>
+                        <p class="application-description">{{ $app->description }}</p>
                         <div class="application-footer">
-                            <button type="button" class="speak-to-staff-btn" data-app-title="{{ $app['title'] }}">
+                            <button type="button" class="speak-to-staff-btn" data-app-title="{{ $app->title }}">
                                 <i class="fas fa-comments"></i>
                                 Speak To Staff
                             </button>
                         </div>
                     </div>
-                @endforeach
+                @empty
+                    <div class="text-center">
+                        <p>No applications available at the moment.</p>
+                    </div>
+                @endforelse
             </div>
         </div>
     </section>
@@ -450,10 +396,10 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             // Speak to Staff buttons
-            document.querySelectorAll('.speak-to-staff-btn').forEach(function(btn) {
-                btn.addEventListener('click', function() {
+            document.querySelectorAll('.speak-to-staff-btn').forEach(function (btn) {
+                btn.addEventListener('click', function () {
                     var appTitle = this.getAttribute('data-app-title');
                     document.getElementById('selectedAppTitle').textContent = appTitle;
                     document.getElementById('applicationTypeInput').value = appTitle;
@@ -463,19 +409,19 @@
             });
 
             // Close button
-            document.getElementById('closePopupBtn').addEventListener('click', function() {
+            document.getElementById('closePopupBtn').addEventListener('click', function () {
                 closeConsultationPopup();
             });
 
             // Close popup when clicking outside
-            document.getElementById('consultationPopup').addEventListener('click', function(e) {
+            document.getElementById('consultationPopup').addEventListener('click', function (e) {
                 if (e.target === this) {
                     closeConsultationPopup();
                 }
             });
 
             // Form submission
-            document.getElementById('consultationForm').addEventListener('submit', function(e) {
+            document.getElementById('consultationForm').addEventListener('submit', function (e) {
                 e.preventDefault();
 
                 var form = this;
@@ -493,30 +439,30 @@
                         'X-CSRF-TOKEN': document.querySelector('input[name="_token"]').value
                     }
                 })
-                .then(function(response) { return response.json(); })
-                .then(function(data) {
-                    if (data.success) {
-                        formMessage.className = 'form-message success';
-                        formMessage.textContent = data.message;
-                        form.reset();
-                        document.getElementById('applicationTypeInput').value = document.getElementById('selectedAppTitle').textContent;
+                    .then(function (response) { return response.json(); })
+                    .then(function (data) {
+                        if (data.success) {
+                            formMessage.className = 'form-message success';
+                            formMessage.textContent = data.message;
+                            form.reset();
+                            document.getElementById('applicationTypeInput').value = document.getElementById('selectedAppTitle').textContent;
 
-                        setTimeout(function() {
-                            closeConsultationPopup();
-                        }, 3000);
-                    } else {
+                            setTimeout(function () {
+                                closeConsultationPopup();
+                            }, 3000);
+                        } else {
+                            formMessage.className = 'form-message error';
+                            formMessage.textContent = data.message || 'Something went wrong. Please try again.';
+                        }
+                    })
+                    .catch(function (error) {
                         formMessage.className = 'form-message error';
-                        formMessage.textContent = data.message || 'Something went wrong. Please try again.';
-                    }
-                })
-                .catch(function(error) {
-                    formMessage.className = 'form-message error';
-                    formMessage.textContent = 'An error occurred. Please try again.';
-                })
-                .finally(function() {
-                    submitBtn.disabled = false;
-                    submitBtn.innerHTML = '<span>Submit Booking Request</span>';
-                });
+                        formMessage.textContent = 'An error occurred. Please try again.';
+                    })
+                    .finally(function () {
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = '<span>Submit Booking Request</span>';
+                    });
             });
 
             function closeConsultationPopup() {
@@ -534,5 +480,5 @@
 @endsection
 
 @section('contact_section')
-@include('partials.contact')
+    @include('partials.contact')
 @endsection
