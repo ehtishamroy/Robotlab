@@ -26,10 +26,12 @@ class Product extends Model
         'video',
         'is_published',
         'sort_order',
+        'feature_section_data',
     ];
 
     protected $casts = [
         'is_published' => 'boolean',
+        'feature_section_data' => 'array',
     ];
 
     /**

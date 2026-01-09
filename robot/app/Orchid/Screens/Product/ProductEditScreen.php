@@ -60,7 +60,7 @@ class ProductEditScreen extends Screen
             'features' => $featuresMatrix,
             'specifications' => $specsMatrix,
             'gallery_images' => $product->attachment('gallery')->get(),
-            'product.video_attachment' => $product->attachment('video')->get(),
+            'video_attachment_local' => $product->attachment('video')->get(),
         ];
     }
 
@@ -153,34 +153,38 @@ class ProductEditScreen extends Screen
                         ->width(600)
                         ->height(600)
                         ->targetRelativeUrl()
-                        ->help('Square image, recommended 600x600px'),
+                        ->acceptedFiles('image/jpeg,image/png,image/webp,image/gif')
+                        ->help('Square image, recommended 600x600px. Accepts: PNG, JPG, WebP, GIF'),
 
                     Cropper::make('product.hero_bg')
                         ->title('Hero Background Image')
                         ->width(1920)
                         ->height(1080)
                         ->targetRelativeUrl()
-                        ->help('Full-width hero background, recommended 1920x1080px'),
+                        ->acceptedFiles('image/jpeg,image/png,image/webp,image/gif')
+                        ->help('Full-width hero background, recommended 1920x1080px. Accepts: PNG, JPG, WebP, GIF'),
 
                     Cropper::make('product.feature_image')
                         ->title('Feature Section Image')
                         ->width(1200)
                         ->height(600)
                         ->targetRelativeUrl()
-                        ->help('Image shown below features grid'),
+                        ->acceptedFiles('image/jpeg,image/png,image/webp,image/gif')
+                        ->help('Image shown below features grid. Accepts: PNG, JPG, WebP, GIF'),
 
                     Cropper::make('product.specs_image')
                         ->title('Specifications Image')
                         ->width(600)
                         ->height(800)
                         ->targetRelativeUrl()
-                        ->help('Image shown next to specifications table'),
+                        ->acceptedFiles('image/jpeg,image/png,image/webp,image/gif')
+                        ->help('Image shown next to specifications table. Accepts: PNG, JPG, WebP, GIF'),
 
-                    Upload::make('product.video_attachment')
+                    Upload::make('video_attachment_local')
                         ->title('Product Video (Optional)')
-                        ->acceptedFiles('video/*')
+                        ->acceptedFiles('video/mp4,video/webm,video/ogg,video/*')
                         ->maxFiles(1)
-                        ->help('Upload a product demo video (MP4 recommended)'),
+                        ->help('Upload a product demo video (MP4, WebM recommended)'),
                 ]),
 
                 'Features' => Layout::rows([
@@ -220,6 +224,83 @@ class ProductEditScreen extends Screen
                         ->maxFiles(20)
                         ->help('Upload multiple gallery images. You can drag to reorder them.'),
                 ]),
+
+                'Features Showcase' => Layout::rows([
+                    Group::make([
+                        Input::make('product.feature_section_data.subtitle')
+                            ->title('Section Subtitle')
+                            ->placeholder('e.g., MEET ADAM'),
+
+                        Input::make('product.feature_section_data.title')
+                            ->title('Section Title')
+                            ->placeholder('e.g., All-in-one beverage service'),
+                    ]),
+
+                    TextArea::make('product.feature_section_data.description')
+                        ->title('Section Description')
+                        ->rows(3)
+                        ->placeholder('e.g., Experience unparalleled efficiency...'),
+
+                    // Card 1
+                    Group::make([
+                        Input::make('product.feature_section_data.cards.0.title')
+                            ->title('Card 1 Title')
+                            ->placeholder('e.g., Masterful mixologist'),
+                    ]),
+                    Group::make([
+                        Picture::make('product.feature_section_data.cards.0.image')
+                            ->title('Card 1 Image')
+                            ->targetRelativeUrl(),
+                        TextArea::make('product.feature_section_data.cards.0.caption')
+                            ->title('Card 1 Caption')
+                            ->rows(2),
+                    ]),
+
+                    // Card 2
+                    Group::make([
+                        Input::make('product.feature_section_data.cards.1.title')
+                            ->title('Card 2 Title')
+                            ->placeholder('e.g., Coffee connoisseur'),
+                    ]),
+                    Group::make([
+                        Picture::make('product.feature_section_data.cards.1.image')
+                            ->title('Card 2 Image')
+                            ->targetRelativeUrl(),
+                        TextArea::make('product.feature_section_data.cards.1.caption')
+                            ->title('Card 2 Caption')
+                            ->rows(2),
+                    ]),
+
+                    // Card 3
+                    Group::make([
+                        Input::make('product.feature_section_data.cards.2.title')
+                            ->title('Card 3 Title')
+                            ->placeholder('e.g., Boba tea maestro'),
+                    ]),
+                    Group::make([
+                        Picture::make('product.feature_section_data.cards.2.image')
+                            ->title('Card 3 Image')
+                            ->targetRelativeUrl(),
+                        TextArea::make('product.feature_section_data.cards.2.caption')
+                            ->title('Card 3 Caption')
+                            ->rows(2),
+                    ]),
+
+                    // Card 4
+                    Group::make([
+                        Input::make('product.feature_section_data.cards.3.title')
+                            ->title('Card 4 Title')
+                            ->placeholder('Optional'),
+                    ]),
+                    Group::make([
+                        Picture::make('product.feature_section_data.cards.3.image')
+                            ->title('Card 4 Image')
+                            ->targetRelativeUrl(),
+                        TextArea::make('product.feature_section_data.cards.3.caption')
+                            ->title('Card 4 Caption')
+                            ->rows(2),
+                    ]),
+                ]),
             ]),
         ];
     }
@@ -229,86 +310,114 @@ class ProductEditScreen extends Screen
      */
     public function save(Product $product, Request $request)
     {
-        $data = $request->get('product');
+        try {
+            $data = $request->get('product');
 
-        // Auto-generate slug if not provided
-        if (empty($data['slug'])) {
-            $data['slug'] = Str::slug($data['name']);
-        }
+            // Auto-generate slug if not provided
+            if (empty($data['slug'])) {
+                $data['slug'] = Str::slug($data['name']);
+            }
 
-        // Set default sort_order if not provided
-        if (!isset($data['sort_order']) || $data['sort_order'] === '') {
-            $data['sort_order'] = 0;
-        }
+            // Set default sort_order if not provided
+            if (!isset($data['sort_order']) || $data['sort_order'] === '') {
+                $data['sort_order'] = 0;
+            }
 
-        // Handle video attachment separately
-        $videoAttachmentIds = $data['video_attachment'] ?? [];
-        unset($data['video_attachment']);
+            // Handle video attachment separately
+            // Read from the local field 'video_attachment_local' which prevents dirty data issues.
+            $videoAttachmentIds = $request->input('video_attachment_local', []);
 
-        // Save the product with image paths from Cropper fields
-        $product->fill($data)->save();
+            // Explicitly handle feature_section_data to ensure it's saved as array/json
+            // This ensures that even if fillable/casts had issues, we catch it or handle it.
+            $featureData = $data['feature_section_data'] ?? null;
+            if (is_array($featureData)) {
+                // Filter out completely empty cards if needed, or just save as is.
+                // We'll save as is to maintain index positions if user filled non-sequentially.
+            }
+            // unset from data to prevent double assignment if needed, though fill() handles it if in fillable
+            unset($data['feature_section_data']);
 
-        // Sync video attachment
-        if (!empty($videoAttachmentIds)) {
-            $product->attachment()->syncWithoutDetaching(
-                Attachment::whereIn('id', $videoAttachmentIds)->get()->each->update(['group' => 'video'])
-            );
-        }
+            // Save the product basic data
+            $product->fill($data);
 
-        // Handle features
-        $featuresData = $request->input('features', []);
+            // Assign JSON data manually
+            if ($featureData !== null) {
+                $product->feature_section_data = $featureData;
+            }
 
-        // Delete existing features and recreate
-        $product->features()->delete();
-        if (is_array($featuresData)) {
-            foreach ($featuresData as $index => $feature) {
-                if (!empty($feature['title'])) {
-                    $product->features()->create([
-                        'title' => $feature['title'],
-                        'icon' => $feature['icon'] ?? 'fa-robot',
-                        'custom_icon' => $feature['custom_icon'] ?? null,
+            $product->save();
+
+            // Sync video attachment
+            // Sync video attachment
+            // FORCE SYNC: Use sync() to strictly enforce the list. 
+            // This ensures removed videos are actually detached, regardless of their previous group state.
+            $product->attachment()->sync($videoAttachmentIds);
+
+            if (!empty($videoAttachmentIds)) {
+                // Ensure they are marked as video group for future reference
+                Attachment::whereIn('id', $videoAttachmentIds)->update(['group' => 'video']);
+            }
+
+            // Handle features
+            $featuresData = $request->input('features', []);
+
+            // Delete existing features and recreate
+            $product->features()->delete();
+            if (is_array($featuresData)) {
+                foreach ($featuresData as $index => $feature) {
+                    if (!empty($feature['title'])) {
+                        $product->features()->create([
+                            'title' => $feature['title'],
+                            'icon' => $feature['icon'] ?? 'fa-robot',
+                            'custom_icon' => $feature['custom_icon'] ?? null,
+                            'sort_order' => $index,
+                        ]);
+                    }
+                }
+            }
+
+            // Handle specifications
+            $specsData = $request->input('specifications', []);
+
+            // Delete existing specs and recreate
+            $product->specifications()->delete();
+            if (is_array($specsData)) {
+                foreach ($specsData as $index => $spec) {
+                    if (!empty($spec['label']) && !empty($spec['value'])) {
+                        $product->specifications()->create([
+                            'label' => $spec['label'],
+                            'value' => $spec['value'],
+                            'sort_order' => $index,
+                        ]);
+                    }
+                }
+            }
+
+            // Handle gallery images from Upload field
+            $galleryImageIds = $request->input('gallery_images', []);
+
+            // Delete existing galleries and recreate from uploaded images
+            $product->galleries()->delete();
+            if (is_array($galleryImageIds) && !empty($galleryImageIds)) {
+                $attachments = Attachment::whereIn('id', $galleryImageIds)->get();
+                foreach ($attachments as $index => $attachment) {
+                    $product->galleries()->create([
+                        'image' => $attachment->relativeUrl,
+                        'alt_text' => $attachment->original_name ?? $product->name,
                         'sort_order' => $index,
                     ]);
                 }
             }
+
+            Toast::info('Product saved successfully.');
+
+            return redirect()->route('platform.products.list');
+
+        } catch (\Throwable $e) {
+            Toast::error('Error saving product: ' . $e->getMessage());
+            \Log::error($e);
+            return back()->withInput();
         }
-
-        // Handle specifications
-        $specsData = $request->input('specifications', []);
-
-        // Delete existing specs and recreate
-        $product->specifications()->delete();
-        if (is_array($specsData)) {
-            foreach ($specsData as $index => $spec) {
-                if (!empty($spec['label']) && !empty($spec['value'])) {
-                    $product->specifications()->create([
-                        'label' => $spec['label'],
-                        'value' => $spec['value'],
-                        'sort_order' => $index,
-                    ]);
-                }
-            }
-        }
-
-        // Handle gallery images from Upload field
-        $galleryImageIds = $request->input('gallery_images', []);
-
-        // Delete existing galleries and recreate from uploaded images
-        $product->galleries()->delete();
-        if (is_array($galleryImageIds) && !empty($galleryImageIds)) {
-            $attachments = Attachment::whereIn('id', $galleryImageIds)->get();
-            foreach ($attachments as $index => $attachment) {
-                $product->galleries()->create([
-                    'image' => $attachment->relativeUrl,
-                    'alt_text' => $attachment->original_name ?? $product->name,
-                    'sort_order' => $index,
-                ]);
-            }
-        }
-
-        Toast::info('Product saved successfully.');
-
-        return redirect()->route('platform.products.list');
     }
 
     /**

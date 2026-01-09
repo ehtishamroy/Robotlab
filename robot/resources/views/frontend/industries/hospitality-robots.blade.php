@@ -123,7 +123,7 @@
 
                         <!-- Random Products Section -->
                         @if(isset($randomProducts) && $randomProducts->count() > 0)
-                            <div class="row g-4 mt-4">
+                            <div class="row g-4 mt-2">
                                 @foreach($randomProducts as $product)
                                     <div class="col-lg-4 col-md-6">
                                         <div class="product-showcase-card">
@@ -132,7 +132,7 @@
                                             <p class="product-desc">{{ Str::limit(strip_tags($product->description), 100) }}</p>
                                             <div class="product-image-wrapper">
                                                 @if($product->image)
-                                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
+                                                    <img src="{{ normalize_image_url($product->image) }}" alt="{{ $product->name }}"
                                                         class="product-image">
                                                 @else
                                                     <img src="{{ asset('frontend/assets/images/robots/default-robot.png') }}"

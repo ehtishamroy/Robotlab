@@ -11,15 +11,17 @@
                 $videoAttachment = $product->attachment('video')->first();
             @endphp
             @if($videoAttachment)
-                <video autoplay muted loop playsinline class="hero-video">
-                    <source src="{{ $videoAttachment->url }}" type="{{ $videoAttachment->mime }}">
+                <video autoplay muted loop playsinline class="hero-video" 
+                       poster="{{ $product->hero_bg ? normalize_image_url($product->hero_bg) : '' }}">
+                    <source src="{{ $videoAttachment->relativeUrl }}" 
+                            type="{{ $videoAttachment->mime === 'video/quicktime' ? 'video/mp4' : $videoAttachment->mime }}">
                 </video>
             @elseif($product->video)
                 <video autoplay muted loop playsinline class="hero-video">
                     <source src="{{ asset('frontend/assets/videos/' . $product->video) }}" type="video/mp4">
                 </video>
             @elseif($product->hero_bg)
-                <img src="{{ asset($product->hero_bg) }}" alt="{{ $product->name }}" class="hero-bg-image">
+                <img src="{{ normalize_image_url($product->hero_bg) }}" alt="{{ $product->name }}" class="hero-bg-image">
             @else
                 <img src="{{ asset('frontend/assets/images/robots/default-hero.jpg') }}" alt="{{ $product->name }}"
                     class="hero-bg-image">
@@ -50,7 +52,7 @@
             <span class="side-card-label">Speak to our team about {{ $product->name }}!</span>
             <div class="side-card-image">
                 @if($product->image)
-                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                    <img src="{{ normalize_image_url($product->image) }}" alt="{{ $product->name }}">
                 @else
                     <img src="{{ asset('frontend/assets/images/robots/default-robot.png') }}" alt="{{ $product->name }}">
                 @endif
@@ -74,7 +76,7 @@
                     <div class="feature-item">
                         <div class="feature-icon">
                             @if($feature->custom_icon)
-                                <img src="{{ asset($feature->custom_icon) }}" alt="{{ $feature->title }}"
+                                <img src="{{ normalize_image_url($feature->custom_icon) }}" alt="{{ $feature->title }}"
                                     style="max-width: 40px; max-height: 40px; object-fit: contain;">
                             @else
                                 <i class="fas {{ $feature->icon ?? 'fa-robot' }}"></i>
@@ -94,17 +96,86 @@
         </div>
     </section>
 
-    <!-- Feature Image Section with Fade -->
-    <section class="feature-image-section">
-        <div class="feature-image-wrapper">
-            @if($product->feature_image)
-                <img src="{{ asset($product->feature_image) }}" alt="{{ $product->name }}">
-            @elseif($product->image)
-                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
-            @endif
-            <div class="feature-image-fade"></div>
-        </div>
-    </section>
+    <!-- Dynamic Feature Showcase Section -->
+    @if(!empty($product->feature_section_data))
+        <section class="feature-showcase-section">
+            <div class="container">
+                <div class="showcase-layout">
+                    @if(!empty($product->feature_section_data['subtitle']) || !empty($product->feature_section_data['title']) || !empty($product->feature_section_data['description']))
+                        <div class="showcase-intro AnimateDiv Visible">
+                            @if(!empty($product->feature_section_data['subtitle']))
+                                <p class="showcase-subtitle">{{ $product->feature_section_data['subtitle'] }}</p>
+                            @endif
+                            @if(!empty($product->feature_section_data['title']))
+                                <h2 class="showcase-title">{{ $product->feature_section_data['title'] }}</h2>
+                            @endif
+                            @if(!empty($product->feature_section_data['description']))
+                                <div class="showcase-description">
+                                    <p>{{ $product->feature_section_data['description'] }}</p>
+                                </div>
+                            @endif
+                        </div>
+                    @endif
+
+                    <div class="showcase-cards-container">
+                        <div class="swiper showcase-swiper">
+                            <div class="swiper-wrapper">
+                                @if(isset($product->feature_section_data['cards']) && is_array($product->feature_section_data['cards']))
+                                    @foreach($product->feature_section_data['cards'] as $card)
+                                        @if(!empty($card['title']) || !empty($card['image']))
+                                            <div class="swiper-slide">
+                                                <div class="showcase-card">
+                                                    <div class="showcase-card-main">
+                                                        <h4>{{ $card['title'] ?? '' }}</h4>
+                                                        <div class="showcase-card-image">
+                                                            @if(!empty($card['image']))
+                                                                <img src="{{ normalize_image_url($card['image']) }}"
+                                                                    alt="{{ $card['title'] ?? '' }}">
+                                                            @endif
+                                                        </div>
+                                                    </div>
+                                                    <div class="showcase-card-caption">
+                                                        <p>{{ $card['caption'] ?? '' }}</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        @endif
+                                    @endforeach
+                                @endif
+                            </div>
+                            <div class="swiper-pagination"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                var showcaseSwiper = new Swiper('.showcase-swiper', {
+                    slidesPerView: 1.1,
+                    spaceBetween: 20,
+                    pagination: {
+                        el: '.swiper-pagination',
+                        clickable: true,
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2.2,
+                            spaceBetween: 30,
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30,
+                            // Ensure it behaves like a grid/list on desktop if needed, 
+                            // or keep it simpler as a slider which is also nice. 
+                            // The reference image implies a horizontal layout.
+                        }
+                    }
+                });
+            });
+        </script>
+    @endif
     <!-- End Product Features -->
 
     <!-- Technical Specifications -->
@@ -125,9 +196,9 @@
                     </div>
                     <div class="specs-image-col">
                         @if($product->specs_image)
-                            <img src="{{ asset($product->specs_image) }}" alt="{{ $product->name }} Specifications">
+                            <img src="{{ normalize_image_url($product->specs_image) }}" alt="{{ $product->name }} Specifications">
                         @elseif($product->image)
-                            <img src="{{ asset($product->image) }}" alt="{{ $product->name }} Specifications">
+                            <img src="{{ normalize_image_url($product->image) }}" alt="{{ $product->name }} Specifications">
                         @endif
                     </div>
                 </div>
@@ -143,7 +214,8 @@
                 <div class="gallery-grid">
                     @foreach($product->galleries as $gallery)
                         <div class="gallery-item">
-                            <img src="{{ asset($gallery->image) }}" alt="{{ $gallery->alt_text ?? $product->name . ' Gallery' }}">
+                            <img src="{{ normalize_image_url($gallery->image) }}"
+                                alt="{{ $gallery->alt_text ?? $product->name . ' Gallery' }}">
                         </div>
                     @endforeach
                 </div>
@@ -160,7 +232,7 @@
                         @foreach($brands as $brand)
                             <div class="swiper-slide">
                                 <a href="{{ $brand->url ?? '#' }}" title="{{ $brand->name }}">
-                                    <img src="{{ asset($brand->logo) }}" alt="{{ $brand->name }}">
+                                    <img src="{{ normalize_image_url($brand->logo) }}" alt="{{ $brand->name }}">
                                 </a>
                             </div>
                         @endforeach
@@ -974,8 +1046,137 @@
                 display: none;
             }
         }
-    </style>
 
+        /* === Feature Showcase Section Styles === */
+        .feature-showcase-section {
+            padding: 80px 0;
+            background: #fff;
+            overflow: hidden;
+        }
+
+        .showcase-intro {
+            margin-bottom: 50px;
+            max-width: 650px;
+        }
+
+        .showcase-subtitle {
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: #888;
+            margin-bottom: 12px;
+            letter-spacing: 1.5px;
+        }
+
+        .showcase-title {
+            font-size: 42px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .showcase-description p {
+            font-size: 16px;
+            color: #333;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+
+        /* Swiper / Cards */
+        .showcase-swiper {
+            padding-bottom: 40px !important;
+            /* Space for pagination */
+            overflow: visible !important;
+            /* Allow shadow/overflow if needed */
+        }
+
+        .showcase-card {
+            display: flex;
+            flex-direction: column;
+            cursor: default;
+        }
+
+        .showcase-card-main {
+            background-color: #a9c5c9;
+            /* Fallback */
+            background-color: rgb(169, 197, 201);
+            /* Matching image tone approx */
+            border-radius: 20px;
+            padding: 30px 30px 0;
+            margin-bottom: 25px;
+            position: relative;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s ease;
+        }
+
+        .showcase-card:hover .showcase-card-main {
+            transform: translateY(-5px);
+        }
+
+        .showcase-card-main h4 {
+            font-size: 24px;
+            font-weight: 400;
+            color: #1a1a1a;
+            margin-bottom: 20px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .showcase-card-image {
+            margin-top: auto;
+            width: 100%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .showcase-card-image img {
+            width: 100%;
+            height: auto;
+            max-height: 250px;
+            /* Limit height */
+            object-fit: cover;
+            border-radius: 12px 12px 0 0;
+            display: block;
+        }
+
+        .showcase-card-caption p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #333;
+            margin: 0;
+        }
+
+        /* Swiper Pagination Customization */
+        .showcase-swiper .swiper-pagination-bullet {
+            background: #ccc;
+            opacity: 0.6;
+        }
+
+        .showcase-swiper .swiper-pagination-bullet-active {
+            background: #2c6b6e;
+            opacity: 1;
+        }
+
+        /* Mobile Adjustments */
+        @media (max-width: 768px) {
+            .showcase-title {
+                font-size: 32px;
+            }
+
+            .showcase-card-main {
+                padding: 20px 20px 0;
+                min-height: 280px;
+            }
+
+            .showcase-card-image img {
+                max-height: 200px;
+            }
+        }
+    </style>
     <script>
         // Set product source when demo popup opens from product page
         document.addEventListener('DOMContentLoaded', function () {

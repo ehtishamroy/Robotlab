@@ -94,7 +94,9 @@ class SettingScreen extends Screen
                     Picture::make('settings.site_logo')
                         ->title('Site Logo')
                         ->storage('public_uploads')
-                        ->targetUrl(),
+                        ->targetUrl()
+                        ->acceptedFiles('image/jpeg,image/png,image/webp,image/gif,image/svg+xml')
+                        ->help('Accepts: PNG, JPG, WebP, GIF, SVG'),
 
                     Input::make('settings.logo_width')
                         ->title('Logo Width (px)')
@@ -104,7 +106,9 @@ class SettingScreen extends Screen
                     Picture::make('settings.site_favicon')
                         ->title('Favicon')
                         ->storage('public_uploads')
-                        ->targetUrl(),
+                        ->targetUrl()
+                        ->acceptedFiles('image/jpeg,image/png,image/x-icon,image/vnd.microsoft.icon')
+                        ->help('Accepts: PNG, JPG, ICO'),
                 ]),
 
                 'SEO' => Layout::rows([

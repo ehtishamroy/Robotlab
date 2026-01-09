@@ -109,7 +109,8 @@ class BlogEditScreen extends Screen
                     ->width(1200)
                     ->height(630)
                     ->targetRelativeUrl()
-                    ->help('Recommended size: 1200x630 pixels'),
+                    ->acceptedFiles('image/jpeg,image/png,image/webp,image/gif')
+                    ->help('Recommended size: 1200x630 pixels. Accepts: PNG, JPG, WebP, GIF'),
 
                 Input::make('blog.author')
                     ->title('Author')

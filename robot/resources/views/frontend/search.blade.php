@@ -285,7 +285,7 @@
                                     <a href="{{ route('product.single', $product->slug) }}" class="card-link">
                                         <div class="product-img">
                                             @if($product->image)
-                                                <img src="{{ asset($product->image) }}" alt="{{ $product->name }}">
+                                                <img src="{{ normalize_image_url($product->image) }}" alt="{{ $product->name }}">
                                             @else
                                                 <img src="{{ asset('frontend/assets/images/robots/default-robot.png') }}"
                                                     alt="{{ $product->name }}">
@@ -314,7 +314,7 @@
                                     <a href="{{ route('blog.single', $blog->slug) }}" class="card-link">
                                         <div class="blog-img">
                                             @if($blog->image)
-                                                <img src="{{ asset($blog->image) }}" alt="{{ $blog->title }}">
+                                                <img src="{{ normalize_image_url($blog->image) }}" alt="{{ $blog->title }}">
                                             @else
                                                 <img src="{{ asset('frontend/assets/images/blog/default.jpg') }}" alt="{{ $blog->title }}">
                                             @endif

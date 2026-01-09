@@ -81,7 +81,8 @@ class BrandEditScreen extends Screen
                     ->width(400)
                     ->height(200)
                     ->targetRelativeUrl()
-                    ->help('Recommended size: 400x200px, transparent PNG preferred'),
+                    ->acceptedFiles('image/jpeg,image/png,image/webp,image/gif,image/svg+xml')
+                    ->help('Recommended size: 400x200px. Accepts: PNG, JPG, WebP, GIF, SVG'),
 
                 Input::make('brand.url')
                     ->title('Website URL')

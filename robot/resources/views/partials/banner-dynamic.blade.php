@@ -41,10 +41,7 @@
     <style>
         .{{ $bannerClass }} {
             position: relative;
-            background: none !important;
             overflow: hidden;
-            z-index: 1;
-            /* Establish stacking context */
         }
 
         .{{ $bannerClass }} .video-bg-wrapper {
@@ -54,7 +51,6 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            /* Behind content, inside banner */
             overflow: hidden;
             pointer-events: none;
         }
@@ -71,9 +67,7 @@
             object-fit: cover;
         }
 
-        /* Overlay */
-        .{{ $bannerClass }}::before {
-            content: '';
+        .{{ $bannerClass }} .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -81,15 +75,30 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
             z-index: 1;
-            /* Above video */
             pointer-events: none;
         }
 
-        /* Content z-index adjustment */
-        .{{ $bannerClass }}>*:not(.video-bg-wrapper) {
+        /* Shape elements */
+        .{{ $bannerClass }} .shape,
+        .{{ $bannerClass }} .shape3 {
+            z-index: 2 !important;
+        }
+
+        /* Staff text watermark */
+        .{{ $bannerClass }} .staff-text {
+            z-index: 3 !important;
+        }
+
+        /* Main content */
+        .{{ $bannerClass }} .container,
+        .{{ $bannerClass }} .page-content {
             position: relative;
-            z-index: 2;
-            /* Above overlay and video */
+            z-index: 4 !important;
+        }
+
+        /* Breadcrumbs */
+        .{{ $bannerClass }} .breadcrumbs {
+            z-index: 4 !important;
         }
     </style>
 
@@ -98,16 +107,14 @@
             <source src="{{ $videoFileUrl }}" type="video/mp4">
         </video>
     </div>
+    <div class="video-overlay"></div>
 
 @elseif($youtubeId)
     <!-- YouTube Logic -->
     <style>
         .{{ $bannerClass }} {
             position: relative;
-            background: none !important;
             overflow: hidden;
-            z-index: 1;
-            /* Establish stacking context */
         }
 
         .{{ $bannerClass }} .video-bg-wrapper {
@@ -117,7 +124,6 @@
             width: 100%;
             height: 100%;
             z-index: 0;
-            /* Behind content */
             overflow: hidden;
             pointer-events: none;
         }
@@ -129,14 +135,11 @@
             transform: translate(-50%, -50%);
             width: 100vw;
             height: 56.25vw;
-            /* 16:9 Aspect Ratio */
             min-height: 100vh;
             min-width: 177.77vh;
         }
 
-        /* Overlay */
-        .{{ $bannerClass }}::before {
-            content: '';
+        .{{ $bannerClass }} .video-overlay {
             position: absolute;
             top: 0;
             left: 0;
@@ -144,15 +147,30 @@
             height: 100%;
             background: rgba(0, 0, 0, 0.4);
             z-index: 1;
-            /* Above video */
             pointer-events: none;
         }
 
-        /* Content z-index adjustment */
-        .{{ $bannerClass }}>*:not(.video-bg-wrapper) {
+        /* Shape elements */
+        .{{ $bannerClass }} .shape,
+        .{{ $bannerClass }} .shape3 {
+            z-index: 2 !important;
+        }
+
+        /* Staff text watermark */
+        .{{ $bannerClass }} .staff-text {
+            z-index: 3 !important;
+        }
+
+        /* Main content */
+        .{{ $bannerClass }} .container,
+        .{{ $bannerClass }} .page-content {
             position: relative;
-            z-index: 2;
-            /* Above overlay and video */
+            z-index: 4 !important;
+        }
+
+        /* Breadcrumbs */
+        .{{ $bannerClass }} .breadcrumbs {
+            z-index: 4 !important;
         }
     </style>
 
@@ -161,6 +179,7 @@
             src="https://www.youtube.com/embed/{{ $youtubeId }}?autoplay=1&mute=1&loop=1&playlist={{ $youtubeId }}&controls=0&showinfo=0&rel=0&start=0"
             frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
     </div>
+    <div class="video-overlay"></div>
 
 @elseif($bgImage)
     <!-- Image Fallback Logic -->

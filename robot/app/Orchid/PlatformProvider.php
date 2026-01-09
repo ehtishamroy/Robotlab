@@ -37,6 +37,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('info')
                 ->route('platform.about-page'),
 
+            Menu::make('Media Page Content')
+                ->icon('film')
+                ->route('platform.media.page'),
+
             Menu::make('Industry Pages')
                 ->icon('briefcase')
                 ->route('platform.industry-pages')

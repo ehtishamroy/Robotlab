@@ -305,38 +305,38 @@
                                     <span class="menu-item2">Media</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href='{{ route('blog') }}'>
+                            {{-- <li>
+                                <a href='{{ route(' blog') }}'>
                                     <span class="menu-item">News</span>
                                     <span class="menu-item2">News</span>
                                 </a>
-                            </li>
+                            </li> --}}
                             <li>
                                 <a href='{{ route('contact') }}'>
                                     <span class="menu-item">Contacts</span>
                                     <span class="menu-item2">Contacts</span>
                                 </a>
                             </li>
-                            <li>
-                                <a href='{{ route('faq') }}'>
+                            {{-- <li>
+                                <a href='{{ route(' faq') }}'>
                                     <span class="menu-item">FAQ</span>
                                     <span class="menu-item2">FAQ</span>
                                 </a>
                             </li>
                             <li>
-                                <a href='{{ route('careers') }}'>
+                                <a href='{{ route(' careers') }}'>
                                     <span class="menu-item">Careers</span>
                                     <span class="menu-item2">Careers</span>
                                 </a>
-                            </li>
+                            </li> --}}
                         </ul>
                     </nav>
                 </div>
                 <div class="col-auto d-none d-xl-block">
                     <div class="btn-box">
                         <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
-                        {{-- <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded open-demo-popup' href='#' data-demo-popup
-                            title>
+                        {{-- <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded open-demo-popup' href='#'
+                            data-demo-popup title>
                             <span>Book a Meeting</span>
                         </a> --}}
                     </div>
@@ -458,37 +458,37 @@
                                             <span class="menu-item2">Media</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href='{{ route('blog') }}'>
+                                    {{-- <li>
+                                        <a href='{{ route(' blog') }}'>
                                             <span class="menu-item">News</span>
                                             <span class="menu-item2">News</span>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                     <li>
                                         <a href='{{ route('contact') }}'>
                                             <span class="menu-item">Contacts</span>
                                             <span class="menu-item2">Contacts</span>
                                         </a>
                                     </li>
-                                    <li>
-                                        <a href='{{ route('faq') }}'>
+                                    {{-- <li>
+                                        <a href='{{ route(' faq') }}'>
                                             <span class="menu-item">FAQ</span>
                                             <span class="menu-item2">FAQ</span>
                                         </a>
                                     </li>
                                     <li>
-                                        <a href='{{ route('careers') }}'>
+                                        <a href='{{ route(' careers') }}'>
                                             <span class="menu-item">Careers</span>
                                             <span class="menu-item2">Careers</span>
                                         </a>
-                                    </li>
+                                    </li> --}}
                                 </ul>
                             </nav>
                         </div>
                         <div class="col-auto d-none d-xl-block">
                             <div class="btn-box">
                                 <a href="#" class="popup-search" data-popup="1"><i class="fa fa-search"></i></a>
-                                {{-- <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded' href='{{ route('contact') }}'
+                                {{-- <a class='ibt-btn ibt-btn-outline-3 ibt-btn-rounded' href='{{ route(' contact') }}'
                                     title>
                                     <span>Book a Meeting</span>
                                 </a> --}}

@@ -166,7 +166,7 @@
                                             <p class="product-desc">{{ Str::limit(strip_tags($product->description), 100) }}</p>
                                             <div class="product-image-wrapper">
                                                 @if($product->image)
-                                                    <img src="{{ asset($product->image) }}" alt="{{ $product->name }}"
+                                                    <img src="{{ normalize_image_url($product->image) }}" alt="{{ $product->name }}"
                                                         class="product-image">
                                                 @else
                                                     <img src="{{ asset('frontend/assets/images/robots/default-robot.png') }}"

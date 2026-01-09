@@ -179,6 +179,15 @@ Route::screen('media/{media}/edit', \App\Orchid\Screens\Media\MediaEditScreen::c
             ->push(__('Edit Video'));
     });
 
+// Platform > Media Page Content
+Route::screen('media-page', \App\Orchid\Screens\MediaPageScreen::class)
+    ->name('platform.media.page')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Media Page Content'), route('platform.media.page'));
+    });
+
 // Platform > FAQs
 Route::screen('faqs', \App\Orchid\Screens\Faq\FaqListScreen::class)
     ->name('platform.faqs.list')

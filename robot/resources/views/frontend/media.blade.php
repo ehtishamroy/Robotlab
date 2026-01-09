@@ -186,26 +186,28 @@
 
             <!-- Product Catalog Section -->
             <!-- <div class="catalog-section">
-                                                    <h3>Product Catalog</h3>
-                                                    <p>Explore our complete range of robotic solutions in our interactive eCatalog. Discover specifications,
-                                                        features, and applications for all our products.</p>
-                                                    <a href="https://online.flippingbook.com/view/376522849/" target="_blank" class="catalog-btn">
-                                                        <i class="fas fa-book-open"></i> View eCatalog
-                                                    </a>
-                                                </div> -->
+                                                        <h3>Product Catalog</h3>
+                                                        <p>Explore our complete range of robotic solutions in our interactive eCatalog. Discover specifications,
+                                                            features, and applications for all our products.</p>
+                                                        <a href="https://online.flippingbook.com/view/376522849/" target="_blank" class="catalog-btn">
+                                                            <i class="fas fa-book-open"></i> View eCatalog
+                                                        </a>
+                                                    </div> -->
 
             <!-- Featured Video Section -->
             <div class="featured-video-section">
                 <div class="sec-title text-center" style="margin-bottom: 40px;">
-                    <span class="sub-title">Featured</span>
-                    <h2 class="title animated-heading">Introducing Matradee</h2>
+                    <span class="sub-title">{{ setting('media_page.featured_video.subtitle', 'Featured') }}</span>
+                    <h2 class="title animated-heading">
+                        {{ setting('media_page.featured_video.title', 'Introducing Matradee') }}</h2>
                     <p style="max-width: 700px; margin: 20px auto 0; color: var(--color-content-black2);">
-                        The Matradee navigates any environment. Currently deployed in Casinos, Hotels, Restaurants, Senior
-                        Living, Movie Theaters & Hospitals.
+                        {{ setting('media_page.featured_video.description', 'The Matradee navigates any environment. Currently deployed in Casinos, Hotels, Restaurants, Senior Living, Movie Theaters & Hospitals.') }}
                     </p>
                 </div>
                 <div class="featured-video-wrapper">
-                    <iframe src="https://www.youtube.com/embed/5NHPDFOam0o" allowfullscreen
+                    <iframe
+                        src="{{ setting('media_page.featured_video.video_url', 'https://www.youtube.com/embed/5NHPDFOam0o') }}"
+                        allowfullscreen
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"></iframe>
                 </div>
             </div>
@@ -215,16 +217,14 @@
                 <div class="row align-items-center">
                     <div class="col-lg-8">
                         <blockquote>
-                            "At Richtech Robotics, we are leading the transformation of service industry workforces through
-                            seamless collaborative robotic integration. Our commitment to innovation and responsible
-                            automation creates synergies that empower human workers, increase productivity, enhance safety,
-                            and elevate job satisfaction."
+                            {{ setting('media_page.quote.text', '"At Richtech Robotics, we are leading the transformation of service industry workforces through seamless collaborative robotic integration. Our commitment to innovation and responsible automation creates synergies that empower human workers, increase productivity, enhance safety, and elevate job satisfaction."') }}
                         </blockquote>
-                        <div class="quote-author">Matt Casella</div>
-                        <div class="quote-title">President, Richtech Robotics</div>
+                        <div class="quote-author">{{ setting('media_page.quote.author', 'Matt Casella') }}</div>
+                        <div class="quote-title">
+                            {{ setting('media_page.quote.author_title', 'President, Richtech Robotics') }}</div>
                     </div>
                     <div class="col-lg-4 text-center">
-                        <img src="{{ asset('uploads/2025/12/24/438439423ae07539a11a616a55f004740d9ba7c9.png') }}"
+                        <img src="{{ asset(setting('media_page.quote.image', 'uploads/2025/12/24/438439423ae07539a11a616a55f004740d9ba7c9.png')) }}"
                             alt="Spectrum Robotics" style="max-width: 200px;">
                     </div>
                 </div>
@@ -232,11 +232,11 @@
 
             <!-- Video Gallery Section -->
             <div class="sec-title text-center" style="margin-bottom: 50px;">
-                <span class="sub-title">Videos</span>
-                <h2 class="title animated-heading">See How Spectrum Can Revolutionize Your Operations</h2>
+                <span class="sub-title">{{ setting('media_page.gallery.subtitle', 'Videos') }}</span>
+                <h2 class="title animated-heading">
+                    {{ setting('media_page.gallery.title', 'See How Spectrum Can Revolutionize Your Operations') }}</h2>
                 <p style="max-width: 700px; margin: 20px auto 0; color: var(--color-content-black2);">
-                    The Spectrum and Richtech Robotics partnership provides complete robotic solutions for businesses with
-                    varying needs.
+                    {{ setting('media_page.gallery.description', 'The Spectrum and Richtech Robotics partnership provides complete robotic solutions for businesses with varying needs.') }}
                 </p>
             </div>
 

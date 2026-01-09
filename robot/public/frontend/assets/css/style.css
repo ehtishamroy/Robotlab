@@ -1854,8 +1854,8 @@ textarea:-ms-input-placeholder {
     Section Separation 
 ==========================*/
 .ibt-section-gap {
-  padding-top: 120px;
-  padding-bottom: 120px;
+  padding-top: 80px;
+  padding-bottom: 50px;
 }
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {
@@ -10264,7 +10264,7 @@ input[type=submit]:hover {
   line-height: 40px;
   text-transform: uppercase;
   color: var(--color-content-black2);
-  padding: 0 42px 0 22px;
+  padding: 0 25px 0 22px;
   height: 40px;
   border-radius: 10px;
   -webkit-transition: all 0.3s ease;
@@ -10275,7 +10275,7 @@ input[type=submit]:hover {
   content: "";
   position: absolute;
   bottom: 15px;
-  right: 21px;
+  right: 13px;
   width: 6.63px;
   height: 6.97px;
   background-image: url(../images/icon/arrow.svg);
@@ -14643,7 +14643,7 @@ ul {
   /* border ki width */
   border-radius: 12px;
   background: -webkit-linear-gradient(left, #4875c8, #7061c8);
-  background: linear-gradient(90deg, #4875c8, #7061c8);
+  background: linear-gradient(90deg, #279193, #279193);
   -webkit-mask: -webkit-linear-gradient(#fff 0 0) content-box, -webkit-linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -14765,7 +14765,7 @@ ul {
 }
 
 .ibt-btn.ibt-btn-secondary {
-  background: var(--color-secondary);
+  background: #279193;
   color: var(--color-content-white);
   position: relative;
   overflow: hidden;
@@ -14939,51 +14939,52 @@ ul {
 }
 
 .gradient-title {
-  font-size: 100px;
+  font-size: 50px;
   font-weight: 400;
-  line-height: 100px;
+  line-height: 60px;
   margin-bottom: 0;
   letter-spacing: -0.03em;
 }
 
 @media (max-width: 1440px) {
   .gradient-title {
-    font-size: 98px;
+    font-size: 48px;
+    line-height: 58px;
   }
 }
 
 @media (max-width: 1201px) {
   .gradient-title {
-    font-size: 75px;
-    line-height: 75px;
+    font-size: 42px;
+    line-height: 52px;
   }
 }
 
 @media (max-width: 769px) {
   .gradient-title {
-    font-size: 69px;
-    line-height: 77px;
+    font-size: 36px;
+    line-height: 46px;
   }
 }
 
 @media (max-width: 577px) {
   .gradient-title {
-    font-size: 53px;
-    line-height: 62px;
+    font-size: 30px;
+    line-height: 40px;
   }
 }
 
 @media (max-width: 480px) {
   .gradient-title {
-    font-size: 43px;
-    line-height: 56px;
+    font-size: 26px;
+    line-height: 36px;
   }
 }
 
 @media (max-width: 390px) {
   .gradient-title {
-    font-size: 38px;
-    line-height: 51px;
+    font-size: 24px;
+    line-height: 34px;
   }
 }
 
@@ -15504,6 +15505,7 @@ ul {
 .exp-box {
   position: absolute;
   bottom: 14px;
+  display: none;
   right: 14px;
   background-color: var(--color-content-white);
   width: 500px;
@@ -16020,6 +16022,41 @@ ul {
   .hero-content5 .title {
     font-size: 30px;
     line-height: 38px;
+  }
+}
+
+/* Hero buttons mobile responsive */
+.hero-content5 .ibt-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (max-width: 577px) {
+  .hero-content5 {
+    text-align: center;
+  }
+
+  .hero-content5 .ibt-btn {
+    display: flex;
+    width: 100%;
+    margin-left: 0 !important;
+    margin-bottom: 15px;
+  }
+
+  .hero-content5 .ibt-btn:last-child {
+    margin-bottom: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content5 .ibt-btn {
+    padding: 14px 24px;
+    font-size: 14px;
+  }
+
+  .hero-content5 .ibt-btn span {
+    font-size: 14px;
   }
 }
 
@@ -23894,24 +23931,36 @@ ul {
 
 .ser-card10 {
   position: relative;
-  height: 100%;
+  height: 380px;
   margin-bottom: 20px;
+  border-radius: 25px;
+  overflow: hidden;
+  background: #239c9e;
 }
 
 @media (max-width: 1025px) {
   .ser-card10 {
-    height: 444px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 577px) {
+  .ser-card10 {
+    height: 300px;
   }
 }
 
 .ser-card10>img {
   width: 100%;
   height: 100%;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 25px;
 }
 
 @media (max-width: 1025px) {
   .ser-card10>img {
-    object-fit: cover;
+    object-fit: contain;
     border-radius: 25px;
   }
 }
@@ -23935,12 +23984,19 @@ ul {
   position: absolute;
   bottom: 74px;
   left: 52px;
-  font-size: 25px;
-  line-height: 35px;
+  font-size: 28px;
+  line-height: 38px;
   font-weight: 400;
-  color: var(--color-content-white);
+  color: #1a1a2e;
   max-width: 291px;
   margin-bottom: 0;
+  background: rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 12px 20px;
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.1);
 }
 
 @media (max-width: 1366px) {
@@ -23957,7 +24013,7 @@ ul {
 }
 
 .ser-card10 .title.v2 {
-  color: var(--color-heading);
+  color: #ffffff;
 }
 
 .ser-card10 .title.v3 {
@@ -26857,6 +26913,7 @@ ul {
 
 .service-sec22 {
   position: relative;
+  padding-bottom: 100px;
 }
 
 .service-sec22::before {
@@ -26920,7 +26977,7 @@ ul {
 
 .ser-card22 {
   position: relative;
-  height: 100%;
+  height: 500px;
 }
 
 .ser-card22>img {
@@ -26928,6 +26985,8 @@ ul {
   border-radius: 25px;
   width: 100%;
   object-fit: cover;
+  background: #000;
+  /* Added background to fill empty space if aspect ratio differs */
 }
 
 .ser-card22 .profection {
@@ -29019,10 +29078,26 @@ ul {
 
 .Feature-sec6 {
   position: relative;
-  background-color: var(--color-surface-dark-2);
+  background: linear-gradient(-45deg, #0d9488, #14b8a6, #2dd4bf, #5eead4, #14b8a6, #0d9488);
+  background-size: 400% 400%;
+  animation: gradientShift 8s ease infinite;
   margin: 20px 20px 0;
   border-radius: 20px;
   padding: 120px 0;
+}
+
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 @media (max-width: 1366px) {
@@ -29146,7 +29221,7 @@ ul {
   opacity: 0;
   -webkit-transition: opacity 0.3s;
   transition: opacity 0.3s;
-  background-color: #3580c7;
+  background-color: #229b9c;
 }
 
 .feature-tabs6 .nav-tabs .nav-link:hover .title {
@@ -35268,26 +35343,26 @@ ul {
 }
 
 .neural-content .gradient-title {
-  line-height: 110px;
-  margin-bottom: 60px;
+  line-height: 60px;
 }
 
 @media (max-width: 1201px) {
   .neural-content .gradient-title {
-    line-height: 1.1em;
+    line-height: 52px;
   }
 }
 
 @media (max-width: 820px) {
   .neural-content .gradient-title {
-    font-size: 57px;
+    font-size: 36px;
+    line-height: 46px;
   }
 }
 
 @media (max-width: 390px) {
   .neural-content .gradient-title {
-    font-size: 34px;
-    line-height: 1.3em;
+    font-size: 24px;
+    line-height: 34px;
   }
 }
 
@@ -36333,6 +36408,7 @@ ul {
   color: var(--color-content-white);
   letter-spacing: -0.03em;
   margin-bottom: 0;
+  display: none;
 }
 
 @media (max-width: 1366px) {
