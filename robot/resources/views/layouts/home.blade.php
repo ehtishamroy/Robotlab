@@ -188,7 +188,7 @@
                     <a href="{{ route('about') }}">About</a>
                 </li>
                 <li class="menu-has-items">
-                    <a href="#">Industries</a>
+                    <a href="#">Solutions</a>
                     <ul class="sub-menu">
                         <li><a href="{{ route('industries.service') }}">Service Robots</a></li>
                         <li><a href="{{ route('industries.hospitality') }}">Hospitality Robots</a></li>
@@ -267,8 +267,8 @@
                                 </li>
                                 <li class="menu-has-items">
                                     <a href="#">
-                                        <span class="menu-item">Industries</span>
-                                        <span class="menu-item2">Industries</span>
+                                        <span class="menu-item">Solutions</span>
+                                        <span class="menu-item2">Solutions</span>
                                     </a>
                                     <ul class="sub-menu">
                                         <li><a href="{{ route('industries.service') }}">Service Robots</a></li>
@@ -380,8 +380,8 @@
                                     </li>
                                     <li class="menu-has-items">
                                         <a href="#">
-                                            <span class="menu-item">Industries</span>
-                                            <span class="menu-item2">Industries</span>
+                                            <span class="menu-item">Solutions</span>
+                                            <span class="menu-item2">Solutions</span>
                                         </a>
                                         <ul class="sub-menu">
                                             <li><a href="{{ route('industries.service') }}">Service Robots</a></li>

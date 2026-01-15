@@ -322,6 +322,18 @@
     <!-- End Other Industries Section -->
 
     <style>
+        /* Fix image container to stay within bounds */
+        .about-us-sec9 .about-content9 {
+            margin-left: 0;
+        }
+
+        .about-us-sec9 .about-content9 img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            display: block;
+        }
+
         /* Product Cards for Industry Pages */
         .neural-content .product-showcase-card {
             background: #f8f9fa;

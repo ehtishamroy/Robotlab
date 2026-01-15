@@ -37429,6 +37429,13 @@ ul {
   }
 }
 
+/* Increased banner height on desktop to show full staff-text watermark */
+@media (min-width: 992px) {
+  .page-banner11 {
+    padding: 247px 0 265px;
+  }
+}
+
 .page-banner11::before {
   content: "";
   position: absolute;

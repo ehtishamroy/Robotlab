@@ -4,6 +4,13 @@
 
 @push('styles')
     <style>
+        /* Increase banner height on desktop to show full staff-text watermark */
+        @media (min-width: 992px) {
+            .page-banner11 {
+                padding: 366px 0 265px !important;
+            }
+        }
+
         .applications-section {
             padding: 80px 0;
             background: #f8f9fa;
@@ -289,8 +296,8 @@
 
 @section('content')
     <!-- page-banner -->
-    <section class="page-banner9">
-        @include('partials.banner-dynamic', ['key' => 'applications', 'class' => 'page-banner9'])
+    <section class="page-banner11">
+        @include('partials.banner-dynamic', ['key' => 'applications', 'class' => 'page-banner11'])
         <div class="shape"></div>
         <div class="shape3"></div>
         <div class="staff-text">Applications</div>
