@@ -94,6 +94,10 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('tag')
                 ->route('platform.discount-codes'),
 
+            Menu::make('Carousel Images')
+                ->icon('picture')
+                ->route('platform.carousel-images.list'),
+
             Menu::make('Blog')
                 ->icon('docs')
                 ->list([

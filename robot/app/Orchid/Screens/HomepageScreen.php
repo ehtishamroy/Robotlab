@@ -98,6 +98,11 @@ class HomepageScreen extends Screen
                     'tab_4_desc' => setting('homepage.capabilities.tab_4_desc', 'Start with a single robot and scale up as needed.'),
                     'tab_4_image' => setting('homepage.capabilities.tab_4_image', 'frontend/assets/images/feature/feature6-1.png'),
                 ],
+                'video_banner' => [
+                    'youtube_url' => setting('homepage.video_banner.youtube_url', ''),
+                    'title' => setting('homepage.video_banner.title', 'Titan skyrockets efficiency at Mercedes-Benz of Plano'),
+                    'button_text' => setting('homepage.video_banner.button_text', 'View All Products'),
+                ],
             ],
         ];
     }
@@ -380,6 +385,21 @@ class HomepageScreen extends Screen
                     Picture::make('settings.capabilities.tab_4_image')
                         ->title('Tab 4 - Image')
                         ->targetRelativeUrl(),
+                ]),
+
+                'Video Banner Section' => Layout::rows([
+                    Input::make('settings.video_banner.youtube_url')
+                        ->title('YouTube Video URL')
+                        ->placeholder('https://www.youtube.com/watch?v=...')
+                        ->help('Paste the full YouTube video URL. Video will autoplay muted and loop.'),
+
+                    Input::make('settings.video_banner.title')
+                        ->title('Banner Title')
+                        ->placeholder('e.g., Titan skyrockets efficiency at Mercedes-Benz'),
+
+                    Input::make('settings.video_banner.button_text')
+                        ->title('Button Text')
+                        ->placeholder('View All Products'),
                 ]),
             ]),
         ];

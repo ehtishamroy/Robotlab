@@ -11,12 +11,15 @@ use App\Models\Media;
 use App\Models\Faq;
 use App\Models\Career;
 
+use App\Models\CarouselImage;
+
 class FrontendController extends Controller
 {
     public function index()
     {
         $products = Product::published()->orderBy('sort_order')->take(6)->get();
-        return view('frontend.home', compact('products'));
+        $carouselImages = CarouselImage::where('is_active', true)->orderBy('sort_order')->get();
+        return view('frontend.home', compact('products', 'carouselImages'));
     }
 
     public function about()
