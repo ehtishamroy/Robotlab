@@ -2,28 +2,164 @@
 
 @push('styles')
     <style>
-        /* Capabilities Tab Content Styling */
+        /* ========================================
+                                       FUTURISTIC CAPABILITIES SECTION REDESIGN
+                                       ======================================== */
+
+        .Feature-sec6 {
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #16213e 100%);
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Subtle animated background pattern */
+        .Feature-sec6::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background:
+                radial-gradient(circle at 20% 50%, rgba(35, 156, 158, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(64, 224, 208, 0.08) 0%, transparent 40%);
+            pointer-events: none;
+        }
+
+        .Feature-sec6 .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Section Title Enhancement */
+        .Feature-sec6 .sec-title.white .sub-title {
+            color: #40E0D0;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 12px;
+            margin-bottom: 15px;
+            display: inline-block;
+            padding: 8px 20px;
+            background: rgba(64, 224, 208, 0.1);
+            border: 1px solid rgba(64, 224, 208, 0.3);
+            border-radius: 30px;
+        }
+
+        .Feature-sec6 .sec-title.white .title {
+            color: #fff;
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 50px;
+        }
+
+        /* Futuristic Tab Navigation */
+        .Feature-sec6 .feature-tabs6 .nav-tabs {
+            border: none;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 10px;
+            display: flex;
+            gap: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            margin-bottom: 40px;
+        }
+
+        .Feature-sec6 .feature-tabs6 .nav-link {
+            flex: 1;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 15px;
+            padding: 20px 25px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .Feature-sec6 .feature-tabs6 .nav-link::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(35, 156, 158, 0.2) 0%, rgba(64, 224, 208, 0.1) 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            border-radius: 15px;
+        }
+
+        .Feature-sec6 .feature-tabs6 .nav-link:hover::before {
+            opacity: 1;
+        }
+
+        .Feature-sec6 .feature-tabs6 .nav-link.active {
+            background: linear-gradient(135deg, rgba(35, 156, 158, 0.3) 0%, rgba(64, 224, 208, 0.15) 100%);
+            border: 1px solid rgba(64, 224, 208, 0.4);
+            box-shadow: 0 0 30px rgba(64, 224, 208, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+        }
+
+        .Feature-sec6 .feature-tabs6 .nav-link .tab-heade .title {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 15px;
+            font-weight: 600;
+            font-family: 'Sora', sans-serif;
+            margin: 0;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+        }
+
+        .Feature-sec6 .feature-tabs6 .nav-link:hover .tab-heade .title,
+        .Feature-sec6 .feature-tabs6 .nav-link.active .tab-heade .title {
+            color: #fff;
+        }
+
+        .Feature-sec6 .feature-tabs6 .nav-link.active .tab-heade .title {
+            text-shadow: 0 0 20px rgba(64, 224, 208, 0.5);
+        }
+
+        /* Tab Content Area */
         .Feature-sec6 .tab-content {
-            padding-top: 50px;
+            padding-top: 40px;
         }
 
         .Feature-sec6 .tab-content-info {
-            padding: 30px;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            position: relative;
+        }
+
+        .Feature-sec6 .tab-content-info::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(64, 224, 208, 0.5), transparent);
         }
 
         .Feature-sec6 .tab-content-info h3 {
             color: #ffffff;
             font-size: 28px;
             font-weight: 700;
+            font-family: 'Sora', sans-serif;
             margin-bottom: 20px;
+            background: linear-gradient(135deg, #fff 0%, #40E0D0 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
 
         .Feature-sec6 .tab-content-info p {
-            color: rgba(255, 255, 255, 0.85);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 16px;
+            font-family: 'Manrope', sans-serif;
             line-height: 1.8;
             margin-bottom: 25px;
         }
@@ -35,12 +171,12 @@
         }
 
         .Feature-sec6 .tab-content-info ul li {
-            color: rgba(255, 255, 255, 0.9);
+            color: rgba(255, 255, 255, 0.85);
             font-size: 15px;
-            padding: 10px 0;
-            padding-left: 30px;
+            padding: 12px 0;
+            padding-left: 35px;
             position: relative;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
         }
 
         .Feature-sec6 .tab-content-info ul li:last-child {
@@ -48,31 +184,81 @@
         }
 
         .Feature-sec6 .tab-content-info ul li::before {
-            content: "✓";
+            content: '';
             position: absolute;
             left: 0;
-            color: #40E0D0;
-            /* Turquoise accent */
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(135deg, #239c9e 0%, #40E0D0 100%);
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(64, 224, 208, 0.4);
+        }
+
+        .Feature-sec6 .tab-content-info ul li::after {
+            content: '✓';
+            position: absolute;
+            left: 5px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #fff;
+            font-size: 10px;
             font-weight: bold;
         }
 
+        /* Image Container */
         .Feature-sec6 .tab-img {
-            border-radius: 15px;
+            border-radius: 20px;
             overflow: hidden;
+            position: relative;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .Feature-sec6 .tab-img::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid rgba(64, 224, 208, 0.2);
+            border-radius: 20px;
+            pointer-events: none;
+            z-index: 1;
         }
 
         .Feature-sec6 .tab-img img {
             width: 100%;
-            border-radius: 15px;
-            transition: transform 0.3s ease;
+            max-height: 450px;
+            object-fit: cover;
+            border-radius: 20px;
+            transition: transform 0.5s ease;
         }
 
         .Feature-sec6 .tab-img:hover img {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
         /* Mobile Responsive - Tablets */
         @media (max-width: 991px) {
+            .Feature-sec6 {
+                padding: 60px 0;
+            }
+
+            .Feature-sec6 .sec-title.white .title {
+                font-size: 32px;
+            }
+
+            .Feature-sec6 .feature-tabs6 .nav-tabs {
+                flex-wrap: wrap;
+            }
+
+            .Feature-sec6 .feature-tabs6 .nav-link {
+                flex: 1 1 45%;
+                padding: 15px;
+            }
+
             .Feature-sec6 .tab-content {
                 padding-top: 30px;
             }
@@ -82,18 +268,32 @@
             }
 
             .Feature-sec6 .tab-content-info {
-                padding: 25px;
-            }
-
-            .Feature-sec6 .tab-content-info h3 {
-                font-size: 24px;
+                padding: 30px;
             }
         }
 
         /* Mobile Responsive - Phones */
         @media (max-width: 576px) {
-            .Feature-sec6 .tab-content {
-                padding-top: 20px;
+            .Feature-sec6 {
+                padding: 40px 0;
+            }
+
+            .Feature-sec6 .sec-title.white .title {
+                font-size: 26px;
+                margin-bottom: 30px;
+            }
+
+            .Feature-sec6 .feature-tabs6 .nav-tabs {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .Feature-sec6 .feature-tabs6 .nav-link {
+                padding: 12px 15px;
+            }
+
+            .Feature-sec6 .feature-tabs6 .nav-link .tab-heade .title {
+                font-size: 14px;
             }
 
             .Feature-sec6 .tab-content-info {
@@ -102,27 +302,150 @@
 
             .Feature-sec6 .tab-content-info h3 {
                 font-size: 20px;
-                margin-bottom: 15px;
             }
 
             .Feature-sec6 .tab-content-info p {
                 font-size: 14px;
-                line-height: 1.7;
-                margin-bottom: 20px;
             }
 
             .Feature-sec6 .tab-content-info ul li {
                 font-size: 14px;
-                padding: 8px 0;
-                padding-left: 25px;
+                padding-left: 30px;
             }
 
             .Feature-sec6 .tab-img {
                 margin-bottom: 20px;
             }
+        }
 
-            .Feature-sec6 .tab-img img {
-                border-radius: 10px;
+        /* ========================================
+           VIDEO BANNER SECTION
+           ======================================== */
+        .video-banner-section {
+            padding: 60px 0;
+        }
+
+        .video-banner-wrapper {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            min-height: 700px;
+            display: flex;
+            align-items: flex-end;
+        }
+
+        .video-banner-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+
+        .video-banner-youtube {
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            transform: scale(1.5); /* Zoom to fill and hide black bars */
+        }
+
+        .video-banner-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.1) 100%);
+            z-index: 2;
+        }
+
+        .video-banner-content {
+            position: relative;
+            z-index: 3;
+            padding: 40px;
+            width: 100%;
+        }
+
+        .video-banner-title {
+            color: #fff;
+            font-size: 36px;
+            font-weight: 700;
+            font-family: 'Sora', sans-serif;
+            margin-bottom: 25px;
+            max-width: 500px;
+            line-height: 1.3;
+        }
+
+        .video-banner-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #40E0D0;
+            color: #000;
+            padding: 14px 28px;
+            border-radius: 30px;
+            font-size: 14px;
+            font-weight: 600;
+            font-family: 'Manrope', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .video-banner-btn:hover {
+            background: #239c9e;
+            color: #fff;
+            transform: translateX(5px);
+        }
+
+        .video-banner-btn i {
+            font-size: 12px;
+            transition: transform 0.3s ease;
+        }
+
+        .video-banner-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        @media (max-width: 991px) {
+            .video-banner-wrapper {
+                min-height: 500px;
+            }
+
+            .video-banner-title {
+                font-size: 28px;
+            }
+
+            .video-banner-content {
+                padding: 30px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .video-banner-section {
+                padding: 40px 0;
+            }
+
+            .video-banner-wrapper {
+                min-height: 300px;
+                border-radius: 15px;
+            }
+
+            .video-banner-title {
+                font-size: 22px;
+                margin-bottom: 20px;
+            }
+
+            .video-banner-content {
+                padding: 20px;
+            }
+
+            .video-banner-btn {
+                padding: 12px 20px;
+                font-size: 12px;
             }
         }
 
@@ -321,6 +644,56 @@
         .feature-pagination .swiper-pagination-bullet-active {
             opacity: 1;
             background: #239c9e;
+        }
+
+        .bots-carousel-section {
+            padding: 50px 20px 50px 30px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .bots-carousel-section .sec-title .title {
+            margin-bottom: 40px;
+            color: #000;
+        }
+
+        .bots-carousel-section .sec-title .title span {
+            color: #239c9e;
+        }
+
+        .bots-swiper {
+            width: 100%;
+        }
+
+        /* Hide slides until Swiper initializes to prevent FOUC */
+        .bots-swiper:not(.swiper-initialized) .swiper-slide {
+            display: none;
+        }
+
+        .bots-swiper:not(.swiper-initialized) .swiper-slide:first-child {
+            display: block;
+            max-width: 33.33%;
+        }
+
+        .bot-image-wrapper {
+            width: 100%;
+            display: block;
+            padding: 0 10px;
+        }
+
+        .bot-image-wrapper img {
+            width: 100%;
+            height: 400px;
+            max-height: 400px;
+            object-fit: cover;
+            display: block;
+            border-radius: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .bot-image-wrapper img {
+                height: 220px;
+            }
         }
     </style>
 @endpush
@@ -529,11 +902,44 @@
     </section>
     <!-- End feature-style2 -->
 
+    <!-- Video Banner Section -->
+    @php
+        $youtubeUrl = setting('homepage.video_banner.youtube_url', '');
+        $youtubeId = '';
+        if ($youtubeUrl) {
+            preg_match('/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/\s]{11})/', $youtubeUrl, $matches);
+            $youtubeId = $matches[1] ?? '';
+        }
+    @endphp
+    @if($youtubeId)
+    <section class="video-banner-section">
+        <div class="container">
+            <div class="video-banner-wrapper">
+                <iframe 
+                    class="video-banner-bg video-banner-youtube"
+                    src="https://www.youtube.com/embed/{{ $youtubeId }}?autoplay=1&mute=1&loop=1&playlist={{ $youtubeId }}&controls=0&showinfo=0&rel=0&modestbranding=1"
+                    frameborder="0"
+                    allow="autoplay; encrypted-media"
+                    allowfullscreen>
+                </iframe>
+                <div class="video-banner-overlay"></div>
+                <div class="video-banner-content">
+                    <h2 class="video-banner-title">{{ setting('homepage.video_banner.title', 'Titan skyrockets efficiency at Mercedes-Benz of Plano') }}</h2>
+                    <a href="{{ route('products') }}" class="video-banner-btn">
+                        <span>{{ setting('homepage.video_banner.button_text', 'View All Products') }}</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    @endif
+
     <!-- neural-playground / Partners Section -->
     <section class="neural-playground3 v2">
         <div class="container2">
             <div class="row">
-                <div class="col-lg-3">
+                <div class="col-lg-3 d-none d-lg-block">
                     <div class="neural-img3">
                         <img src="{{ asset('frontend/assets/images/layers/layer3.png') }}"
                             alt="Spectrum Robotics Technology Partners">
@@ -688,7 +1094,7 @@
     <!-- End service-sec10 -->
 
     <!-- Feature-sec6 / Capabilities Section -->
-    <section class="Feature-sec6" style="margin-bottom: 100px;">
+    <section class="Feature-sec6">
         <div class="container">
             <div class="sec-title white">
                 <span class="sub-title">{{ setting('homepage.capabilities.subtitle', 'capabilities') }}</span>
@@ -831,15 +1237,58 @@
             </div>
         </div>
     </section>
+
+    <!-- Bots Carousel Section -->
+    <section class="bots-carousel-section">
+        <div class="container-fluid px-0">
+            <div class="sec-title text-center">
+                <h2 class="title">See Our <span>BoTs</span> In the Field</h2>
+            </div>
+            <div class="swiper bots-swiper">
+                <div class="swiper-wrapper">
+                    @if(isset($carouselImages) && count($carouselImages) > 0)
+                        @foreach($carouselImages as $image)
+                            <div class="swiper-slide">
+                                <div class="bot-image-wrapper">
+                                    <img src="{{ asset($image->image_path) }}" alt="Bot in action">
+                                </div>
+                            </div>
+                        @endforeach
+                    @else
+                        <div class="swiper-slide">
+                            <div class="bot-image-wrapper"><img
+                                    src="{{ asset('frontend/assets/images/feature/feature6-1.png') }}" alt="Placeholder"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bot-image-wrapper"><img
+                                    src="{{ asset('frontend/assets/images/feature/feature6-2.png') }}" alt="Placeholder"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bot-image-wrapper"><img
+                                    src="{{ asset('frontend/assets/images/feature/feature6-3.png') }}" alt="Placeholder"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bot-image-wrapper"><img
+                                    src="{{ asset('frontend/assets/images/feature/feature6-1.png') }}" alt="Placeholder"></div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="bot-image-wrapper"><img
+                                    src="{{ asset('frontend/assets/images/feature/feature6-2.png') }}" alt="Placeholder"></div>
+                        </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </section>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             if (!document.getElementById('img-lightbox')) {
                 const modalHtml = `
-                                <div id="img-lightbox" style="display:none; position:fixed; z-index:99999; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.95); align-items:center; justify-content:center; cursor:zoom-out;">
-                                    <span style="position:absolute; top:20px; right:30px; color:#000; font-size:40px; cursor:pointer;" onclick="closeLightbox()">&times;</span>
-                                    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); cursor:default;">
-                                </div>
-                            `;
+                                                                                                                            <div id="img-lightbox" style="display:none; position:fixed; z-index:99999; top:0; left:0; width:100%; height:100%; background:rgba(255,255,255,0.95); align-items:center; justify-content:center; cursor:zoom-out;">
+                                                                                                                                <span style="position:absolute; top:20px; right:30px; color:#000; font-size:40px; cursor:pointer;" onclick="closeLightbox()">&times;</span>
+                                                                                                                                <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:5px; box-shadow: 0 0 20px rgba(0,0,0,0.5); cursor:default;">
+                                                                                                                            </div>
+                                                                                                                        `;
                 document.body.insertAdjacentHTML('beforeend', modalHtml);
             }
 
@@ -881,6 +1330,26 @@
                     },
                 });
             }
+            // Initialize Bots Swiper - Normal Carousel
+            new Swiper('.bots-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false,
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
+            });
         });
     </script>
 @endsection

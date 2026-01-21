@@ -357,5 +357,28 @@ Route::screen('discount-codes', \App\Orchid\Screens\DiscountCodeScreen::class)
             ->push(__('Discount Codes'), route('platform.discount-codes'));
     });
 
-//Route::screen('idea', 'Idea::class','platform.screens.idea');
+// Platform > Carousel Images
+Route::screen('carousel-images', \App\Orchid\Screens\CarouselImage\CarouselImageListScreen::class)
+    ->name('platform.carousel-images.list')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.index')
+            ->push(__('Carousel Images'), route('platform.carousel-images.list'));
+    });
+
+Route::screen('carousel-images/create', \App\Orchid\Screens\CarouselImage\CarouselImageEditScreen::class)
+    ->name('platform.carousel-images.create')
+    ->breadcrumbs(function (Trail $trail) {
+        return $trail
+            ->parent('platform.carousel-images.list')
+            ->push(__('Create'), route('platform.carousel-images.create'));
+    });
+
+Route::screen('carousel-images/{carouselImage}/edit', \App\Orchid\Screens\CarouselImage\CarouselImageEditScreen::class)
+    ->name('platform.carousel-images.edit')
+    ->breadcrumbs(function (Trail $trail, $carouselImage) {
+        return $trail
+            ->parent('platform.carousel-images.list')
+            ->push(__('Edit'), route('platform.carousel-images.edit', $carouselImage));
+    });
 
