@@ -11,10 +11,10 @@
                 $videoAttachment = $product->attachment('video')->first();
             @endphp
             @if($videoAttachment)
-                <video autoplay muted loop playsinline class="hero-video" 
-                       poster="{{ $product->hero_bg ? normalize_image_url($product->hero_bg) : '' }}">
-                    <source src="{{ $videoAttachment->relativeUrl }}" 
-                            type="{{ $videoAttachment->mime === 'video/quicktime' ? 'video/mp4' : $videoAttachment->mime }}">
+                <video autoplay muted loop playsinline class="hero-video"
+                    poster="{{ $product->hero_bg ? normalize_image_url($product->hero_bg) : '' }}">
+                    <source src="{{ $videoAttachment->relativeUrl }}"
+                        type="{{ $videoAttachment->mime === 'video/quicktime' ? 'video/mp4' : $videoAttachment->mime }}">
                 </video>
             @elseif($product->video)
                 <video autoplay muted loop playsinline class="hero-video">
@@ -223,52 +223,7 @@
         </section>
     @endif
 
-    <!-- Brand Slider Section -->
-    @if($brands->count() > 0)
-        <section class="brand-slider-section">
-            <div class="container">
-                <div class="swiper brand">
-                    <div class="swiper-wrapper">
-                        @foreach($brands as $brand)
-                            <div class="swiper-slide">
-                                <a href="{{ $brand->url ?? '#' }}" title="{{ $brand->name }}">
-                                    <img src="{{ normalize_image_url($brand->logo) }}" alt="{{ $brand->name }}">
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-    @endif
 
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var brandSwiper = new Swiper('.brand', {
-                slidesPerView: 2,
-                spaceBetween: 30,
-                loop: true,
-                autoplay: {
-                    delay: 2500,
-                    disableOnInteraction: false,
-                },
-                breakpoints: {
-                    640: {
-                        slidesPerView: 3,
-                        spaceBetween: 20,
-                    },
-                    768: {
-                        slidesPerView: 4,
-                        spaceBetween: 30,
-                    },
-                    1024: {
-                        slidesPerView: 5,
-                        spaceBetween: 30,
-                    },
-                }
-            });
-        });
-    </script>
 
     <!-- Request Demo CTA -->
     <section class="product-cta-section" id="request-demo">
@@ -750,33 +705,6 @@
             transform: scale(1.02);
         }
 
-        /* Brand Slider */
-        .brand-slider-section {
-            padding: 50px 0;
-            background: #fff;
-            border-top: 1px solid #f0f0f0;
-        }
-
-        .brand .swiper-slide {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 180px;
-        }
-
-        .brand .swiper-slide img {
-            max-width: 260px;
-            max-height: 140px;
-            opacity: 0.6;
-            transition: all 0.3s ease;
-            filter: grayscale(100%);
-        }
-
-        .brand .swiper-slide:hover img {
-            opacity: 1;
-            filter: grayscale(0%);
-            transform: scale(1.05);
-        }
 
         @media (max-width: 768px) {
             .gallery-grid {
